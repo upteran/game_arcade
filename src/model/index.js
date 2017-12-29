@@ -1,6 +1,5 @@
-import Scene from './Scene';
-import Player from './Player';
-
-export default class Model {
-
+export default class GameModel {
+    constructor( element ){
+        this.element = element;
+    }
 }
