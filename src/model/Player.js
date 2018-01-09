@@ -24,18 +24,4 @@ export default class Player {
             break;
         }
     }
-    moveRight(){
-        this.speed += 1;
-    }
-    moveLeft(){
-        this.speed += 1;
-    }
-    moveTop(){
-        this.speed += 1;
-    }
-    moveBottom(){}
-    render(){
-        let player = new PIXI.Sprite(PIXI.loader.resources['res/images/player.png'].texture);
-        return player;
-    }
 }

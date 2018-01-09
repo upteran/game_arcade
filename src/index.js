@@ -7,12 +7,12 @@ import Controller from './controller';
 
 // old
 const loader = require('./controller/Loader');
+const body = document.body;
 
-const model = new GameModel();
-const view = new GameView(model);
-const gameController = new Controller( model, view, document.body );
-// const game = new GameView( document.body );
 loader.load(() => {
+    const model = new GameModel();
+    const view = new GameView(model, body);
+    const gameController = new Controller( model, view, body );
     gameController.init();
 });
 

@@ -4,40 +4,60 @@ export default class GameController {
         this._model = model;
         this._view = view;
         this.scene = null;
-        this.init();
-
     }
     init() {
-        this.scene = document.createElement('canvas');
-        this.scene.id = 'gameScene';
-        this.width = window.innerWidth;
-        this.height = 500;
-        this.element.appendChild( this.scene );
         this._view.render();
+        this.moveControll();
+
     }
-    moveControll(){
-        window.addEventListener('keydown', (e) => {
-            switch(e.keyCode) {
-                case 37: //left
-                this._model.changeDir('l');
-                console.log('left');
-                break;
-                case 38: //up
-                // this._model.changeDir();
-                console.log('up');
-                break;
-                case 39: //right
-                this._model.changeDir('r');
-                console.log('right');
-                break;
-                case 40: //bottom
-                // this._model.changeDir();
-                console.log('bottom');
-                break;
+    moveControll() {
+        let left = this.keypress(37),
+            up = this.keypress(38),
+            right = this.keypress(39),
+            down = this.keypress(40);
+        right.press = () => {
+            console.log('right press');
+            this._view.changeDir('r');
+        }
+        left.press = () => {
+            console.log('left press');
+            this._view.changeDir('l');
+        }
+        right.release = () => {
+            console.log('right release');
+            this._view.changeDir('s');
+        }
+        left.release = () => {
+            console.log('left release');
+            this._view.changeDir('s');
+        }
+    }
+    keypress( keyCode ){
+        let key = {};
+        key.code = keyCode;
+        key.isDown = false;
+        key.isUp = true;
+        key.press = undefined;
+        key.release = undefined;
+        key.downHandler = e => {
+            if(e.keyCode === key.code) {
+                if(key.isUp && key.press) key.press();
+                key.isDown = true;
+                key.isUp = false;
             }
-        });
-        window.addEventListener('keyup', (e) => {
-            this._model.changeDir( null );
-        });
+            e.preventDefault();
+        }
+        key.upHandler = e => {
+            if(e.keyCode === key.code) {
+                if(key.isDown && key.release) key.release();
+                key.isDown = false;
+                key.isUp = true;
+            }
+            e.preventDefault();
+        }
+        window.addEventListener('keydown', key.downHandler.bind(key), false);
+        window.addEventListener('keyup', key.upHandler.bind(key), false);
+
+        return key;
     }
 }

@@ -8,19 +8,28 @@ export default class Player {
         this.speedup = 0;
         this.reverseSpeed = 0;
         this._container = new PIXI.Container();
-        this._baseTexture = PIXI.Texture.fromImage('res/images/player.png');
-        this._body = new PIXI.Sprite(this._baseTexture);
-        this._mask = new PIXI.Texture(this._baseTexture, new PIXI.Rectangle(10, 460, 120, 130));
-        this._body.setTexture(this._mask)
-        // this._body = PIXI.Sprite.fromImage('res/images/player.png');
-        this._container.position.x = 190;
-        this._container.position.y = 327;
-        this._body.width = 60;
-        this._body.height = 60;
-        this.move(this.game.dir);
-        this._container.addChild( this._body );
-        this.game.stage.addChild( this._container );
+        this.frames = [];
+        this._body = PIXI.loader.resources['player'];
+        for(let i = 0;i < 2;i++) {
+            this.frames.push(PIXI.Sprite.fromFrame(`player_0${i}`))
+        }
+        this._body.frame = this.frames[0];
+        // this.frameLoad();
+        this._body = this.frames[0];
+        this._body.position.x = 210;
+        this._body.position.y = 340;
+        this._body.anchor.x = 0.3;
+        this._body.anchor.y = 0.3;
+        this._body.scale.x = 0.5;
+        this._body.scale.y = 0.5;
+        this._body.vx = 0;
+        this._body.vy = 0;
     }
+    // frameLoad() {
+    //     for(let i = 0;i < 2;i++) {
+    //         this.frames.push(PIXI.Sprite.fromFrame(`player_0${i}`));
+    //     }
+    // }
     move(dir){
         switch(dir) {
             case 'r':
@@ -34,25 +43,39 @@ export default class Player {
             break;
             case 'b':
             this.moveBottom();
+            case 's':
+            this.stop();
             break;
             default:
             break;
         }
     }
     moveRight(){
-        // this.speed += 1;
-        console.log('player go right')
-        this._container.position.x += 1;
+        this._body.scale.x = 0.5;
+        this._body.scale.y = 0.5;
+        this._body.vx = 1;
+        this._body.position.x += this._body.vx;
     }
     moveLeft(){
-        // this.speed += 1;
-        this._container.position.x -= 1;
+        this._body.scale.x = -0.5;
+        this._body.scale.y = 0.5;
+        this._body.vx = -1;
+        this._body.position.x += this._body.vx;
     }
     moveTop(){
         // this.speed += 1;
     }
     moveBottom(){}
+    stop(){
+        this._body.vx = 0;
+        this._body.position.x += this._body.vx;
+    }
+    remove(){
+        this.game.scene.removeChild( this._container );
+    }
     render(){
-        
+        this.move(this.game.dir);
+        this._container.addChild( this._body );
+        this.game.scene.addChild( this._container );
     }
 }
