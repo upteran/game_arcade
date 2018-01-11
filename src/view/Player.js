@@ -1,80 +1,72 @@
 export default class Player {
-    constructor(game) {
+    constructor(game, model) {
         this.game = game;
-        this.element = null;
-        this.resurces = null;
+        this.model = model;
         this.dir = 'r';
-        this.speed = 0;
-        this.speedup = 0;
-        this.reverseSpeed = 0;
+        this.isJumping = false;
+        this.maxJumpHeight = 50;
+        this.gravity = 0.5;
         this._container = new PIXI.Container();
         this.frames = [];
-        this._body = PIXI.loader.resources['player'];
-        for(let i = 0;i < 2;i++) {
-            this.frames.push(PIXI.Sprite.fromFrame(`player_0${i}`))
+        for(let i = 0;i < 25;i++) {
+            this.frames.push(PIXI.Texture.fromFrame(`player_${i}`))
         }
-        this._body.frame = this.frames[0];
-        // this.frameLoad();
-        this._body = this.frames[0];
-        this._body.position.x = 210;
-        this._body.position.y = 340;
-        this._body.anchor.x = 0.3;
-        this._body.anchor.y = 0.3;
+        this._body = new PIXI.extras.MovieClip(this.frames);
+        this._body.position.x = this.game.sceneW / 2;
+        this._body.position.y = 354;
+        this._body.anchor.x = 0.5;
+        this._body.anchor.y = 0.5;
         this._body.scale.x = 0.5;
         this._body.scale.y = 0.5;
         this._body.vx = 0;
         this._body.vy = 0;
+        this._body.animationSpeed = 0.6;
     }
-    // frameLoad() {
-    //     for(let i = 0;i < 2;i++) {
-    //         this.frames.push(PIXI.Sprite.fromFrame(`player_0${i}`));
-    //     }
-    // }
-    move(dir){
-        switch(dir) {
-            case 'r':
-            this.moveRight();
-            break;
-            case 'l':
-            this.moveLeft();
-            break;
-            case 't':
-            this.moveTop();
-            break;
-            case 'b':
-            this.moveBottom();
-            case 's':
-            this.stop();
-            break;
-            default:
-            break;
+    move( dir ) {
+        let compare,
+            scale;
+        this._body.scale.y = 0.5;
+        this._body.play();
+        if ( dir == 'r' ) {
+            this._body.scale.x = 0.5;
+            this._body.vx = 5;
+        } else if ( dir == 'l' ) {
+            this._body.scale.x = -0.5;
+            this._body.vx = -5;
+        } else {
+            this._body.stop();
+            this._body.gotoAndStop(21);
+            this._body.vx = 0;
+        }
+        if(this.isJumping) this._body.gotoAndStop(14);
+        this._body.position.x += this._body.vx;
+
+    }
+    startJump(){
+        if(!this.isJumping) {
+            this._body.vy = -10;
+            this.isJumping = true;
         }
     }
-    moveRight(){
-        this._body.scale.x = 0.5;
-        this._body.scale.y = 0.5;
-        this._body.vx = 1;
-        this._body.position.x += this._body.vx;
+    jump() {
+        this._body.vy += this.gravity;
+        this._body.position.y += this._body.vy;
+        if(this._body.position.y > 354) {
+            this._body.position.y = 354;
+            this.isJumping = false;
+        }
     }
-    moveLeft(){
-        this._body.scale.x = -0.5;
-        this._body.scale.y = 0.5;
-        this._body.vx = -1;
-        this._body.position.x += this._body.vx;
-    }
-    moveTop(){
-        // this.speed += 1;
+    jumpEnd() {
+        if(this._body.vy < -5){
+            this._body.vy = -5;
+        }
+
     }
     moveBottom(){}
-    stop(){
-        this._body.vx = 0;
-        this._body.position.x += this._body.vx;
-    }
     remove(){
-        this.game.scene.removeChild( this._container );
+        this._container.removeChild( this._body );
     }
     render(){
-        this.move(this.game.dir);
         this._container.addChild( this._body );
         this.game.scene.addChild( this._container );
     }

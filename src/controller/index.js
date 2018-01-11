@@ -17,19 +17,27 @@ export default class GameController {
             down = this.keypress(40);
         right.press = () => {
             console.log('right press');
-            this._view.changeDir('r');
+            this._view.move('changeDir', 'r');
         }
         left.press = () => {
             console.log('left press');
-            this._view.changeDir('l');
+            this._view.move('changeDir', 'l');
+        }
+        up.press = () => {
+            console.log('up press');
+            this._view.move('jump');
         }
         right.release = () => {
             console.log('right release');
-            this._view.changeDir('s');
+            this._view.move('changeDir', 's');
         }
         left.release = () => {
             console.log('left release');
-            this._view.changeDir('s');
+            this._view.move('changeDir', 's');
+        }
+        up.release = () => {
+            console.log('up release');
+            this._view.move('jumpEnd');
         }
     }
     keypress( keyCode ){
