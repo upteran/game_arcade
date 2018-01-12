@@ -1,44 +1,71 @@
 export default class Player {
-    constructor(game) {
+    constructor(game, model) {
         this.game = game;
+        this.model = model;
         this.dir = 'r';
-        this.speed = 5;
-        this.speedup = 0;
-        this.reverseSpeed = 0;
+        this.isJumping = false;
+        this.maxJumpHeight = 50;
+        this.gravity = 0.5;
         this.frames = [];
         for(let i = 0;i < 25;i++) {
             this.frames.push(PIXI.Texture.fromFrame(`player_${i}`))
         }
-        this._body = new PIXI.extras.MovieClip(this.frames);
-        this._body.position.x = 210;
-        this._body.position.y = 337.5;
-        this._body.anchor.x = 0.3;
-        this._body.anchor.y = 0.3;
-        this._body.scale.x = 0.5;
-        this._body.scale.y = 0.5;
-        this._body.vx = 0;
-        this._body.vy = 0;
-        this._body.animationSpeed = 0.6;
+        this.body.position.x = this.game.sceneW / 2;
+        this.body.position.y = 354;
+        this.body.anchor.x = 0.5;
+        this.body.anchor.y = 0.5;
+        this.body.scale.x = 0.5;
+        this.body.scale.y = 0.5;
+        this.body.vx = 0;
+        this.body.vy = 0;
+        this.body.animationSpeed = 0.6;
     }
-    moveRight(){
-        this._body.scale.x = 0.5;
-        this._body.scale.y = 0.5;
-        this._body.vx = 1;
-        this._body.position.x += this._body.vx * this.speed;
-        // console.log(this._body.currentFrame)
+    move( dir ) {
+        let compare,
+            scale;
+        this.body.scale.y = 0.5;
+        this.body.play();
+        if ( dir == 'r' ) {
+            this.body.scale.x = 0.5;
+            this.body.vx = 5;
+        } else if ( dir == 'l' ) {
+            this.body.scale.x = -0.5;
+            this.body.vx = -5;
+        } else {
+            this.body.stop();
+            this.body.gotoAndStop(21);
+            this.body.vx = 0;
+        }
+        if(this.isJumping) this.body.gotoAndStop(14);
+        this.body.position.x += this.body.vx;
+
     }
-    moveLeft(){
-        this._body.scale.x = -0.5;
-        this._body.scale.y = 0.5;
-        this._body.vx = -1;
-        this._body.position.x += this._body.vx;
+    startJump(){
+        if(!this.isJumping) {
+            this.body.vy = -10;
+            this.isJumping = true;
+        }
     }
-    moveTop(){
-        // this.speed += 1;
+    jump() {
+        this.body.vy += this.gravity;
+        this.body.position.y += this.body.vy;
+        if(this.body.position.y > 354) {
+            this.body.position.y = 354;
+            this.isJumping = false;
+        }
+    }
+    jumpEnd() {
+        if(this.body.vy < -5){
+            this.body.vy = -5;
+        }
+
     }
     moveBottom(){}
-    stop(){
-        this._body.vx = 0;
-        this._body.position.x += this._body.vx;
+    remove(){
+        this._container.removeChild( this.body );
+    }
+    render(){
+        this._container.addChild( this.body );
+        this.game.scene.addChild( this._container );
     }
 }

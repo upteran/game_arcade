@@ -6,7 +6,7 @@ import Controller from './controller';
 
 
 // old
-const loader = require('./controller/Loader');
+const loader = require('./Loader');
 const body = document.body;
 
 

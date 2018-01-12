@@ -9,17 +9,20 @@ export default class GameView extends EventEmitter {
         super();
         this.element = element;
         this.model = model;
-        this.player = null;
         this.dir = null;
         this.type = null;
         this.scene = new PIXI.Container();
+        // this.stage = PIXI.Sprite.fromImage('res/images/stageBgLong.jpg');
+        // this.stageBody = PIXI.Texture.fromImage('res/images/stageBgLong.jpg');
+        // this.stage = new PIXI.extras.TilingSprite( this.stageBody, this.sceneW, 500 );
         this.sceneW = window.innerWidth;
+        this.sceneH = window.innerHeight;
         this.lastFrameTime = 0;
+        this.stage = new Stage( this );
         this.player = new Player( this );
-        this.stage = new Stage( this, this.player );
-        this.camera = new Camera( this );
+        this.camera = new Camera( this, this.player, this.stage );
         this.scene.position.x = 0;
-        this.char = this.player._body;
+        this.char = this.player.body;
     }
     _tick( currTime ) {
         this.emit('update', currTime - this.lastFrameTime, currTime);
@@ -28,22 +31,10 @@ export default class GameView extends EventEmitter {
         this.update();
         requestAnimationFrame( this._tick.bind( this ));
     }
-    cameraUpdate() {
-        if(this.char.position.x - this.scene.position.x + 200 > this.sceneW) {
-            console.log('stop')
-            // this.stage.move(this.dir);
-            this.stage.stageBody.position.x = (this.char.position.x - (this.sceneW - 200));
-        } else if(this.char.position.x - 200 < this.scene.position.x){
-            this.stage.stageBody.position.x = (this.char.position.x - 200);
-            // this.stage.move(this.dir);
-        }
-    }
     update(){
         this.player.move( this.dir );
         this.player.jump();
-        // this.camera.update( this.player._body.position.x, this.scene.position.x, this.sceneW, 200 );
-        // this.stage.move( this.dir );
-        this.cameraUpdate()
+        this.camera.update();
     }
     move( type, dir ){
         switch(type) {
@@ -63,6 +54,7 @@ export default class GameView extends EventEmitter {
     render() {
         this.stage.render();
         this.player.render();
+        this.camera.init();
         this.renderer = PIXI.autoDetectRenderer(window.innerWidth, 500, {
             transparent: true
         });

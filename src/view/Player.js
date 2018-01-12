@@ -11,63 +11,63 @@ export default class Player {
         for(let i = 0;i < 25;i++) {
             this.frames.push(PIXI.Texture.fromFrame(`player_${i}`))
         }
-        this._body = new PIXI.extras.MovieClip(this.frames);
-        this._body.position.x = this.game.sceneW / 2;
-        this._body.position.y = 354;
-        this._body.anchor.x = 0.5;
-        this._body.anchor.y = 0.5;
-        this._body.scale.x = 0.5;
-        this._body.scale.y = 0.5;
-        this._body.vx = 0;
-        this._body.vy = 0;
-        this._body.animationSpeed = 0.6;
+        this.body = new PIXI.extras.MovieClip(this.frames);
+        this.body.position.x = this.game.sceneW / 2;
+        this.body.position.y = 354;
+        this.body.anchor.x = 0.5;
+        this.body.anchor.y = 0.5;
+        this.body.scale.x = 0.5;
+        this.body.scale.y = 0.5;
+        this.body.vx = 0;
+        this.body.vy = 0;
+        this.body.animationSpeed = 0.6;
     }
     move( dir ) {
         let compare,
             scale;
-        this._body.scale.y = 0.5;
-        this._body.play();
+        this.body.scale.y = 0.5;
+        this.body.play();
         if ( dir == 'r' ) {
-            this._body.scale.x = 0.5;
-            this._body.vx = 5;
+            this.body.scale.x = 0.5;
+            this.body.vx = 5;
         } else if ( dir == 'l' ) {
-            this._body.scale.x = -0.5;
-            this._body.vx = -5;
+            this.body.scale.x = -0.5;
+            this.body.vx = -5;
         } else {
-            this._body.stop();
-            this._body.gotoAndStop(21);
-            this._body.vx = 0;
+            this.body.stop();
+            this.body.gotoAndStop(21);
+            this.body.vx = 0;
         }
-        if(this.isJumping) this._body.gotoAndStop(14);
-        this._body.position.x += this._body.vx;
+        if(this.isJumping) this.body.gotoAndStop(14);
+        this.body.position.x += this.body.vx;
 
     }
     startJump(){
         if(!this.isJumping) {
-            this._body.vy = -10;
+            this.body.vy = -10;
             this.isJumping = true;
         }
     }
     jump() {
-        this._body.vy += this.gravity;
-        this._body.position.y += this._body.vy;
-        if(this._body.position.y > 354) {
-            this._body.position.y = 354;
+        this.body.vy += this.gravity;
+        this.body.position.y += this.body.vy;
+        if(this.body.position.y > 354) {
+            this.body.position.y = 354;
             this.isJumping = false;
         }
     }
     jumpEnd() {
-        if(this._body.vy < -5){
-            this._body.vy = -5;
+        if(this.body.vy < -5){
+            this.body.vy = -5;
         }
 
     }
     moveBottom(){}
     remove(){
-        this._container.removeChild( this._body );
+        this._container.removeChild( this.body );
     }
     render(){
-        this._container.addChild( this._body );
+        this._container.addChild( this.body );
         this.game.scene.addChild( this._container );
     }
 }
