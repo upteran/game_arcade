@@ -3,7 +3,7 @@ export default class Camera {
         this.game = game;
         this.stage = stage;
         this.target = player.body;
-        this.view = this._drawRect(0, 0, this.game.sceneW, 500);
+        this.view = this._drawRect(0, 0, this.game.sceneW, this.game.sceneH);
         this.deadzoneX = 200;
         this.view.position.x = 0;
         this.view.position.y = 0;
@@ -12,7 +12,7 @@ export default class Camera {
         let rect;
         rect = new PIXI.Graphics();
         rect.beginFill(0, 0);
-        rect.drawRect(x, y, this.game.sceneW, 500);
+        rect.drawRect(x, y, this.game.sceneW, this.game.sceneH);
         rect.endFill();
         return rect;
     }
@@ -22,6 +22,7 @@ export default class Camera {
             this.game.scene.position.x = -this.view.position.x;
             this.stage.move();
         } else if ( this.target.position.x - this.deadzoneX < this.view.position.x ) {
+            console.log('right')
             this.view.position.x = this.target.position.x - this.deadzoneX;
             this.game.scene.position.x = -this.view.position.x;
             this.stage.move();
