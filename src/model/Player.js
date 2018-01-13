@@ -5,8 +5,9 @@ export default class Player {
         this.isJumping = false;
         this.maxJumpHeight = 50;
         this.gravity = 0.5;
-        this.posX = this.game.sceneW / 2;
-        this.posY = 354;
+        this.posX = this.game.playerStartX;
+        this.posY = this.game.playerStartY;
+        this.posYcurr= this.posY;
         this.scaleX = 0.5;
         this.scaleY = 0.5;
         this.vx = 0;
@@ -28,6 +29,7 @@ export default class Player {
     }
     startJump(){
         if(!this.isJumping) {
+            this.posYcurr = this.posY;
             this.vy = -10;
             this.isJumping = true;
         }
@@ -35,8 +37,8 @@ export default class Player {
     jump() {
         this.vy += this.gravity;
         this.posY += this.vy;
-        if(this.posY > 354) {
-            this.posY = 354;
+        if(this.posY > this.posYcurr) {
+            this.posY = this.posYcurr;
             this.isJumping = false;
         }
     }

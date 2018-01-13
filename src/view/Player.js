@@ -25,17 +25,14 @@ export default class Player {
             this.body.play();
             this.body.scale.x = this._model.scaleX;
         }
-        if(this.body.position.y < 354) this.body.gotoAndStop(14);
+        if(this.body.position.y < this._model.posYcurr) this.body.gotoAndStop(14);
         this.body.position.x += this._model.vx;
 
     }
     jump() {
-        this.body.position.y += this._model.vy;
-        if(this.body.position.y > 354) {
-            this.body.position.y = 354;
-        }
+        this.body.position.y = this._model.posY;
     }
-    moveBottom(){}
+    moveDown(){}
     remove(){
         this._container.removeChild( this.body );
     }

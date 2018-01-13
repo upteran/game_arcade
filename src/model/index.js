@@ -1,14 +1,16 @@
 import Player from './Player';
 
 export default class GameModel {
-    constructor ( element ) {
-        this.element = element;
+    constructor ( options ) {
+        this.options = options;
         this.dir = null;
-        this.sceneW = window.innerWidth;
-        this.sceneH = window.innerHeight;
-        this.sceneX = 0;
-        this.sceneY = 0;
+        this.sceneW = this.options.width;
+        this.sceneH = this.options.height;
+        this.sceneX = this.options.posX;
+        this.sceneY = this.options.posY;
         this.lastFrameTime = 0;
+        this.playerStartX = this.sceneW / 2;
+        this.playerStartY = 354;
         this.player = new Player( this );
     }
     update(){

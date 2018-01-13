@@ -3,7 +3,7 @@ export default class Stage {
         this.game = game;
         this.element = null;
         this.bodyTexture = PIXI.Texture.fromImage('res/images/stageBgLong.jpg');
-        this.body = new PIXI.extras.TilingSprite( this.bodyTexture, 1000, 500 );
+        this.body = new PIXI.extras.TilingSprite( this.bodyTexture, this.game.sceneW, this.game.sceneH );
         this.body.x = 0;
         this.body.y = 0;
         this.body.tilePosition.x = 0;

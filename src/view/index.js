@@ -11,11 +11,15 @@ export default class GameView {
         // this.player = new Player( this, this._model.player );
         this.scene.position.x = this._model.sceneX || 0;
         this.scene.position.y = this._model.sceneY || 0;
-        this.sceneW = innerWidth;
-        this.sceneH = 500;
+        this.sceneW = this._model.sceneW;
+        this.sceneH = this._model.sceneH;
         this.stage = new Stage( this );
         this.player = new Player( this, this._model.player );
         this.camera = new Camera( this, this.player, this.stage );
+        this.renderer = PIXI.autoDetectRenderer(this.sceneW, this.sceneH, {
+            transparent: true
+        });
+        this.element.appendChild( this.renderer.view );
     }
     update(){
         this.player.move();
@@ -24,13 +28,9 @@ export default class GameView {
         this.renderer.render( this.scene );
     }
     render() {
-        this.renderer = PIXI.autoDetectRenderer(window.innerWidth, 500, {
-            transparent: true
-        });
-        this.element.appendChild( this.renderer.view );
         this.stage.render();
         this.player.render();
-        this.camera.init();
+        this.camera.render();
     }
 
 }

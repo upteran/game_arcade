@@ -28,7 +28,7 @@ export default class Camera {
             this.stage.move();
         }
     }
-    init(){
+    render(){
         this.game.scene.addChild( this.view );
     }
 }
