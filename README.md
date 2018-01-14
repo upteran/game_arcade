@@ -1,4 +1,4 @@
 # README
 
-empty
+npm run dev - start dev build 
 
