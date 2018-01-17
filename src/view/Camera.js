@@ -1,3 +1,5 @@
+import * as PIXI from 'pixi.js';
+
 export default class Camera {
     constructor(game, player, stage) {
         this.game = game;
@@ -22,7 +24,6 @@ export default class Camera {
             this.game.scene.position.x = -this.view.position.x;
             this.stage.move();
         } else if ( this.target.position.x - this.deadzoneX < this.view.position.x ) {
-            console.log('right')
             this.view.position.x = this.target.position.x - this.deadzoneX;
             this.game.scene.position.x = -this.view.position.x;
             this.stage.move();

@@ -1,3 +1,4 @@
+/*global window*/
 export function keypress( keyCode ){
     let key = {};
     key.code = keyCode;

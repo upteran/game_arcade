@@ -1,3 +1,4 @@
+import * as PIXI from 'pixi.js';
 import Player from './Player';
 import Stage from './Stage';
 import Camera from './Camera';
@@ -22,8 +23,7 @@ export default class GameView {
         this.element.appendChild( this.renderer.view );
     }
     update(){
-        this.player.move();
-        this.player.jump();
+        this.player.update();
         this.camera.update();
         this.renderer.render( this.scene );
     }

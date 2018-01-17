@@ -1,5 +1,5 @@
 import * as utils from './../utils';
-const EventEmitter = require('events').EventEmitter;
+import {EventEmitter} from 'events'
 
 export default class GameController extends EventEmitter {
     constructor(model, view, element ) {
@@ -28,28 +28,28 @@ export default class GameController extends EventEmitter {
             right = utils.keypress(39),
             down = utils.keypress(40);
         right.press = () => {
-            console.log('right press');
             this._model.move('changeDir', 'r');
         }
         left.press = () => {
-            console.log('left press');
             this._model.move('changeDir', 'l');
         }
         up.press = () => {
-            console.log('up press');
             this._model.move('jump');
         }
+        down.press = () => {
+            this._model.move('changeDir', 'd');
+        }
         right.release = () => {
-            console.log('right release');
             this._model.move('changeDir', 's');
         }
         left.release = () => {
-            console.log('left release');
             this._model.move('changeDir', 's');
         }
         up.release = () => {
-            console.log('up release');
             this._model.move('jumpEnd');
+        }
+        down.release = () => {
+            this._model.move('changeDir', 's');
         }
     }
 }

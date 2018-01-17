@@ -1,12 +1,10 @@
+/*global window, document*/
 import GameView from './view';
 import GameModel from './model';
 import Controller from './controller';
-// import Loader from './controller/Loader';
+import Loader from './Loader';
 
-
-
-// old
-const loader = require('./Loader');
+const loader = new Loader();
 const body = document.body;
 const gameOptions = {
 	width: window.innerWidth,

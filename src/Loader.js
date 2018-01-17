@@ -1,4 +1,6 @@
-class Loader {
+import * as PIXI from 'pixi.js';
+
+export default class Loader {
     constructor() {
         this.callback = null;
         this.assetsLoader = PIXI.loader;
@@ -12,7 +14,7 @@ class Loader {
         this.assetsLoader.load(this.loadEnd);
     }
     loading() {
-        console.log('loading');
+        console.log('loading res');
     }
     loadEnd(){
         console.log('loading end')
@@ -21,6 +23,4 @@ class Loader {
         this.callback();
     }
 }
-let loader = new Loader();
-module.exports = loader;
 

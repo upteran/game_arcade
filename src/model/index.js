@@ -10,7 +10,7 @@ export default class GameModel {
         this.sceneY = this.options.posY;
         this.lastFrameTime = 0;
         this.playerStartX = this.sceneW / 2;
-        this.playerStartY = 354;
+        this.playerStartY = 360;
         this.player = new Player( this );
     }
     update(){

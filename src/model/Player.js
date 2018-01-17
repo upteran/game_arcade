@@ -8,19 +8,25 @@ export default class Player {
         this.posX = this.game.playerStartX;
         this.posY = this.game.playerStartY;
         this.posYcurr= this.posY;
-        this.scaleX = 0.5;
-        this.scaleY = 0.5;
+        this.scaleRatio = 1.3;
+        this.scaleX = this.scaleRatio;
+        this.scaleY = this.scaleRatio;
+        this.down = false;
         this.vx = 0;
         this.vy = 0;
     }
     move( dir ) {
         this.scaleY = 0.5;
-        if ( dir == 'r' ) {
-            this.scaleX = 0.5;
+        this.down = false;
+        if ( dir === 'r' ) {
+            this.scaleX = this.scaleRatio;
             this.vx = 5;
-        } else if ( dir == 'l' ) {
-            this.scaleX = -0.5;
+        } else if ( dir === 'l' ) {
+            this.scaleX = -this.scaleRatio;
             this.vx = -5;
+        } else if( dir === 'd'){
+            this.down = true;
+            this.vx = 0;
         } else {
             this.vx = 0;
         }
@@ -48,5 +54,5 @@ export default class Player {
         }
 
     }
-    moveBottom(){}
+    down(){}
 }
