@@ -2,6 +2,7 @@ import * as PIXI from 'pixi.js';
 import Player from './Player';
 import Stage from './Stage';
 import Camera from './Camera';
+import Box from './Box';
 
 export default class GameView {
     constructor ( model, element ) {
@@ -17,6 +18,7 @@ export default class GameView {
         this.stage = new Stage( this );
         this.player = new Player( this, this._model.player );
         this.camera = new Camera( this, this.player, this.stage );
+        this.box = new Box( this );
         this.renderer = PIXI.autoDetectRenderer(this.sceneW, this.sceneH, {
             transparent: true
         });
@@ -31,6 +33,7 @@ export default class GameView {
         this.stage.render();
         this.player.render();
         this.camera.render();
+        this.box.render();
     }
 
 }

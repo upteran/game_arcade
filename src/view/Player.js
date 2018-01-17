@@ -87,6 +87,9 @@ export default class Player {
         this.body.position.x += this._model.vx;
 
     }
+    playerTouched(type, ) {
+
+    }
     jump() {
         this.body.position.y = this._model.posY;
     }
