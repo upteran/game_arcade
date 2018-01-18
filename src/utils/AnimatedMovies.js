@@ -17,9 +17,8 @@ export default class AnimatedMovies extends PIXI.extras.AnimatedSprite {
             console.log(`${char} has anim ${anim}`);
         }
     }
-    play(namedAnimation)
+    play(namedAnimation, loop)
     {
-        console.log('play')
         if (this._currAnimation === namedAnimation)
         {
             return;
@@ -28,6 +27,7 @@ export default class AnimatedMovies extends PIXI.extras.AnimatedSprite {
         {
             core.ticker.shared.remove(this.update, this);
         }
+        this._currentTime = 0;
         this._currAnimation = namedAnimation ? namedAnimation : this._initialAnimation;
         this._textures = this._animations[this._currAnimation];
         this.playing = true;

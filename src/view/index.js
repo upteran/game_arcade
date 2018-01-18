@@ -8,6 +8,7 @@ export default class GameView {
     constructor ( model, element ) {
         this.element = element;
         this._model = model;
+        this.actors = [];
         this.scene = new PIXI.Container();
         // this.stage = new PIXI.extras.TilingSprite( this.stageBody, this.sceneW, 500 );
         // this.player = new Player( this, this._model.player );
@@ -18,22 +19,26 @@ export default class GameView {
         this.stage = new Stage( this );
         this.player = new Player( this, this._model.player );
         this.camera = new Camera( this, this.player, this.stage );
-        this.box = new Box( this );
+        this.box = new Box( this, this._model.box );
+        this.box2 = new Box( this, this._model.box2 );
         this.renderer = PIXI.autoDetectRenderer(this.sceneW, this.sceneH, {
             transparent: true
         });
+        this.actors.push( this.stage, this.player, this.camera, this.box, this.box2 )
         this.element.appendChild( this.renderer.view );
     }
     update(){
-        this.player.update();
-        this.camera.update();
+        for(let i = 0;i < this.actors.length;i++) {
+            if(this.actors[i].update) {
+                this.actors[i].update();
+            }
+        }
         this.renderer.render( this.scene );
     }
     render() {
-        this.stage.render();
-        this.player.render();
-        this.camera.render();
-        this.box.render();
+        for(let i = 0; i < this.actors.length;i++) {
+            this.actors[i].render();
+        }
     }
 
 }

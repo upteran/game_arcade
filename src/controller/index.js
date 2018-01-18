@@ -1,3 +1,4 @@
+/*global window.requestAnimationFrame*/
 import * as utils from './../utils';
 import {EventEmitter} from 'events'
 

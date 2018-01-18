@@ -1,11 +1,16 @@
 import * as PIXI from 'pixi.js';
-
+//x: 800 , y: 337;
 export default class Box {
-    constructor(game) {
+    constructor(game, model) {
         this.game = game;
+        this._model = model;
+        this.posX = this._model.posX;
+        this.posY = this._model.posY;
+        this.h = this._model.height;
+        this.w = this._model.width;
         this.rect = new PIXI.Graphics();
         this.rect.beginFill(0, 1);
-        this.rect.drawRect(800, 337, 50, 50);
+        this.rect.drawRect(this.posX, this.posY, this.w, this.h);
         this.rect.endFill();
         // this._container.addChild( this.body );
     }
