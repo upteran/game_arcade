@@ -27,27 +27,27 @@ export default class Player {
         this.body.position.y = this._model.posY;
         this.body.anchor.x = 0.5;
         this.body.anchor.y = 0.5;
-        this.body.pivot.x = -(this._model.width / 2);
-        this.body.pivot.y = -(this._model.height / 2);
+        this.body.pivot.x = -((this._model.width-6) / 2);
+        this.body.pivot.y = -((this._model.height-8) / 2);
         this.body.scale.x = this._model.scaleX;
         this.body.scale.y = this._model.scaleY;
         this.isJumping = this._model.isJumping;
         this.stopTime = 0;
 
         // player rect
-        // this.rect = new PIXI.Graphics();
-        // this.rect.beginFill(0, 2);
-        // this.rect.drawRect(this.body.position.x, this.body.position.y, this.body.width, this.body.height);
-        // this.rect.endFill();
-        // this.rect.pivot.x = this.body.position.x;
-        // this.rect.pivot.y = this.body.position.y;
+        this.rect = new PIXI.Graphics();
+        this.rect.beginFill(0, 2);
+        this.rect.drawRect(this.body.position.x, this.body.position.y, this.body.width, this.body.height);
+        this.rect.endFill();
+        this.rect.pivot.x = this.body.position.x;
+        this.rect.pivot.y = this.body.position.y;
         // this._container.addChild( this.rect );
 
         this._container.addChild( this.body );
     }
     update() {
-        // this.rect.position.x = this.body.position.x;
-        // this.rect.position.y = this.body.position.y;
+        this.rect.position.x = this.body.position.x;
+        this.rect.position.y = this.body.position.y;
         this.move();
         this.jump();
     }
@@ -96,7 +96,7 @@ export default class Player {
             this.stopTime = 0;
             this.changeAnimation('move');
             this.body.scale.x = this._model.scaleX;
-            this.body.pivot.x = -(Math.sign(this._model.scaleX) * (this._model.width / 2));
+            this.body.pivot.x = -(Math.sign(this._model.scaleX) * ((this._model.width-8) / 2));
         }
         else {
             this.stopTime++;

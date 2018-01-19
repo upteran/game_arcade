@@ -4,25 +4,22 @@ export default class Box {
     constructor(game, model) {
         this.game = game;
         this._model = model;
-        this.posX = this._model.posX;
-        this.posY = this._model.posY;
-        this.h = this._model.height;
-        this.w = this._model.width;
-        this.rect = new PIXI.Graphics();
-        this.rect.beginFill(0, 1);
-        this.rect.drawRect(this.posX, this.posY, this.w, this.h);
-        this.rect.endFill();
-        // this._container.addChild( this.body );
+        this._container = new PIXI.Container();
+        this.bodyTexture = PIXI.Texture.fromFrame('box');
+        this.body = new PIXI.Sprite(this.bodyTexture);
+        this.body.position.x = this._model.posX;
+        this.body.position.y = this._model.posY;
+        this.body.width = this._model.width;
+        this.body.height = this._model.height;
+        this._container.addChild( this.body );
     }
-    _drawRect( x, y, width, height ) {
-        let rect;
-        rect = new PIXI.Graphics();
-        rect.beginFill(0, 0);
-        rect.drawRect(x, y, this.game.sceneW, this.game.sceneH);
-        rect.endFill();
-        return rect;
+    move() {
+        this.body.position.x = this._model.posX;
+    }
+    update(){
+        this.move();
     }
     render(){
-        this.game.scene.addChild( this.rect );
+        this.game.scene.addChild( this._container );
     }
 }

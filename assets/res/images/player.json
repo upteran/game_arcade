@@ -146,7 +146,7 @@
         "jump": {
             "player_19":
             {
-                "frame": {"x":128,"y":669,"w":50,"h":60},
+                "frame": {"x":128,"y":680,"w":50,"h":60},
                 "rotated": false,
                 "trimmed": false,
                 "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
@@ -154,7 +154,7 @@
             },
             "player_20":
             {
-                "frame": {"x":128,"y":669,"w":50,"h":60},
+                "frame": {"x":128,"y":680,"w":50,"h":60},
                 "rotated": false,
                 "trimmed": false,
                 "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},

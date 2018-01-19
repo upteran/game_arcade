@@ -5,14 +5,17 @@ export default class Player {
         this.type = 'player';
         this.isJumping = false;
         this.maxJumpHeight = 50;
-        this.gravity = 0;
-        this.posX = this.game.playerStartX;
-        this.posY = this.game.playerStartY;
+        this.gravity = 0.5;
         this.sourceWidth = 45;
         this.sourceHeight = 50;
         this.scaleRatio = 1.3;
-        this.width = this.sourceWidth * this.scaleRatio;
-        this.height = this.sourceHeight * this.scaleRatio;
+        let MARGIN = 10;
+        this.width = (this.sourceWidth - MARGIN) * this.scaleRatio;
+        this.height = (this.sourceHeight - MARGIN) * this.scaleRatio;
+        this.startCharHeight = this.height;
+        this.posX = this.game.playerStartX;
+        this.posY = this.game.playerStartY - this.height;
+        this.posGameStartX = this.posY;
         this.posYcurr= this.posY;
         this.scaleX = this.scaleRatio;
         this.scaleY = this.scaleRatio;
@@ -23,43 +26,65 @@ export default class Player {
     }
     move( dir ) {
         this.dir = dir;
-        // this.scaleY = 1.4;
         this.down = false;
         let collision = this.game.actorTouched(this);
-        if(collision) {
-            console.log(this.vx);
-            this.posX += -this.vx;
+        this.vx = 5;
+        if( dir === 'r' ) {
+            this.scaleX = this.scaleRatio;
+            this.vx = this.vx;
+        } else if ( dir === 'l' ) {
+            this.scaleX = -this.scaleRatio;
+            this.vx = -this.vx;
+        } else if( dir === 'd'){
+            this.down = true;
+        } else {
             this.vx = 0;
-            } else {
-                if( dir === 'r' ) {
-                    this.scaleX = this.scaleRatio;
-                    this.vx = 5;
-                } else if ( dir === 'l' ) {
-                    this.scaleX = -this.scaleRatio;
-                    this.vx = -5;
-                } else if( dir === 'd'){
-                    this.down = true;
-                    this.vx = 0;
-                } else {
-                    this.vx = 0;
-                }
-                this.posX += this.vx;
         }
-        console.log(this.posX);
+        if(collision) {
+            this.touchedAt(collision);
+        } else {
+            this.posYcurr = this.posGameStartX;
+        }
+        this.downCheck();
+        this.jump(collision);
+        this.posX += this.vx;
 
     }
-    touchedAt() {}
+    touchedAt(collision) {
+        let actor = collision.other,
+            side = collision.side,
+            offset = collision.offset;
+        if(actor.type === 'box') {
+            switch(side) {
+                case 'bottom':
+                this.posYcurr = actor.posY - this.height + 0.1;
+                break;
+                case 'top':
+                this.posY = actor.posY + actor.height;
+                this.vy = 0;
+                break;
+                case 'left':
+                this.posX -= offset;
+                break;
+                case 'right':
+                // this.vx = -this.vx;
+                this.posX += offset;
+                break;
+                default:
+                break;
+            }
+        }
+    }
     startJump(){
-        this.gravity = 0.5;
         if(!this.isJumping) {
-            this.posYcurr = this.posY;
             this.vy = -10;
             this.isJumping = true;
         }
     }
-    jump() {
+    jump(collision) {
         this.vy += this.gravity;
         this.posY += this.vy;
+        if(this.vy > 8) this.vy = 8;
         if(this.posY > this.posYcurr) {
             this.posY = this.posYcurr;
             this.isJumping = false;
@@ -71,5 +96,12 @@ export default class Player {
         }
 
     }
-    down(){}
+    downCheck(){
+        if(this.down) {
+            this.height -= 40;
+            this.vx = 0;
+        } else {
+            this.height = this.startCharHeight;
+        }
+    }
 }
