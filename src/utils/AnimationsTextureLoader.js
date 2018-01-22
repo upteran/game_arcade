@@ -1,5 +1,4 @@
 import * as PIXI from 'pixi.js';
-import * as core from 'pixi.js/lib/core';
 
 export default class AnimationsTextureLoader extends PIXI.Sprite {
     constructor(res) {
@@ -10,8 +9,6 @@ export default class AnimationsTextureLoader extends PIXI.Sprite {
     }
     createAnimations( data ) {
         let animations = {};
-        let frameMap = {};
-        let animSprite = {};
         for(let name in this.animations) {
             let textures = [];
             let frameList = [];

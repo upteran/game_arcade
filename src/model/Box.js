@@ -47,6 +47,5 @@ export default class Box {
     remove() {
         this.isDeath = true;
         this.game.actors = this.game.actors.filter(item => item !== this);
-        console.log(this.game.actors)
     }
 }

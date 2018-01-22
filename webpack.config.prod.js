@@ -7,8 +7,8 @@ module.exports = {
   entry: './src/index.js',
 
   output: {
-    path: './dist/assets',
-    filename: 'bundle.min.js',
+    path: path.resolve(__dirname, './dist/'),
+    filename: 'bundle.js',
   },
 
   plugins: [
@@ -19,7 +19,7 @@ module.exports = {
       },
     }),
     new CopyWebpackPlugin([
-          { from: './assets', to: './assets' },
+          { from: './assets', to: './' },
       ], {
           copyUnmodified: true
       })
@@ -29,7 +29,8 @@ module.exports = {
     loaders: [
       {
         test: /\.js$/,
-        loaders: ['babel'],
+        exclude: /node_modules/,
+        loaders: ['babel-loader'],
         include: path.join(__dirname, 'src'),
       },
     ],
