@@ -11,13 +11,6 @@ export default class Player {
         this.res = PIXI.loader.resources.player;
         this.animationsSprite = new AnimationsTextureLoader(this.res);
         this.animations = this.animationsSprite.createAnimations();
-        this.frames = [];
-        // for(let i in this.createdSprite.animations) {
-        //     this.createdSprite.animations[i].forEach((item) => {
-        //         this.frames.push(item);
-        //     })
-        // }
-        // this.body = new AnimatedMovies(this.frames, this.createdSprite.frameMap);
         this.body = new AnimatedMovies(this.animations, 'stop1');
         this.body.showAnimationsList('player');
         this.animationSpeed = 0.1;
@@ -26,9 +19,10 @@ export default class Player {
         this.body.position.x = this._model.posX;
         this.body.position.y = this._model.posY;
         this.body.anchor.x = 0.5;
-        this.body.anchor.y = 0.5;
-        this.body.pivot.x = -((this._model.width-6) / 2);
-        this.body.pivot.y = -((this._model.height-8) / 2);
+        // this.body.anchor.y = 0.5;
+        let MARGIN = 10;
+        this.body.pivot.x = -((this._model.width - MARGIN) / 2);
+        // this.body.pivot.y = -((this._model.height) / 2);
         this.body.scale.x = this._model.scaleX;
         this.body.scale.y = this._model.scaleY;
         this.isJumping = this._model.isJumping;
@@ -46,10 +40,17 @@ export default class Player {
         this._container.addChild( this.body );
     }
     update() {
-        this.rect.position.x = this.body.position.x;
-        this.rect.position.y = this.body.position.y;
+        // this.rect.position.x = this.body.position.x;
+        // this.rect.position.y = this.body.position.y;
         this.move();
-        this.jump();
+        this.moveY();
+        this.hit();
+    }
+    hit() {
+        if(this._model.isHited) {
+            this.changeAnimation('hit');
+            this.stopTime = 0;
+        }
     }
     changeAnimation(move){
         if(move === this._currentAnimation) {
@@ -82,6 +83,11 @@ export default class Player {
             this.body.loop = false;
             this.body.animationSpeed = 0.5;
             break;
+            case 'hit':
+            this.body.play('sword_combo_1');
+            this.body.loop = true;
+            this.body.animationSpeed = 0.2;
+            break;
         }
     }
     move() {
@@ -92,13 +98,12 @@ export default class Player {
             this.stopTime = 0;
             this.changeAnimation('jump');
 
-        } else if(this._model.vx !== 0) {
+        } else if(this._model.vx !== 0 && !this._model.isHited) {
             this.stopTime = 0;
             this.changeAnimation('move');
             this.body.scale.x = this._model.scaleX;
-            this.body.pivot.x = -(Math.sign(this._model.scaleX) * ((this._model.width-8) / 2));
-        }
-        else {
+            this.body.pivot.x = -(Math.sign(this._model.scaleX) * ((this._model.width - 10) / 2));
+        } else if(!this._model.isHited){
             this.stopTime++;
             if(this.stopTime / 60 > 3) {
                 this.changeAnimation('stop');
@@ -109,8 +114,7 @@ export default class Player {
         this.body.position.x = this._model.posX;
 
     }
-    playerTouched(type) {}
-    jump() {
+    moveY() {
         this.body.position.y = this._model.posY;
     }
     render(){

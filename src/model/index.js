@@ -85,7 +85,11 @@ export default class GameModel {
     }
     update(){
         this.player.move( this.dir );
-        this.box7.move();
+        if(this.actors.length !== 0) {
+            for( let i = 1; i < this.actors.length; i++) {
+                this.actors[i].update();
+            }
+        }
     }
     move( type, dir ){
         switch(type) {
@@ -98,6 +102,8 @@ export default class GameModel {
             case 'jumpEnd':
             this.player.jumpEnd();
             break;
+            case 'hit':
+            this.player.hit(dir);
             default:
             break;
         }

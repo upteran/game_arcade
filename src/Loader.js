@@ -6,8 +6,7 @@ export default class Loader {
         this.assetsLoader = PIXI.loader;
         this.assetsLoader.add('player', 'res/images/player.json');
         this.assetsLoader.add('res/images/stageBg.png');
-        this.assetsLoader.add('box', 'res/images/box.png');
-        this.assetsLoader.add('wall', 'res/images/wall.jpg');
+        this.assetsLoader.add('box', 'res/images/box.json');
         this.assetsLoader.once('complete', this.onImageLoader.bind( this ));
     }
     load(callback) {

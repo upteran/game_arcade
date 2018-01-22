@@ -6,7 +6,7 @@ export default class Camera {
         this.stage = stage;
         this.target = player.body;
         this.view = this._drawRect(0, 0, this.game.sceneW, this.game.sceneH);
-        this.deadzoneX = 200;
+        this.deadzoneX = 400;
         this.view.position.x = 0;
         this.view.position.y = 0;
     }

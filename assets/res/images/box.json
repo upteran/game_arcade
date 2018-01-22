@@ -1,0 +1,33 @@
+{
+    "frames": {
+        "box_0": {
+            "frame": {"x":0,"y":0,"w":85,"h":85},
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {"x":0,"y":0,"w":85,"h":85},
+            "sourceSize": {"w":64,"h":63}
+        },
+        "box_1": {
+            "frame": {"x":85,"y":0,"w":85,"h":85},
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {"x":0,"y":0,"w":85,"h":85},
+            "sourceSize": {"w":64,"h":63}
+        },
+        "box_2": {
+            "frame": {"x":170,"y":0,"w":85,"h":85},
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {"x":0,"y":0,"w":85,"h":85},
+            "sourceSize": {"w":64,"h":63}
+        }
+    },
+    "meta": {
+        "version": 1,
+        "format": "RGBA8888",
+        "image": "box_s.png",
+        "size": {"w":255,"h":85},
+        "scale": "1",
+        "smartupdate": "$TexturePacker:SmartUpdate:68947b15bb7efc40be030c076d92ff6a:7a7176ee4a47114ab8e7e8ecb8c361fc:fac4f515bf266e4f4ed746fa4fe7351a$"
+    }
+}

@@ -27,7 +27,8 @@ export default class GameController extends EventEmitter {
         let left = utils.keypress(37),
             up = utils.keypress(38),
             right = utils.keypress(39),
-            down = utils.keypress(40);
+            down = utils.keypress(40),
+            space = utils.keypress(32);
         right.press = () => {
             this._model.move('changeDir', 'r');
         }
@@ -40,6 +41,9 @@ export default class GameController extends EventEmitter {
         down.press = () => {
             this._model.move('changeDir', 'd');
         }
+        space.press = () => {
+            this._model.move('hit', true);
+        }
         right.release = () => {
             this._model.move('changeDir', 's');
         }
@@ -51,6 +55,9 @@ export default class GameController extends EventEmitter {
         }
         down.release = () => {
             this._model.move('changeDir', 's');
+        }
+        space.release = () => {
+            this._model.move('hit', false);
         }
     }
 }
