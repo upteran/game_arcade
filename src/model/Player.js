@@ -1,6 +1,16 @@
 /*global setTimeout*/
 export default class Player {
+
+    static Create(game, props) {
+        const res = new Player(game);
+        res.props.push(props);
+    }
+
     constructor(game) {
+
+        this.props = [];
+
+
         this.game = game;
         this.dir = 'r';
         this.type = 'player';

@@ -7,6 +7,9 @@ export default class Player {
     constructor(game, model) {
         this.game = game;
         this._model = model;
+
+        this.pixi = new PIXI.Sprite();
+
         this._container = new PIXI.Container();
         this.res = PIXI.loader.resources.player;
         this.animationsSprite = new AnimationsTextureLoader(this.res);
@@ -40,7 +43,21 @@ export default class Player {
 
         this._container.addChild( this.body );
     }
+
+    /**
+     * 60 fps
+     */
     update() {
+
+        if(Math.abs(this._model.vx) > 0) {
+
+            this.pixi.texture = ""
+
+        }
+
+
+
+
         // this.rect.position.x = this.body.position.x;
         // this.rect.position.y = this.body.position.y;
         this.move();
@@ -102,6 +119,7 @@ export default class Player {
             break;
         }
     }
+
     move() {
         if(this._model.down){
             this.stopTime = 0;
@@ -112,7 +130,6 @@ export default class Player {
 
         } else if(this._model.vx !== 0 && !this._model.isHited) {
             this.stopTime = 0;
-            this.changeAnimation('move');
             this.body.scale.x = this._model.scaleX;
             this.body.pivot.x = -(Math.sign(this._model.scaleX) * ((this._model.width - 10) / 2));
         } else if(!this._model.isHited && !this._model.isDemaged){
@@ -126,10 +143,13 @@ export default class Player {
         this.body.position.x = this._model.posX;
 
     }
+
     moveY() {
         this.body.position.y = this._model.posY;
     }
+
     render(){
         this.game.scene.addChild( this._container );
     }
+
 }

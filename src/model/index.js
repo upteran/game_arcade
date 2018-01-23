@@ -2,6 +2,65 @@ import Player from './Player';
 import Box from './Box';
 import Lumpi from './enemy/Lumpi';
 
+
+const map = [
+
+    {
+        type: "box",
+        x: 10,
+        y: 122
+    },
+
+    {
+        onevent: "sfdsdf",
+        type: "box",
+        x: 10,
+        y: 122
+    }
+
+];
+
+class Factory {
+
+    constructor(props) {
+        this.props = props;
+    }
+
+    createBox(props) {
+        return new Box(props);
+    }
+
+    createEnem(props) {
+        return new Enem(props);
+    }
+
+}
+
+class Builder {
+
+    constructor(map) {
+
+    }
+
+    build(factory) {
+
+        this.map.map(({type, ...prop}) => {
+            if(type === "box") {
+                return new Box(props);
+            }
+            else if(type) {
+
+            }
+        });
+
+
+        return [];
+    }
+
+}
+
+
+
 export default class GameModel {
     constructor ( options ) {
         this.options = options;
