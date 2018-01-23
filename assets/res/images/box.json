@@ -25,7 +25,7 @@
     "meta": {
         "version": 1,
         "format": "RGBA8888",
-        "image": "box_s.png",
+        "image": "box.png",
         "size": {"w":255,"h":85},
         "scale": "1",
         "smartupdate": "$TexturePacker:SmartUpdate:68947b15bb7efc40be030c076d92ff6a:7a7176ee4a47114ab8e7e8ecb8c361fc:fac4f515bf266e4f4ed746fa4fe7351a$"

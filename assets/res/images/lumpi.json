@@ -1,0 +1,81 @@
+{
+    "image": "lumpi_1.png",
+    "width": 50,
+    "height": 60,
+    "x": 0,
+    "y": 0,
+    "animations": {
+        "move": {
+            "lumpi_0":
+            {
+                "frame": {"x":0,"y":0,"w":38,"h":45},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            },
+            "lumpi_1":
+            {
+                "frame": {"x":35,"y":0,"w":38,"h":45},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            },
+            "lumpi_2":
+            {
+                "frame": {"x":76,"y":0,"w":38,"h":45},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            },
+            "lumpi_3":
+            {
+                "frame": {"x":119,"y":0,"w":38,"h":45},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            },
+            "lumpi_4":
+            {
+                "frame": {"x":167,"y":0,"w":38,"h":45},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            },
+            "lumpi_5":
+            {
+                "frame": {"x":213,"y":0,"w":38,"h":45},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            },
+            "lumpi_6":
+            {
+                "frame": {"x":248,"y":0,"w":38,"h":45},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            },
+            "lumpi_7":
+            {
+                "frame": {"x":285,"y":0,"w":38,"h":45},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            }
+        }
+    },
+    "meta": {
+        "format": "RGBA8888",
+        "size": {"w":340,"h":45},
+        "scale": "1",
+        "smartupdate": "$TexturePacker:SmartUpdate:68947b15bb7efc40be030c076d92ff6a:7a7176ee4a47114ab8e7e8ecb8c361fc:fac4f515bf266e4f4ed746fa4fe7351a$"
+    }
+}

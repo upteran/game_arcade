@@ -3,6 +3,7 @@ import Player from './Player';
 import Stage from './Stage';
 import Camera from './Camera';
 import Box from './Box';
+import Lumpi from './enemy/Lumpi';
 
 export default class GameView {
     constructor ( model, element ) {
@@ -27,6 +28,7 @@ export default class GameView {
         this.box5 = new Box( this, this._model.box5 );
         this.box6 = new Box( this, this._model.box6 );
         this.box7 = new Box( this, this._model.box7 );
+        this.lumpi = new Lumpi( this, this._model.lumpi );
         this.renderer = PIXI.autoDetectRenderer(this.sceneW, this.sceneH, {
             transparent: true
         });
@@ -39,7 +41,8 @@ export default class GameView {
                             this.box4,
                             this.box5,
                             this.box6,
-                            this.box7
+                            this.box7,
+                            this.lumpi
                             );
         this.element.appendChild( this.renderer.view );
     }

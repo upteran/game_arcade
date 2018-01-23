@@ -12,6 +12,7 @@ export default class Player {
         this.animationsSprite = new AnimationsTextureLoader(this.res);
         this.animations = this.animationsSprite.createAnimations();
         this.body = new AnimatedMovies(this.animations, 'stop1');
+        // this.body.gotoAndStop(4);
         this.body.showAnimationsList('player');
         this.animationSpeed = 0.1;
         this.body.play();
@@ -45,6 +46,10 @@ export default class Player {
         this.move();
         this.moveY();
         this.hit();
+        this.demage();
+    }
+    demage() {
+        if(this._model.isDemaged) this.changeAnimation('hurt');
     }
     hit() {
         if(this._model.isHited) {
@@ -88,6 +93,13 @@ export default class Player {
             this.body.loop = true;
             this.body.animationSpeed = 0.2;
             break;
+            case 'hurt':
+            this.body.play('hurt');
+            this.body.loop = false;
+            this.animationSpeed = 0.001;
+            break;
+            default:
+            break;
         }
     }
     move() {
@@ -103,7 +115,7 @@ export default class Player {
             this.changeAnimation('move');
             this.body.scale.x = this._model.scaleX;
             this.body.pivot.x = -(Math.sign(this._model.scaleX) * ((this._model.width - 10) / 2));
-        } else if(!this._model.isHited){
+        } else if(!this._model.isHited && !this._model.isDemaged){
             this.stopTime++;
             if(this.stopTime / 60 > 3) {
                 this.changeAnimation('stop');

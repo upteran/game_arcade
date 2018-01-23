@@ -1,5 +1,6 @@
 import Player from './Player';
 import Box from './Box';
+import Lumpi from './enemy/Lumpi';
 
 export default class GameModel {
     constructor ( options ) {
@@ -15,6 +16,7 @@ export default class GameModel {
         this.playerStartX = this.sceneW / 2;
         this.playerStartY = this.sceneEarthY;
         this.player = new Player( this );
+        this.lumpi = new Lumpi( this , 'lumpi', 300, this.sceneEarthY, 28, 45, 'enemy');
         this.box = new Box(this, 100, this.sceneEarthY, 50, 50);
         this.box2 = new Box(this, 800, this.sceneEarthY, 40, 40);
         this.box3 = new Box(this, 200, this.sceneEarthY - 100, 30, 30);
@@ -29,7 +31,8 @@ export default class GameModel {
                           this.box4,
                           this.box5,
                           this.box6,
-                          this.box7 );
+                          this.box7,
+                          this.lumpi );
 
     }
     actorTouched(actor) {
@@ -104,6 +107,7 @@ export default class GameModel {
             break;
             case 'hit':
             this.player.hit(dir);
+            break;
             default:
             break;
         }

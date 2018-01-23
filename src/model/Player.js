@@ -1,3 +1,4 @@
+/*global setTimeout*/
 export default class Player {
     constructor(game) {
         this.game = game;
@@ -25,17 +26,20 @@ export default class Player {
         this.vy = 0;
         this.isHited = false;
         this.currMoveType = 'stop';
+        this.isDemaged = false;
+        this.hitType = 'stop';
+        this.demageTime = null;
     }
     move( dir ) {
         this.dir = dir;
         this.down = false;
         let collision = this.game.actorTouched(this);
         if(!this.isHited) this.vx = 5;
-        if( dir === 'r' ) {
+        if( dir === 'r' && !this.isDemaged) {
             this.scaleX = this.scaleRatio;
             this.vx = this.vx;
             this.currMoveType = 'move';
-        } else if ( dir === 'l' ) {
+        } else if ( dir === 'l' && !this.isDemaged) {
             this.scaleX = -this.scaleRatio;
             this.vx = -this.vx;
             this.currMoveType = 'move';
@@ -95,6 +99,33 @@ export default class Player {
                 break;
             }
         }
+        if(actor.type === 'enemy') {
+            switch(side) {
+                case 'bottom':
+                this.posYcurr = actor.posY - this.startCharHeight + 0.1;
+                break;
+                case 'top':
+                this.posY = actor.posY + actor.height;
+                this.vy = 0;
+                break;
+                case 'left':
+                this.isDemaged = true;
+                this.posX -= offset * 1.5;
+                this.demageTime = setTimeout(() => {
+                  this.isDemaged = false;
+                }, 800)
+                break;
+                case 'right':
+                this.isDemaged = true;
+                this.posX += offset * 1.5;
+                this.demageTime = setTimeout(() => {
+                  this.isDemaged = false;
+                }, 800)
+                break;
+                default:
+                break;
+            }
+        }
     }
     startJump(){
         if(!this.isJumping && !this.isHited) {
@@ -121,7 +152,7 @@ export default class Player {
         if(this.down) {
             this.vx = 0;
         } else {
-            
+
         }
     }
 }
