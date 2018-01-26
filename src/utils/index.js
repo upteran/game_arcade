@@ -27,3 +27,28 @@ export function keypress( keyCode ){
 
     return key;
 }
+
+export class createAnimations {
+    constructor(animations, initialAnimation) {
+        this.animations = animations;
+        this.initialAnimations = initialAnimation;
+        this.lastFrame = 0;
+        this.currAnimation = this.initialAnimations;
+    }
+    play(name, speed, isLoop) {
+        let currTexture = null;
+        if (this.currAnimation !== name) {
+            this.lastFrame = 0;
+        }
+        let currTime = new Date().valueOf();
+            this.currAnimation = name;
+            if(isLoop && this.lastFrame === this.animations[name].length - 1) {
+                currTexture = this.animations[name][this.animations[name].length - 1];
+                return currTexture;
+            }
+            let currFrame = Math.floor(currTime / speed) % this.animations[name].length;
+            currTexture = this.animations[name][currFrame];
+            this.lastFrame = currFrame;
+            return currTexture;
+    }
+}

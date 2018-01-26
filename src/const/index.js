@@ -1,0 +1,1 @@
+export const EARTH_X = 386;
