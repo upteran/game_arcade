@@ -27,7 +27,20 @@
             "moveType": "move"
         },
         {
-            "name": "box",
+            "name": "hypnoWorm",
+            "type": "enemy",
+            "x": 150,
+            "y": 386,
+            "height": 20,
+            "width": 44,
+            "health": 300,
+            "scale": 1,
+            "dir": "r",
+            "currMoveType": "move",
+            "moveType": "move"
+        },
+        {
+            "name": "box_0",
             "type": "box",
             "x": 100,
             "y": 386,
@@ -40,7 +53,7 @@
             "moveType": "static"
         },
         {
-            "name": "box",
+            "name": "box_1",
             "type": "box",
             "x": 300,
             "y": 386,
@@ -54,10 +67,10 @@
             "animation": false
         },
         {
-            "name": "box",
+            "name": "box_2",
             "type": "box",
             "x": 600,
-            "y": 336,
+            "y": 346,
             "height": 40,
             "width": 40,
             "health": 100,
@@ -68,10 +81,10 @@
             "animation": false
         },
         {
-            "name": "box",
+            "name": "box_3",
             "type": "box",
             "x": 760,
-            "y": 306,
+            "y": 156,
             "height": 40,
             "width": 40,
             "health": 100,
@@ -80,6 +93,21 @@
             "currMoveType": "static",
             "moveType": "static",
             "animation": false
+        },
+        {
+            "name": "box_4",
+            "type": "box",
+            "x": 670,
+            "y": 200,
+            "height": 40,
+            "width": 40,
+            "health": 100,
+            "scale": 1.1,
+            "dir": "s",
+            "currMoveType": "static",
+            "moveType": "static",
+            "animation": true,
+            "animationAxis": "y"
         }
     ]
 }

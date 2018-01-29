@@ -7,7 +7,7 @@ export default class Entity {
         this.game = game;
         this._model = model;
         // this._container = new PIXI.Container();
-        this.res = PIXI.loader.resources[model.name];
+        this.res = PIXI.loader.resources[model.name.split('_')[0]];
         this.body = new PIXI.Sprite();
         this.animationsTexture = animationsTextureLoader(this.res);
         this.animations = new utils.createAnimations(this.animationsTexture);

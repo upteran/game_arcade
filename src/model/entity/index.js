@@ -1,9 +1,9 @@
 export default class Entity {
     constructor(game, props) {
         this.game = game;
-        this.dir = props.dir;
+        this.dir = props.dir || 's';
         this.name = props.name;
-        this.type = props.type;
+        this.type = props.type || 'wall';
         this.moveType = props.moveType;
         this.sourceWidth = props.width;
         this.sourceHeight = props.height;
@@ -30,10 +30,12 @@ export default class Entity {
         this.demageTime = null;
         this.step = 1;
     }
-    update( dir ) {
+    update() {
         let collision = this.game.actorTouched(this);
         if(collision) this.touchedAt(collision);
-        this.moveY();
+        if(this.moveType !== 'static') {
+            this.moveY();
+        }
     }
 
     startJump(vy) {
@@ -43,8 +45,7 @@ export default class Entity {
         }
     }
 
-    moveY( gravityInc ) {
-        this.gravity = this.gravity * (gravityInc || 1);
+    moveY() {
         this.vy += this.gravity;
         this.posY += this.vy;
         if(this.vy > 8) this.vy = 8;

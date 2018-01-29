@@ -1,8 +1,11 @@
 import Player from './entity/Player';
+import HitArea from './entity/HitArea';
 import Box from './entity/Box';
 import Lumpi from './entity/enemy/Lumpi';
+import HypnoWorm from './entity/enemy/HypnoWorm';
 // import * as utils from './../utils/';
 import maps from './../maps/';
+// import * as cons from './../const/';
 
 
 const gameMap = maps.game;
@@ -13,7 +16,6 @@ export default class GameModel {
         this.options = options;
         this.dir = 's';
         this.actors = [];
-        this.sceneEarthY = 386;
         this.sceneW = this.options.width;
         this.sceneH = this.options.height;
         this.sceneX = this.options.posX;
@@ -22,10 +24,10 @@ export default class GameModel {
         this.builder = new Builder(gameMap);
         this.player = new Player( this , playerMap);
         this.gameModels = this.builder.build( this );
-        this.actors.push(this.player, ...this.gameModels);
-        console.log(this.actors);
+        this.hitArea = new HitArea(this, this.player);
+        this.actors.push(this.player,this.hitArea, ...this.gameModels);
     }
-    actorTouched(actor) {
+    actorTouched(actor, exceptions) {
         var a1 = {},
             a2 = {},
             side = 'none',
@@ -118,6 +120,9 @@ class Builder {
             }
             else if( props.type === 'enemy' && props.name === 'lumpi') {
                 return new Lumpi(game, props);
+            }
+            else if( props.type === 'enemy' && props.name === 'hypnoWorm' ) {
+                return new HypnoWorm(game, props);
             }
         });
         return res;

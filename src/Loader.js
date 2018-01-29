@@ -7,6 +7,7 @@ export default class Loader {
         this.assetsLoader.add('player', 'res/images/player.json');
         this.assetsLoader.add('res/images/stageBg.png');
         this.assetsLoader.add('lumpi', 'res/images/lumpi.json');
+        this.assetsLoader.add('hypnoWorm', 'res/images/hypnoWorm.json');
         this.assetsLoader.add('box', 'res/images/box.json');
         this.assetsLoader.once('complete', this.onImageLoader.bind( this ));
     }

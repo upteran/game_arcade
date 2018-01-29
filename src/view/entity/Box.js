@@ -1,9 +1,8 @@
-import * as PIXI from 'pixi.js';
 import Entity from "./";
 //x: 800 , y: 337;
 export default class Box extends Entity{
-    constructor(game, model) {
-        super(game, model);
+    constructor(...arg) {
+        super(...arg);
     }
     update(){
         this.body.texture = this.animations.play('normal', 100, false);
