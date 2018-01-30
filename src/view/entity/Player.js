@@ -3,7 +3,7 @@ import Entity from "./";
 
 export default class Player extends Entity {
     constructor(...arg) {
-        super(...arg)
+        super(...arg);
         this.stopTime = 0;
     }
 

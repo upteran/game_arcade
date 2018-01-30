@@ -98,14 +98,14 @@ export default class Player extends Entity {
                 this.posX -= offset * 1.5;
                 this.demageTime = setTimeout(() => {
                   this.isDemaged = false;
-                }, 800)
+                }, 800);
                 break;
                 case 'right':
                 this.isDemaged = true;
                 this.posX += offset * 1.5;
                 this.demageTime = setTimeout(() => {
                   this.isDemaged = false;
-                }, 800)
+                }, 800);
                 break;
                 default:
                 break;

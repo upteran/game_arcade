@@ -1,5 +1,8 @@
 export default class Entity {
     constructor(game, props) {
+
+        this.advantages = [  ];
+
         this.game = game;
         this.dir = props.dir || 's';
         this.name = props.name;
@@ -32,6 +35,9 @@ export default class Entity {
         this.lastStep = this.step;
     }
     update() {
+
+        this.advantages.forEach( a => a.tick() );
+
         let collision = this.game.actorTouched(this);
         if(collision) this.touchedAt(collision);
         if(this.moveType !== 'static') {

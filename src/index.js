@@ -19,8 +19,3 @@ loader.load(() => {
     const gameController = new Controller( model, view );
     gameController.init();
 });
-
-
-
-
-
