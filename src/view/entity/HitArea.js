@@ -1,6 +1,4 @@
 import * as PIXI from 'pixi.js';
-import animationsTextureLoader from './../../utils/AnimationsTextureLoader.js';
-import * as utils from './../../utils';
 
 export default class HitArea {
     constructor(game, model) {

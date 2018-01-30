@@ -1,6 +1,6 @@
 /*global setTimeout*/
 import Entity from './';
-import HitArea from './HitArea';
+// import HitArea from './HitArea';
 
 export default class Player extends Entity {
     constructor(game, props) {
@@ -83,7 +83,7 @@ export default class Player extends Entity {
                 break;
             }
         }
-        if(actor.type === 'enemy') {
+        if(actor.type === 'enemy' && !this.isHited) {
             switch(side) {
                 case 'bottom':
                 this.posYcurr = actor.posY - this.height;

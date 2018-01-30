@@ -1,12 +1,8 @@
-import Entity from "./../";
+import Enemy from "./";
 
 
-export default class HypnoWorm extends Entity{
+export default class HypnoWorm extends Enemy{
     constructor(...arg) {
         super(...arg);
-    }
-    update() {
-        this.body.texture = this.animations.play('move', 100, false);
-        super.update();
     }
 }

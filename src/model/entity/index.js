@@ -29,6 +29,7 @@ export default class Entity {
         this.isDemaged = false;
         this.demageTime = null;
         this.step = 1;
+        this.lastStep = this.step;
     }
     update() {
         let collision = this.game.actorTouched(this);

@@ -6,7 +6,6 @@ export default class Entity {
     constructor(game, model) {
         this.game = game;
         this._model = model;
-        // this._container = new PIXI.Container();
         this.res = PIXI.loader.resources[model.name.split('_')[0]];
         this.body = new PIXI.Sprite();
         this.animationsTexture = animationsTextureLoader(this.res);
@@ -20,11 +19,34 @@ export default class Entity {
         this.body.scale.y = this._model.scaleY;
         this.isJumping = this._model.isJumping;
     }
+
     update() {
         this.move();
         this.demage();
     }
-    demage() {}
+
+    updateFrameOffsets() {
+        this.body.width = this.body.texture.orig.width * this._model.scaleRatio;
+        this.body.height = this.body.texture.orig.height * this._model.scaleRatio;
+        this.body.position.y = (this._model.posY + this._model.startCharHeight) - this.body.height;
+    }
+
+    demage() {
+        if(this._model.isDemaged) {
+            this.body.texture = this.animations.play('hurt', 400, true);
+            if(this.body.alpha !== 0) {
+                this.body.alpha -= 1;
+                this.body.tint = 0xf2aebc;
+            } else {
+                this.body.alpha += 1;
+                this.body.tint = 0xf2aebc;
+            }
+        } else {
+            this.body.alpha = 1;
+            this.body.tint = 0xFFFFFF;
+        }
+    }
+
     move() {
         if(this._model.moveType !== 'static') {
             this.body.scale.x = this._model.scaleX;
@@ -33,9 +55,11 @@ export default class Entity {
         this.body.position.y = this._model.posY;
 
     }
+
     render(){
         this.game.scene.addChild( this.body );
     }
+
     remove(){
         if(this._model.isDeath) {
             this.game.scene.removeChild( this._container );

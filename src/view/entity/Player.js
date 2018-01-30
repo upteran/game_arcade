@@ -6,31 +6,13 @@ export default class Player extends Entity {
         super(...arg)
         this.stopTime = 0;
     }
+
     update() {
         super.update();
         this.hit();
         this.updateFrameOffsets();
     }
-    updateFrameOffsets() {
-        this.body.width = this.body.texture.orig.width * this._model.scaleRatio;
-        this.body.height = this.body.texture.orig.height * this._model.scaleRatio;
-        this.body.position.y = (this._model.posY + this._model.startCharHeight) - this.body.height;
-    }
-    demage() {
-        if(this._model.isDemaged) {
-            this.body.texture = this.animations.play('hurt', 400, true);
-            if(this.body.alpha !== 0) {
-                this.body.alpha -= 1;
-                this.body.tint = 0xf2aebc;
-            } else {
-                this.body.alpha += 1;
-                this.body.tint = 0xf2aebc;
-            }
-        } else {
-            this.body.alpha = 1;
-            this.body.tint = 0xFFFFFF;
-        }
-    }
+
     hit() {
         if(this._model.isHited && !this._model.down) {
             this.body.texture = this.animations.play('combo', 100, false);
@@ -40,6 +22,7 @@ export default class Player extends Entity {
             this.stopTime = 0;
         }
     }
+
     move() {
         // this.body.texture = this.animations.play('move', 300, false);
         if(this._model.down){

@@ -1,4 +1,3 @@
-/*global setTimeout*/
 import Entity from './';
 
 export default class HitArea extends Entity {
@@ -9,7 +8,7 @@ export default class HitArea extends Entity {
         this.type = 'area';
         this.moveType = 'static';
         this.height = this.player.height;
-        this.width = 30;
+        this.width = 20;
         this.posX = this.player.posX;
         this.posY = this.player.posY;
     }
@@ -21,18 +20,13 @@ export default class HitArea extends Entity {
 
     move() {
         if(this.player.dir === 'r' || this.player.lastDir === 'r') {
-            this.posX = this.player.posX - this.width / 2 + this.player.width;
+            this.posX = this.player.posX - this.width / 2 + this.player.width / 2;
         } else {
-            this.posX = this.player.posX - this.width / 2 - this.player.width;
+            this.posX = this.player.posX - this.width / 2 - this.player.width / 2;
         }
 
         this.posY = this.player.posY;
     }
-
-    // update() {
-    //     let collision = this.game.actorTouched(this, '');
-    //     if(collision) this.touchedAt(collision);
-    // }
 
     hitHandler() {
         if(this.player.isHited) {

@@ -1,5 +1,5 @@
 import Player from './entity/Player';
-import HitArea from './entity/HitArea';
+// import HitArea from './entity/HitArea';
 import Box from './entity/Box';
 import Lumpi from './entity/enemy/Lumpi';
 import HypnoWorm from './entity/enemy/HypnoWorm';
@@ -24,8 +24,8 @@ export default class GameModel {
         this.builder = new Builder(gameMap);
         this.player = new Player( this , playerMap);
         this.gameModels = this.builder.build( this );
-        this.hitArea = new HitArea(this, this.player);
-        this.actors.push(this.player,this.hitArea, ...this.gameModels);
+        // this.hitArea = new HitArea(this, this.player);
+        this.actors.push(this.player, ...this.gameModels);
     }
     actorTouched(actor, exceptions) {
         var a1 = {},
