@@ -3,10 +3,13 @@ export default class Advantage {
     constructor(entity) {
         this.entity = entity;
         this.type = null;
+
     }
 
-    action(dir) { }
+    action(dir) {}
 
-    tick() {}
+    tick() {
+        this.action( prop );
+    }
 
 }

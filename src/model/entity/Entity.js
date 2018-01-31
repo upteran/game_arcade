@@ -1,22 +1,27 @@
+import Advantage from "./../advantages/Advantage";
+
 export default class Entity {
     constructor(game, props) {
 
         this.advantages = [];
-
         this.game = game;
         this.dir = props.dir || 's';
-        this.name = props.name;
-        this.type = props.type || 'wall';
-        this.moveType = props.moveType;
+        this.scaleRatio = props.scale;
         this.sourceWidth = props.width;
         this.sourceHeight = props.height;
-        this.scaleRatio = props.scale;
         this.width = this.sourceWidth * this.scaleRatio;
         this.height = this.sourceHeight * this.scaleRatio;
-        this.startCharWidth = this.width;
-        this.startCharHeight = this.height;
         this.posX = props.x;
         this.posY = props.y - this.height;
+        this.name = props.name;
+        this.type = props.type;
+
+
+
+
+        this.moveType = props.moveType;
+        this.startCharWidth = this.width;
+        this.startCharHeight = this.height;
         this.posGameStartX = this.posX;
         this.posGameStartY = this.posY;
         this.posYcurr= this.posY;
