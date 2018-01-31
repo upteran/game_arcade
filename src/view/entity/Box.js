@@ -1,11 +1,11 @@
-import Entity from "./";
+import Entity from "./Entity";
 //x: 800 , y: 337;
 export default class Box extends Entity{
     constructor(...arg) {
         super(...arg);
     }
     update(){
-        this.body.texture = this.animations.play('normal', 100, false);
+        this.body.texture = this.textures['normal'][Math.floor(new Date().valueOf() / this.FRAME_TIME) % this.textures['normal'].length];
         super.update();
     }
     demage(){

@@ -1,5 +1,5 @@
 /* global setTimeout , clearTimeout*/
-import Entity from './../';
+import Entity from './../Entity';
 
 export default class Enemy extends Entity {
     constructor(game, props) {

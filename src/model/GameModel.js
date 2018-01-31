@@ -4,8 +4,7 @@ import Box from './entity/Box';
 import Lumpi from './entity/enemy/Lumpi';
 import HypnoWorm from './entity/enemy/HypnoWorm';
 // import * as utils from './../utils/';
-import maps from './../maps/';
-// import * as cons from './../const/';
+import maps from './../maps/data.json';
 
 
 const gameMap = maps.game;

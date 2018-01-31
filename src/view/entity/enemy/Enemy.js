@@ -1,4 +1,4 @@
-import Entity from "./../";
+import Entity from "./../Entity";
 
 
 export default class Enemy extends Entity{
@@ -6,7 +6,7 @@ export default class Enemy extends Entity{
         super(...arg);
     }
     update() {
-        this.body.texture = this.animations.play('move', 100, false);
+        this.body.texture = this.selectTexture('move');
         super.update();
         super.updateFrameOffsets();
     }

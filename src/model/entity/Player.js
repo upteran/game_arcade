@@ -1,5 +1,5 @@
 /*global setTimeout*/
-import Entity from './';
+import Entity from './Entity';
 // import HitArea from './HitArea';
 
 export default class Player extends Entity {

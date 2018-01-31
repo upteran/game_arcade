@@ -1,4 +1,4 @@
-import Enemy from "./";
+import Enemy from "./Enemy";
 
 
 export default class HypnoWorm extends Enemy{

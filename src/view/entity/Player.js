@@ -1,4 +1,4 @@
-import Entity from "./";
+import Entity from "./Entity";
 
 
 export default class Player extends Entity {
@@ -15,10 +15,10 @@ export default class Player extends Entity {
 
     hit() {
         if(this._model.isHited && !this._model.down) {
-            this.body.texture = this.animations.play('combo', 100, false);
+            this.body.texture = this.selectTexture('combo');
             this.stopTime = 0;
         } else if(this._model.isHited && this._model.down) {
-            this.body.texture = this.animations.play('comboDown', 100, false);
+            this.body.texture = this.selectTexture('comboDown');
             this.stopTime = 0;
         }
     }
@@ -27,19 +27,19 @@ export default class Player extends Entity {
         // this.body.texture = this.animations.play('move', 300, false);
         if(this._model.down){
             this.stopTime = 0;
-            this.body.texture = this.animations.play('down', 60, true);
+            this.body.texture = this.selectTexture('down');
         } else if(this._model.isJumping) {
             this.stopTime = 0;
-            this.body.texture = this.animations.play('jump', 600, false);
+            this.body.texture = this.selectTexture('jump');
         } else if(this._model.vx !== 0 && !this._model.isHited && !this._model.isDemaged) {
             this.stopTime = 0;
-            this.body.texture = this.animations.play('move', 60, false);
+            this.body.texture = this.selectTexture('move');
         } else if(!this._model.isHited && !this._model.isDemaged){
-            this.stopTime++;
+            // this.stopTime++;
             if(this.stopTime / 60 > 3) {
-                this.body.texture = this.animations.play('stop', 320, true);
+                this.body.texture = this.selectTexture('stop');
             } else {
-                this.body.texture = this.animations.play('stop1', 100, false);
+                this.body.texture = this.selectTexture('stop1');
             }
         }
         super.move();

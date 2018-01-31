@@ -1,5 +1,4 @@
 import * as PIXI from 'pixi.js';
-import animationsTextureLoader from './../../utils/AnimationsTextureLoader.js';
 import * as utils from './../../utils';
 
 export default class Entity {
@@ -8,8 +7,7 @@ export default class Entity {
         this._model = model;
         this.res = PIXI.loader.resources[model.name.split('_')[0]];
         this.body = new PIXI.Sprite();
-        this.animationsTexture = animationsTextureLoader(this.res);
-        this.animations = new utils.createAnimations(this.animationsTexture);
+        this.textures = utils.textureLoader(this.res);
         this.body.position.x = this._model.posX;
         this.body.position.y = this._model.posY;
         this.body.width = this._model.width;
@@ -18,6 +16,7 @@ export default class Entity {
         this.body.scale.x = this._model.scaleX;
         this.body.scale.y = this._model.scaleY;
         this.isJumping = this._model.isJumping;
+        this.FRAME_TIME = 120;
     }
 
     update() {
@@ -31,9 +30,13 @@ export default class Entity {
         this.body.position.y = (this._model.posY + this._model.startCharHeight) - this.body.height;
     }
 
+    selectTexture ( name ) {
+        return this.textures[name][Math.floor(new Date().valueOf() / this.FRAME_TIME) % this.textures[name].length]
+    }
+
     demage() {
         if(this._model.isDemaged) {
-            this.body.texture = this.animations.play('hurt', 400, true);
+            this.body.texture = this.selectTexture('hurt');
             if(this.body.alpha !== 0) {
                 this.body.alpha -= 1;
                 this.body.tint = 0xf2aebc;

@@ -1,4 +1,4 @@
-import Entity from './';
+import Entity from './Entity';
 
 export default class HitArea extends Entity {
     constructor(game, props) {

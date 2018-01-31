@@ -24,7 +24,8 @@
             "scale": 1.3,
             "dir": "l",
             "currMoveType": "move",
-            "moveType": "move"
+            "moveType": "move",
+            "advantages": ["moving, jumping, hitting"]
         },
         {
             "name": "hypnoWorm",

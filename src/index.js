@@ -1,7 +1,7 @@
 /*global window, document*/
-import GameView from './view';
-import GameModel from './model';
-import Controller from './controller';
+import GameView from './view/GameView';
+import GameModel from './model/GameModel';
+import Controller from './controller/Controller';
 import Loader from './Loader';
 
 const loader = new Loader();
