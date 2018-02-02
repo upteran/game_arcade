@@ -1,16 +1,17 @@
 {
     "player": {
         "name": "player",
-        "type": "player",
         "x": 500,
         "y": 386,
-        "height": 47,
-        "width": 44,
-        "health": 300,
-        "scale": 1.2,
-        "dir": "r",
-        "currMoveType": "stop",
-        "moveType": "move"
+        "advantages": [
+            {
+                "type": "MovingAxis",
+                "height": "47",
+                "width": "44",
+                "scale": 1.2,
+                "dir": "r"
+            }
+        ]
     },
     "game": [
         {

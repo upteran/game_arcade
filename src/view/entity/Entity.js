@@ -5,7 +5,8 @@ export default class Entity {
     constructor(game, model) {
         this.game = game;
         this._model = model;
-        this.res = PIXI.loader.resources[model.name.split('_')[0]];
+        console.log(this._model)
+        this.res = PIXI.loader.resources[this._model.name.split('_')[0]];
         this.body = new PIXI.Sprite();
         this.textures = utils.textureLoader(this.res);
         this.body.position.x = this._model.posX;
@@ -14,7 +15,7 @@ export default class Entity {
         this.body.height = this._model.height;
         this.body.anchor.x = this._model.anchor.x;
         this.body.scale.x = this._model.scaleX;
-        this.body.scale.y = this._model.scaleY;
+        // this.body.scale.y = this._model.scaleY;
         this.isJumping = this._model.isJumping;
         this.FRAME_TIME = 120;
     }
@@ -61,6 +62,7 @@ export default class Entity {
 
     render(){
         this.game.scene.addChild( this.body );
+        console.log(this.body)
     }
 
     remove(){

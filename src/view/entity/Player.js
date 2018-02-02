@@ -5,12 +5,13 @@ export default class Player extends Entity {
     constructor(...arg) {
         super(...arg);
         this.stopTime = 0;
+        console.log(this)
     }
 
     update() {
         super.update();
-        this.hit();
-        this.updateFrameOffsets();
+        // this.hit();
+        // this.updateFrameOffsets();
     }
 
     hit() {
@@ -24,7 +25,6 @@ export default class Player extends Entity {
     }
 
     move() {
-        // this.body.texture = this.animations.play('move', 300, false);
         if(this._model.down){
             this.stopTime = 0;
             this.body.texture = this.selectTexture('down');
