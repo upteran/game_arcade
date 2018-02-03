@@ -1,5 +1,4 @@
-export default class Advantage {
-
+export class Advantage {
     constructor(entity) {
         this.entity = entity;
         this.type = null;

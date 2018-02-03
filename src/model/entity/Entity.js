@@ -1,4 +1,5 @@
-import Advantage from "./../advantages/Advantage";
+import * as advantage from "./../advantages/";
+// console.log(advantage);
 
 export default class Entity {
     constructor(game, props) {

@@ -1,8 +1,8 @@
 import Advantage from "./";
 
-export class MovingAxis extends Advantage {
-    constructor(entity) {
-        super(entity);
+export class Moving extends Advantage {
+    constructor(...arg) {
+        super(...arg);
         this.dir = null;
         this.lastDir = null;
         this.down = false;
