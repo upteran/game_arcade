@@ -27,7 +27,8 @@ export default class GameView {
                            this.camera,
                            this.player,
                            // this.hitArea,
-                           ...this.entitiesModels);
+                           // ...this.entitiesModels
+                           );
         this.renderer = PIXI.autoDetectRenderer(this.sceneW, this.sceneH, {
             transparent: true
         });
