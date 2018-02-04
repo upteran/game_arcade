@@ -2,7 +2,6 @@ export default class Advantage {
     static Create (entity, props) {
         let res = new this(entity, props);
         return res;
-        // res.props.push(props);
     }
     constructor(entity) {
         this.entity = entity;
@@ -10,7 +9,7 @@ export default class Advantage {
         this.props = [];
     }
 
-    action(dir) {}
+    action() {}
     tick( prop ) {
         this.action( prop );
     }

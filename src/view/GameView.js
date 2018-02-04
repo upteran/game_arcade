@@ -5,6 +5,7 @@ import Stage from './Stage';
 import Camera from './Camera';
 import Box from './entity/Box';
 import Lumpi from './entity/enemy/Lumpi';
+import Entity from './entity/Entity';
 import HypnoWorm from './entity/enemy/HypnoWorm';
 
 export default class GameView {
@@ -27,7 +28,7 @@ export default class GameView {
                            this.camera,
                            this.player,
                            // this.hitArea,
-                           // ...this.entitiesModels
+                           ...this.entitiesModels
                            );
         this.renderer = PIXI.autoDetectRenderer(this.sceneW, this.sceneH, {
             transparent: true
@@ -36,15 +37,16 @@ export default class GameView {
     }
     setModels( models ) {
         return models.map(( model ) => {
-            if(model.type === 'enemy' && model.name === 'lumpi') {
-                return new Lumpi(this, model);
-            }
-            else if(model.type === 'enemy' && model.name === 'hypnoWorm'){
-                return new HypnoWorm(this, model);
-            }
-            else if(model.type === 'box'){
-                return new Box(this, model);
-            }
+            return new Entity(this, model);
+            // if(model.type === 'enemy' && model.name === 'lumpi') {
+            //     return new Lumpi(this, model);
+            // }
+            // else if(model.type === 'enemy' && model.name === 'hypnoWorm'){
+            //     return new HypnoWorm(this, model);
+            // }
+            // else if(model.type === 'box'){
+            //     return new Box(this, model);
+            // }
         })
     }
     update(){

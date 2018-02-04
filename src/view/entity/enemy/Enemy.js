@@ -6,8 +6,8 @@ export default class Enemy extends Entity{
         super(...arg);
     }
     update() {
-        this.body.texture = this.selectTexture('move');
-        super.update();
-        super.updateFrameOffsets();
+        // this.body.texture = this.selectTexture('move');
+        // super.update();
+        // super.updateFrameOffsets();
     }
 }

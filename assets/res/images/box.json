@@ -1,7 +1,7 @@
 {
     "image": "box.png",
     "animations": {
-        "normal": {
+        "default": {
             "box_0": {
                 "frame": {"x":0,"y":0,"w":85,"h":85},
                 "rotated": false,
@@ -10,7 +10,25 @@
                 "sourceSize": {"w":64,"h":63}
             }
         },
-        "half": {
+        "stop": {
+            "box_0": {
+                "frame": {"x":0,"y":0,"w":85,"h":85},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":85,"h":85},
+                "sourceSize": {"w":64,"h":63}
+            }
+        },
+        "move": {
+            "box_3": {
+                "frame": {"x":0,"y":0,"w":85,"h":85},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":85,"h":85},
+                "sourceSize": {"w":64,"h":63}
+            }
+        },
+        "damage": {
             "box_1": {
                 "frame": {"x":85,"y":0,"w":85,"h":85},
                 "rotated": false,

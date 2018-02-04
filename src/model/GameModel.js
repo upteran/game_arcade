@@ -1,9 +1,8 @@
 import Player from './entity/Player';
 // import HitArea from './entity/HitArea';
-import Box from './entity/Box';
+import Environment from './entity/Environment';
 import Entity from './entity/Entity';
-import Lumpi from './entity/enemy/Lumpi';
-import HypnoWorm from './entity/enemy/HypnoWorm';
+import Enemy from './entity/enemy/Enemy';
 // import * as utils from './../utils/';
 import maps from './../maps/data.json';
 
@@ -25,7 +24,8 @@ export default class GameModel {
         this.player = Player.Create( this , playerMap );
         this.gameModels = this.builder.build( this );
         // this.hitArea = new HitArea(this, this.player);
-        this.actors.push(this.player);
+        this.actors.push(this.player, ...this.gameModels);
+        console.log(this.actors)
     }
     actorTouched(actor, exceptions) {
         var a1 = {},
@@ -36,7 +36,6 @@ export default class GameModel {
         for(let i = 0;i < this.actors.length;i++) {
             let other = this.actors[i];
                 if(actor !== other){
-
                 a1.halfW = actor.width / 2;
                 a1.halfH = actor.height / 2;
                 a1.xAnchorOffset = actor.width * actor.anchor.x;
@@ -97,7 +96,7 @@ export default class GameModel {
             this.player.startJump();
             break;
             case 'jumpEnd':
-            this.player.jumpEnd();
+            this.player.endJump();
             break;
             case 'hit':
             this.player.hit(dir);
@@ -115,14 +114,11 @@ class Builder {
     }
     build(game) {
         let res = this.map.map(({ ...props }) => {
-            if( props.type === 'box' ) {
-                return new Box(game, props);
+            if( props.type === 'environment' ) {
+                return Environment.Create(game, props);
             }
-            else if( props.type === 'enemy' && props.name === 'lumpi') {
-                return new Lumpi(game, props);
-            }
-            else if( props.type === 'enemy' && props.name === 'hypnoWorm' ) {
-                return new HypnoWorm(game, props);
+            else if( props.type === 'enemy') {
+                return Enemy.Create(game, props);
             }
         });
         return res;

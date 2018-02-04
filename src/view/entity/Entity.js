@@ -2,10 +2,14 @@ import * as PIXI from 'pixi.js';
 import * as utils from './../../utils';
 
 export default class Entity {
+    static Create(game, model) {
+        let view = new this(game, modal);
+        return view;
+    }
     constructor(game, model) {
         this.game = game;
         this._model = model;
-        console.log(this._model)
+        this.name = this._model.name;
         this.res = PIXI.loader.resources[this._model.name.split('_')[0]];
         this.body = new PIXI.Sprite();
         this.textures = utils.textureLoader(this.res);
@@ -15,14 +19,16 @@ export default class Entity {
         this.body.height = this._model.height;
         this.body.anchor.x = this._model.anchor.x;
         this.body.scale.x = this._model.scaleX;
-        // this.body.scale.y = this._model.scaleY;
+        this.body.scale.y = this._model.scaleY;
         this.isJumping = this._model.isJumping;
         this.FRAME_TIME = 120;
+        console.log(this)
     }
 
     update() {
         this.move();
-        this.demage();
+        // this.demage();
+        // this.updateFrameOffsets();
     }
 
     updateFrameOffsets() {
@@ -52,6 +58,19 @@ export default class Entity {
     }
 
     move() {
+        if(this._model.currAction === 'move' && !this._model.isJumping) {
+            this.body.texture = this.selectTexture('move');
+        } else if (this._model.currAction === 'stop') {
+            this.body.texture = this.selectTexture('stop');
+        } else if (this._model.isJumping) {
+            this.body.texture = this.selectTexture('jump');
+        } else if(this._model.down) {
+            this.body.texture = this.selectTexture('down');
+        } else if ( this._model.isHiting && this._model.currAction === 'hit'){
+            this.body.texture = this.selectTexture('combo');
+        } else {
+            this.body.texture = this.selectTexture('stop');
+        }
         if(this._model.moveType !== 'static') {
             this.body.scale.x = this._model.scaleX;
         }

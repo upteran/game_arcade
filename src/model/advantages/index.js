@@ -1,12 +1,13 @@
-import Advantage from './Advantage';
-import MovingAxis from './MovingAxis';
-
+import Moving from './Moving';
+import Physical from './Physical';
+import Hit from './Hit';
 
 let createAdvantagesMap = () => {
     let advantages = [];
     advantages.push(
-        Advantage,
-        MovingAxis
+        Moving,
+        Physical,
+        Hit
     );
     return advantages;
 };

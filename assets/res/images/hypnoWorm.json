@@ -136,6 +136,26 @@
                 "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
                 "sourceSize": {"w":64,"h":63}
             }
+        },
+        "default": {
+            "worm_15":
+            {
+                "frame": {"x":342,"y":544,"w":23,"h":31},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            }
+        }, 
+        "stop": {
+            "worm_16":
+            {
+                "frame": {"x":342,"y":544,"w":23,"h":31},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            }
         }
     },
     "meta": {
