@@ -1,42 +1,41 @@
 /* global setTimeout , clearTimeout*/
 import Entity from './../Entity';
+import BotController from './../../../controller/BotController';
 
 export default class Enemy extends Entity {
     constructor(game, props) {
         super(game, props);
+        this.controller = new BotController(this);
+        this.distance = 100;
     }
 
     update() {
         super.update();
+        if(this.posX === (this.x + this.distance)) {
+            this.dir = 'l';
+        } else if (this.posX === this.x) {
+            this.dir = 'r';
+        }
     }
-
-    touchedAt () {
-        console.log(`touched enemy ${this.name}`);
+    
+    touchedAt(collision){
+        let actor = collision.other,
+            side = collision.side,
+            offset = collision.offset;
+        if(actor.type === 'player') {
+            switch(side) {
+                case 'left':
+                this.controller.keypress('hit');
+                actor.posX += offset;
+                break;
+                case 'right':
+                this.controller.keypress('hit');
+                actor.posX -= offset;
+                break;
+                default:
+                break;
+            }
+        }
     }
-    // touchedAt(collision){
-    //     let actor = collision.other,
-    //         side = collision.side,
-    //         offset = collision.offset;
-    //     if(actor.type === 'player' && actor.isHited) {
-    //         this.lastStep = this.step;
-    //         this.isDemaged = true;
-    //         this.step = 0;
-    //         clearTimeout(this.demageTime);
-    //         this.demageTime = setTimeout(() => {
-    //           this.isDemaged = false;
-    //           this.step = this.lastStep;
-    //         }, 700)
-    //         switch(side) {
-    //             case 'left':
-    //             this.posX -= offset;
-    //             break;
-    //             case 'right':
-    //             this.posX += offset;
-    //             break;
-    //             default:
-    //             break;
-    //         }
-    //     }
-    // }
 
 }

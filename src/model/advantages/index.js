@@ -1,13 +1,17 @@
 import Moving from './Moving';
-import Physical from './Physical';
+import Draw from './Draw';
 import Hit from './Hit';
+import MovementAxis from './MovementAxis';
+import Destroyable from './Destroyable';
 
 let createAdvantagesMap = () => {
     let advantages = [];
     advantages.push(
         Moving,
-        Physical,
-        Hit
+        Draw,
+        Hit,
+        MovementAxis,
+        Destroyable
     );
     return advantages;
 };

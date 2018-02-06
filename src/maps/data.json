@@ -6,45 +6,39 @@
         "y": 386,
         "advantages": [
             {
-                "type": "Physical",
+                "type": "Draw",
                 "height": 47,
                 "width": 44,
                 "scale": 1.2,
-                "health": 3,
                 "anchor": {"x": 0.5, "y": 0}
             },
             {
                 "type": "Moving",
-                "dir": "r",
+                "dir": "s",
                 "currAction": "stop"
             },
             {
-                "type": "Hit"
+                "type": "Hit",
+                "hits": [
+                    {
+                        "type": "combo",
+                        "dist": 10,
+                        "damage": 5
+                    },
+                    {
+                        "type": "comboDown",
+                        "dist": 20,
+                        "damage": 10
+                    }
+                ]
+            },
+            {
+                "type": "Destroyable",
+                "health": 300
             }
         ]
     },
     "game": [
-        {
-            "name": "lumpi",
-            "type": "enemy",
-            "x": 300,
-            "y": 386,
-            "advantages": [
-                {
-                    "type": "Physical",
-                    "height": 27,
-                    "width": 27,
-                    "health": 300,
-                    "scale": 1.3,
-                    "anchor": {"x": 0.5, "y": 0}
-                },
-                {
-                    "type": "Moving",
-                    "dir": "r",
-                    "currAction": "move"
-                }
-            ]
-        },
         {
             "name": "hypnoWorm",
             "type": "enemy",
@@ -52,7 +46,7 @@
             "y": 386,
             "advantages": [
                 {
-                    "type": "Physical",
+                    "type": "Draw",
                     "height": 20,
                     "width": 24,
                     "health": 300,
@@ -60,9 +54,62 @@
                     "anchor": {"x": 0.5, "y": 0}
                 },
                 {
-                "type": "Moving",
-                "dir": "l",
-                "currAction": "stop"
+                    "type": "Moving",
+                    "dir": "s",
+                    "currAction": "stop",
+                    "step": 1,
+                    "distance": 120
+                },
+                {
+                    "type": "Hit",
+                    "hits": [
+                        {
+                            "type": "combo",
+                            "dist": 10,
+                            "damage": 5
+                        }
+                    ]
+                },
+                {
+                    "type": "Destroyable",
+                    "health": 300
+                }
+            ]
+        },
+        {
+            "name": "bigZombi_01",
+            "type": "enemy",
+            "x": 810,
+            "y": 386,
+            "advantages": [
+                {
+                    "type": "Draw",
+                    "height": 64,
+                    "width": 46,
+                    "health": 300,
+                    "scale": 1,
+                    "anchor": {"x": 0.5, "y": 0}
+                },
+                {
+                    "type": "Moving",
+                    "dir": "s",
+                    "currAction": "stop",
+                    "step": 1,
+                    "distance": 150
+                },
+                {
+                "type": "Hit",
+                "hits": [
+                        {
+                            "type": "combo",
+                            "dist": 10,
+                            "damage": 5
+                        }
+                    ]
+                },
+                {
+                    "type": "Destroyable",
+                    "health": 300
                 }
             ]
         },
@@ -73,7 +120,24 @@
             "y": 350,
             "advantages": [
                 {
-                    "type": "Physical",
+                    "type": "Draw",
+                    "height": 43,
+                    "width": 43,
+                    "health": 200,
+                    "scale": 1,
+                    "anchor": {"x": 0.5, "y": 0},
+                    "moveType": "static"
+                }
+            ]
+        },
+        {
+            "name": "box_1",
+            "type": "environment",
+            "x": 530,
+            "y": 300,
+            "advantages": [
+                {
+                    "type": "Draw",
                     "height": 43,
                     "width": 43,
                     "health": 200,

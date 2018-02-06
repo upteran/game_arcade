@@ -1,5 +1,5 @@
 {
-    "image": "hypnoWorm.png",
+    "image": "/enemies/hypnoWorm.png",
     "width": 50,
     "height": 60,
     "x": 0,
@@ -156,11 +156,136 @@
                 "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
                 "sourceSize": {"w":64,"h":63}
             }
+        },
+        "combo": {
+            "worm_17":
+            {
+                "frame": {"x":5,"y":396,"w":40,"h":42},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}  
+            },
+            "worm_18":
+            {
+                "frame": {"x":56,"y":396,"w":40,"h":42},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}  
+            }, 
+            "worm_19":
+            {
+                "frame": {"x":112,"y":396,"w":40,"h":42},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}  
+            },
+            "worm_20":
+            {
+                "frame": {"x":164,"y":396,"w":40,"h":42},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}  
+            },
+            "worm_21":
+            {
+                "frame": {"x":220,"y":396,"w":40,"h":42},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}  
+            }, "worm_22":
+            {
+                "frame": {"x":276,"y":396,"w":40,"h":42},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}  
+            }, "worm_23":
+            {
+                "frame": {"x":329,"y":396,"w":40,"h":42},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}  
+            }, "worm_24":
+            {
+                "frame": {"x":382,"y":396,"w":40,"h":42},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}  
+            }, "worm_25":
+            {
+                "frame": {"x":436,"y":396,"w":40,"h":42},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}  
+            },"worm_26":
+            {
+                "frame": {"x":489,"y":396,"w":40,"h":42},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}  
+            },"worm_27":
+            {
+                "frame": {"x":544,"y":396,"w":40,"h":42},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}  
+            },"worm_28":
+            {
+                "frame": {"x":600,"y":396,"w":40,"h":42},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}  
+            },"worm_29":
+            {
+                "frame": {"x":113,"y":462,"w":40,"h":42},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}  
+            },"worm_30":
+            {
+                "frame": {"x":166,"y":462,"w":40,"h":42},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}  
+            },
+            "worm_31":
+            {
+                "frame": {"x":220,"y":462,"w":40,"h":42},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}  
+            },
+            "worm_32":
+            {
+                "frame": {"x":277,"y":462,"w":40,"h":42},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}  
+            }
+        },
+        "jump": {
+            "worm_33": {
+                "frame": {"x":277,"y":462,"w":40,"h":42},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63} 
+            }
         }
-    },
-    "meta": {
-        "format": "RGBA8888",
-        "scale": "1",
-        "smartupdate": "$TexturePacker:SmartUpdate:68947b15bb7efc40be030c076d92ff6a:7a7176ee4a47114ab8e7e8ecb8c361fc:fac4f515bf266e4f4ed746fa4fe7351a$"
     }
 }

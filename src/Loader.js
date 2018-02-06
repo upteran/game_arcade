@@ -4,10 +4,11 @@ export default class Loader {
     constructor() {
         this.callback = null;
         this.assetsLoader = PIXI.loader;
-        this.assetsLoader.add('player', 'res/images/player.json');
-        this.assetsLoader.add('res/images/stageBg.png');
-        this.assetsLoader.add('lumpi', 'res/images/lumpi.json');
-        this.assetsLoader.add('hypnoWorm', 'res/images/hypnoWorm.json');
+        this.assetsLoader.add('player', 'res/images/characters/player.json');
+        this.assetsLoader.add('res/images/stages/stageBg.png');
+        this.assetsLoader.add('lumpi', 'res/images/enemies/lumpi.json');
+        this.assetsLoader.add('hypnoWorm', 'res/images/enemies/hypnoWorm.json');
+        this.assetsLoader.add('bigZombi', 'res/images/enemies/bigZombi.json');
         this.assetsLoader.add('box', 'res/images/box.json');
         this.assetsLoader.once('complete', this.onImageLoader.bind( this ));
     }

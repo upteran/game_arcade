@@ -1,0 +1,294 @@
+{
+    "image": "/enemies/bigZombi.png",
+    "width": 43,
+    "height": 58,
+    "x": 0,
+    "y": 0,
+    "animations": {
+        "move": {
+            "zombi_0":
+            {
+                "frame": {"x":13,"y":87,"w":46,"h":64},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            },
+            "zombi_1":
+            {
+                "frame": {"x":78,"y":87,"w":46,"h":64},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            },
+            "zombi_2":
+            {
+                "frame": {"x":144,"y":87,"w":46,"h":64},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            },
+            "zombi_3":
+            {
+                "frame": {"x":210,"y":87,"w":46,"h":64},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            },
+            "zombi_4":
+            {
+                "frame": {"x":276,"y":87,"w":46,"h":64},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            },
+            "zombi_5":
+            {
+                "frame": {"x":342,"y":87,"w":46,"h":64},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            },
+            "zombi_6":
+            {
+                "frame": {"x":409,"y":87,"w":46,"h":64},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            },
+            "zombi_9":
+            {
+                "frame": {"x":477,"y":87,"w":46,"h":64},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            },
+            "zombi_10":
+            {
+                "frame": {"x":540,"y":87,"w":46,"h":64},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            }, 
+            "zombi_11":
+            {
+                "frame": {"x":607,"y":87,"w":46,"h":64},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            }
+        },
+        "hurt": {
+            "zombi_10":
+            {
+                "frame": {"x":13,"y":239,"w":45,"h":64},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            },
+            "zombi_11":
+            {
+                "frame": {"x":89,"y":239,"w":45,"h":64},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            },
+            "zombi_12":
+            {
+                "frame": {"x":167,"y":239,"w":45,"h":64},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            },
+            "zombi_13":
+            {
+                "frame": {"x":243,"y":239,"w":45,"h":64},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            }
+        },
+        "default": {
+            "zombi_15":
+            {
+                "frame": {"x":10,"y":15,"w":43,"h":58},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            },
+            "zombi_16":
+            {
+                "frame": {"x":68,"y":15,"w":43,"h":58},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            },
+            "zombi_17":
+            {
+                "frame": {"x":128,"y":15,"w":43,"h":58},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            },
+            "zombi_18":
+            {
+                "frame": {"x":189,"y":15,"w":43,"h":58},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            },
+            "zombi_19":
+            {
+                "frame": {"x":251,"y":15,"w":43,"h":58},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            },
+            "zombi_20":
+            {
+                "frame": {"x":311,"y":15,"w":43,"h":58},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            },
+            "zombi_21":
+            {
+                "frame": {"x":372,"y":15,"w":43,"h":58},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            }
+        },
+        "stop": {
+            "zombi_22":
+            {
+                "frame": {"x":10,"y":15,"w":43,"h":58},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            },
+            "zombi_23":
+            {
+                "frame": {"x":68,"y":15,"w":43,"h":58},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            },
+            "zombi_24":
+            {
+                "frame": {"x":128,"y":15,"w":43,"h":58},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            },
+            "zombi_25":
+            {
+                "frame": {"x":189,"y":15,"w":43,"h":58},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            },
+            "zombi_26":
+            {
+                "frame": {"x":251,"y":15,"w":43,"h":58},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            },
+            "zombi_27":
+            {
+                "frame": {"x":311,"y":15,"w":43,"h":58},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            },
+            "zombi_28":
+            {
+                "frame": {"x":372,"y":15,"w":43,"h":58},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            }
+        },
+        "combo": {
+            "zombi_29" : {
+                "frame": {"x":12,"y":165,"w":50,"h":58},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}               
+            },
+            "zombi_30" : {
+                "frame": {"x":79,"y":165,"w":50,"h":58},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}               
+            },
+            "zombi_31" : {
+                "frame": {"x":146,"y":165,"w":50,"h":58},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}               
+            },
+            "zombi_32" : {
+                "frame": {"x":213,"y":165,"w":50,"h":58},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}               
+            },
+            "zombi_33" : {
+                "frame": {"x":275,"y":165,"w":50,"h":58},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}               
+            },
+            "zombi_34" : {
+                "frame": {"x":341,"y":165,"w":50,"h":58},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}               
+            }
+        },
+        "jump": {
+            "zombi_35": {
+                "frame": {"x":341,"y":165,"w":50,"h":58},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63} 
+            }
+        }
+    }
+}

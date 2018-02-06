@@ -23,10 +23,10 @@ export default class GameModel {
         this.builder = new Builder(gameMap);
         this.player = Player.Create( this , playerMap );
         this.gameModels = this.builder.build( this );
-        // this.hitArea = new HitArea(this, this.player);
         this.actors.push(this.player, ...this.gameModels);
         console.log(this.actors)
     }
+
     actorTouched(actor, exceptions) {
         var a1 = {},
             a2 = {},
@@ -35,7 +35,7 @@ export default class GameModel {
             offset;
         for(let i = 0;i < this.actors.length;i++) {
             let other = this.actors[i];
-                if(actor !== other){
+                if(actor !== other && actor.type !== other.type){
                 a1.halfW = actor.width / 2;
                 a1.halfH = actor.height / 2;
                 a1.xAnchorOffset = actor.width * actor.anchor.x;
@@ -80,17 +80,22 @@ export default class GameModel {
             }
         }
     }
+
     update(){
         if(this.actors.length !== 0) {
             for( let i = 0; i < this.actors.length; i++) {
-                this.actors[i].update(this.dir);
+                this.actors[i].update();
             }
         }
     }
+
     move( type, dir ){
         switch(type) {
             case 'changeDir':
-            this.dir = dir;
+            this.player.dir = dir;
+            break;
+            case 'down':
+            this.player.down = dir;
             break;
             case 'jump':
             this.player.startJump();

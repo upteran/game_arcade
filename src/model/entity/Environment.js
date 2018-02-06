@@ -6,8 +6,6 @@ export default class Environment extends Entity {
     }
 
     touchedAt() {
-        console.log('touch');
+        // console.log('touch');
     }
-
-
 }

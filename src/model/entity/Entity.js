@@ -1,13 +1,13 @@
 import * as advantages from "./../advantages/";
 
 export default class Entity {
-    static Create (game, props) {
+    static Create (game, props, name) {
         let ent = new this(game);
-        ent.props.push(props);
-        ent.name = ent.props[0].name;
-        ent.type = ent.props[0].type;
-        ent.x = ent.props[0].x;
-        ent.y = ent.props[0].y;
+        ent.props = props.advantages;
+        ent.name = name || props.name;
+        ent.type = props.type;
+        ent.x = props.x;
+        ent.y = props.y;
         ent.addAdvantages();
         return ent;
     }
@@ -24,10 +24,13 @@ export default class Entity {
     }
 
     addAdvantages () {
-        this.advantages = this.props[0].advantages.map(({ type, ...props }) => {
-            let advantage = advantages.map.find( item  => type === item.name);
-            return advantage.Create(this, {...props});
-        })
+        if(this.props) {
+           this.advantages = this.props.map(({ type, ...props }) => {
+                let advantage = advantages.map.find( item  => type === item.name);
+                return advantage.Create(this, {...props});
+            }) 
+        }
+        
     }
 
     update( dir ) {
@@ -44,7 +47,7 @@ export default class Entity {
     touchedAt(collision) {
         let actor = collision.other,
             side = collision.side,
-            offset = collision.offset;     
+            offset = collision.offset;
     }
 
     remove() {

@@ -39,9 +39,11 @@ export default class GameController extends EventEmitter {
             this._model.move('jump');
         }
         down.press = () => {
-            this._model.move('changeDir', 'd');
+            this._model.move('down', true);
+            this._model.move('changeDir', 's');
         }
         space.press = () => {
+            this._model.move('changeDir', 'h');
             this._model.move('hit', true);
         }
         right.release = () => {
@@ -54,9 +56,11 @@ export default class GameController extends EventEmitter {
             this._model.move('jumpEnd');
         }
         down.release = () => {
+            this._model.move('down', false);
             this._model.move('changeDir', 's');
         }
         space.release = () => {
+            this._model.move('changeDir', 's');
             this._model.move('hit', false);
         }
     }

@@ -4,23 +4,10 @@ import Entity from "./Entity";
 export default class Player extends Entity {
     constructor(...arg) {
         super(...arg);
-        this.stopTime = 0
     }
 
     update() {
         super.update();
-        // this.hit();       
-        // this.updateFrameOffsets();
-    }
-
-    hit() {
-        if(this._model.isHited && !this._model.down) {
-            this.body.texture = this.selectTexture('combo');
-            this.stopTime = 0;
-        } else if(this._model.isHited && this._model.down) {
-            this.body.texture = this.selectTexture('comboDown');
-            this.stopTime = 0;
-        }
     }
 
     move() {
