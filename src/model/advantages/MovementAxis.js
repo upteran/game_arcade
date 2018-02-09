@@ -1,36 +1,30 @@
 import Advantage from "./Advantage";
 
 export default class MovementAxis extends Advantage {
-    constructor(entity, props) {
-    	super(entity)
-        this.type = 'MovementAxis';
+    constructor(...arg) {
+    	super(...arg)
         this.entity.lastDir = null;
-        this.currDir = this.entity.dir;
-        this.moveAxisX = props.move.x;
-        this.moveAxisY = props.move.y;
-        this.distX = props.dist.x;
-        this.distY = props.dist.y;
-        this.step = props.step;
+        this.entity.move = null;
+        this.entity.dist = null;
+        this.entity.step = null;
     }
 
     action () {
-        if(this.moveAxisX) {
-            if(this.entity.posX === this.entity.x + this.distX){
-                this.step = -this.step;
-                this.entity.scaleX = -this.entity.scaleX;
+        if(this.entity.move.x) {
+            if(this.entity.posX === this.entity.x + this.entity.dist.x){
+                this.entity.step = -this.entity.step;
             } else if( this.entity.posX === this.entity.x){
-                this.step = Math.abs(this.step);
-                this.entity.scaleX  = Math.abs(this.entity.scaleX );
+                this.entity.step = Math.abs(this.entity.step);
             }
-            this.entity.posX += this.step;
+            this.entity.posX += this.entity.step;
         }
-        if(this.moveAxisY) {
-            if(this.entity.posY === (this.entity.y - this.entity.height) - this.distY){
-                this.step = -this.step;
+        if(this.entity.move.y) {
+            if(this.entity.posY === (this.entity.y - this.entity.height) - this.entity.dist.y){
+                this.entity.step = -this.entity.step;
             } else if( this.entity.posY === this.entity.y - this.entity.height){
-                this.step = Math.abs(this.step);
+                this.entity.step = Math.abs(this.entity.step);
             }
-            this.entity.posY -= this.step;
+            this.entity.posY -= this.entity.step;
         }
     }
 

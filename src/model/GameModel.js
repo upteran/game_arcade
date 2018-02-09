@@ -1,9 +1,7 @@
 import Player from './entity/Player';
-// import HitArea from './entity/HitArea';
 import Environment from './entity/Environment';
-import Entity from './entity/Entity';
+// import Entity from './entity/Entity';
 import Enemy from './entity/enemy/Enemy';
-// import * as utils from './../utils/';
 import maps from './../maps/data.json';
 
 
@@ -24,7 +22,6 @@ export default class GameModel {
         this.player = Player.Create( this , playerMap );
         this.gameModels = this.builder.build( this );
         this.actors.push(this.player, ...this.gameModels);
-        console.log(this.actors)
     }
 
     actorTouched(actor, exceptions) {

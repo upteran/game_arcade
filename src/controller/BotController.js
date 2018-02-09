@@ -1,5 +1,4 @@
-/*global requestAnimationFrame*/
-import * as utils from './../utils';
+/* global setTimeout */
 import {EventEmitter} from 'events'
 
 export default class BotController extends EventEmitter {
@@ -50,7 +49,6 @@ export default class BotController extends EventEmitter {
             }, timeout);
             break;
             default:
-            console.log('wrong move');
             break;
 
         }

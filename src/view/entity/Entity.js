@@ -3,7 +3,7 @@ import * as utils from './../../utils';
 
 export default class Entity {
     static Create(game, model) {
-        let view = new this(game, modal);
+        let view = new this(game, model);
         return view;
     }
     constructor(game, model) {
@@ -18,8 +18,8 @@ export default class Entity {
         this.body.width = this._model.width;
         this.body.height = this._model.height;
         this.body.anchor.x = this._model.anchor.x;
-        this.body.scale.x = this._model.scaleX;
-        this.body.scale.y = this._model.scaleY;
+        this.body.scale.x = this._model.scale.x;
+        this.body.scale.y = this._model.scale.x;
         this.isJumping = this._model.isJumping;
         this.FRAME_TIME = null;
     }
@@ -27,7 +27,6 @@ export default class Entity {
     update() {
         this.move();
         if(this._model.moveType !== 'static') this.updateFrameOffsets();
-        
     }
 
     updateFrameOffsets() {
@@ -37,8 +36,12 @@ export default class Entity {
     }
 
     selectTexture ( name ) {
-        this.FRAME_TIME = (this._model.vx && this._model.vx !== 0) ? (120 / Math.abs(this._model.vx)) : 120;
-        return this.textures[name][Math.floor(new Date().valueOf() / this.FRAME_TIME) % this.textures[name].length]
+        // if(this.name === 'player') {
+        //     console.log(this._model.vx)
+        // }
+        this.FRAME_TIME = (this._model.vx && this._model.vx.toFixed(2) !== 0) ? (800 / 4 - Math.abs(this._model.vx)) : 120;
+
+        return this.textures[name][Math.floor(new Date().valueOf() / (800 /  this.textures[name].length)) % this.textures[name].length]
     }
 
     demageCheck() {
@@ -64,7 +67,7 @@ export default class Entity {
         }
         this.demageCheck();
         if(this._model.moveType !== 'static') {
-            this.body.scale.x = this._model.scaleX;
+            this.body.scale.x = this._model.scale.x;
         }
         this.body.position.x = this._model.posX;
         this.body.position.y = this._model.posY;
@@ -73,7 +76,6 @@ export default class Entity {
 
     render(){
         this.game.scene.addChild( this.body );
-        console.log(this.body)
     }
 
     remove(){

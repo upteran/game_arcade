@@ -1,12 +1,12 @@
+/* global setTimeout, clearTimeout */
 import Advantage from "./Advantage";
 
 export default class Destroyable extends Advantage {
-    constructor(entity, props) {
-        super(entity);
-        this.type = 'Destroyable';
+    constructor(...arg) {
+        super(...arg);
+        this.health = null;
         this.entity.isDemaged = false;
         this.entity.isAlive = true;
-        this.entity.health = props.health;
         this.hurtTime = null;
         this.entity.clearHit = this.clearHit.bind(this);
         this.entity.endHit = this.endHit.bind(this);
@@ -23,8 +23,7 @@ export default class Destroyable extends Advantage {
             if(this.entity.type !== 'player') {
                 this.entity.dir = this.entity.lastDir;
             }
-            
-        }, 800) 
+        }, 800)
     }
 
     action () {

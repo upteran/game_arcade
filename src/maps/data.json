@@ -7,28 +7,40 @@
         "advantages": [
             {
                 "type": "Draw",
-                "height": 47,
-                "width": 44,
-                "scale": 1.2,
+                "sourceHeight": 47,
+                "sourceWidth": 44,
+                "scaleRatio": 1.2,
+                "scale": {"x": 1.2, "y": 1.2},
                 "anchor": {"x": 0.5, "y": 0}
             },
             {
                 "type": "Moving",
                 "dir": "s",
-                "currAction": "stop"
+                "currAction": "stop",
+                "vx": 5,
+                "vy": 0,
+                "ax": 0.3,
+                "gravity": {"x": 4, "y": 0.5},
+                "maxV": {"x": 5.5, "y": -10},
+                "step": 4
             },
             {
                 "type": "Hit",
                 "hits": [
                     {
                         "type": "combo",
-                        "dist": 10,
+                        "dist": 5,
                         "damage": 5
                     },
                     {
                         "type": "comboDown",
-                        "dist": 20,
+                        "dist": 10,
                         "damage": 10
+                    },
+                    {
+                        "type": "longCombo",
+                        "dist": 15,
+                        "damage": 20
                     }
                 ]
             },
@@ -47,17 +59,23 @@
             "advantages": [
                 {
                     "type": "Draw",
-                    "height": 20,
-                    "width": 24,
+                    "sourceHeight": 20,
+                    "sourceWidth": 24,
                     "health": 300,
-                    "scale": 1,
+                    "scaleRatio": 1,
+                    "scale": {"x": 1, "y": 1},
                     "anchor": {"x": 0.5, "y": 0}
                 },
                 {
                     "type": "Moving",
                     "dir": "s",
                     "currAction": "stop",
-                    "step": 1,
+                    "vx": 5,
+                    "vy": 0,
+                    "gravity": {"x": 5, "y": 0.5},
+                    "maxV": {"x": 0.7, "y": -10},
+                    "ax": 0.1,
+                    "step": 0.5,
                     "distance": 120
                 },
                 {
@@ -84,18 +102,24 @@
             "advantages": [
                 {
                     "type": "Draw",
-                    "height": 64,
-                    "width": 46,
+                    "sourceHeight": 64,
+                    "sourceWidth": 46,
                     "health": 300,
-                    "scale": 1,
+                    "scaleRatio": 1,
+                    "scale": {"x": 1, "y": 1},
                     "anchor": {"x": 0.5, "y": 0}
                 },
                 {
                     "type": "Moving",
                     "dir": "s",
                     "currAction": "stop",
+                    "vx": 5,
+                    "vy": 0,
+                    "gravity": {"x": 5, "y": 0.5},
+                    "ax": 0.1,
+                    "maxV": {"x": 1.2, "y": -10},
                     "step": 1,
-                    "distance": 150
+                    "distance": 120
                 },
                 {
                 "type": "Hit",
@@ -121,10 +145,11 @@
             "advantages": [
                 {
                     "type": "Draw",
-                    "height": 43,
-                    "width": 43,
+                    "sourceHeight": 43,
+                    "sourceWidth": 43,
                     "health": 200,
-                    "scale": 1,
+                    "scaleRatio": 1,
+                    "scale": {"x": 1, "y": 1},
                     "anchor": {"x": 0.5, "y": 0},
                     "moveType": "static"
                 }
@@ -138,12 +163,19 @@
             "advantages": [
                 {
                     "type": "Draw",
-                    "height": 43,
-                    "width": 43,
+                    "sourceHeight": 43,
+                    "sourceWidth": 43,
                     "health": 200,
-                    "scale": 1,
+                    "scaleRatio": 1,
+                    "scale": {"x": 1, "y": 1},
                     "anchor": {"x": 0.5, "y": 0},
                     "moveType": "static"
+                },
+                {
+                    "type": "MovementAxis",
+                    "move": {"x": false, "y": true},
+                    "step": 0.5,
+                    "dist": {"x": 0, "y": 110}
                 }
             ]
         }

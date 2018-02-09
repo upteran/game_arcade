@@ -1,4 +1,6 @@
 /*global window*/
+import * as PIXI from 'pixi.js';
+
 export function keypress( keyCode ){
     let key = {};
     key.code = keyCode;

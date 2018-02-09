@@ -1,8 +1,8 @@
 import Entity from './Entity';
 
 export default class Environment extends Entity {
-    constructor(game, props) {
-        super(game, props);
+    constructor(...arg) {
+        super(...arg);
     }
 
     touchedAt() {
