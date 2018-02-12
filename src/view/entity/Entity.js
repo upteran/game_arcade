@@ -36,11 +36,6 @@ export default class Entity {
     }
 
     selectTexture ( name ) {
-        // if(this.name === 'player') {
-        //     console.log(this._model.vx)
-        // }
-        this.FRAME_TIME = (this._model.vx && this._model.vx.toFixed(2) !== 0) ? (800 / 4 - Math.abs(this._model.vx)) : 120;
-
         return this.textures[name][Math.floor(new Date().valueOf() / (800 /  this.textures[name].length)) % this.textures[name].length]
     }
 
