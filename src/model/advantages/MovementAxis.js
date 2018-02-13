@@ -1,8 +1,9 @@
 import Advantage from "./Advantage";
 
 export default class MovementAxis extends Advantage {
+
     constructor(...arg) {
-    	super(...arg)
+    	super(...arg);
         this.entity.lastDir = null;
         this.entity.move = null;
         this.entity.dist = null;
@@ -10,6 +11,10 @@ export default class MovementAxis extends Advantage {
     }
 
     action () {
+
+    }
+
+    tick() {
         if(this.entity.move.x) {
             if(this.entity.posX === this.entity.x + this.entity.dist.x){
                 this.entity.step = -this.entity.step;

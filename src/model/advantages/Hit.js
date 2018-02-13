@@ -1,6 +1,7 @@
 import Advantage from "./Advantage";
 
 export default class Hit extends Advantage {
+
     constructor(...arg) {
     	super(...arg);
         this.entity.hits = null;
@@ -37,6 +38,16 @@ export default class Hit extends Advantage {
     	}
     }
 
+    action( {event} ) {
+        this._active = event === "start";
+    }
+
+    tick() {
+        if(this._active) {
+
+        }
+    }
+
     hit( pressed, type ) {
    		if(this.entity.isJumping) {
             return;
@@ -48,7 +59,7 @@ export default class Hit extends Advantage {
         if( pressed ) {
         	this.entity.isHiting = pressed;
             if(!type) type = 'combo';
-            currHit = this.entity.hits.filter(e => type === e.type)
+            currHit = this.entity.hits.filter(e => type === e.type);
             if(this.entity.down) {
                 currHitType = 'comboDown';
             } else {

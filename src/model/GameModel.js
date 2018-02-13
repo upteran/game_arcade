@@ -9,6 +9,7 @@ const gameMap = maps.game;
 const playerMap = maps.player;
 
 export default class GameModel {
+
     constructor ( options ) {
         this.options = options;
         this.dir = 's';

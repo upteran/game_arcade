@@ -1,6 +1,7 @@
 import Entity from './Entity';
 
 export default class Environment extends Entity {
+
     constructor(...arg) {
         super(...arg);
     }
@@ -8,4 +9,5 @@ export default class Environment extends Entity {
     touchedAt() {
         // console.log('touch');
     }
+
 }

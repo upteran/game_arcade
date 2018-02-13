@@ -1,6 +1,7 @@
 import Entity from './Entity';
 
 export default class Player extends Entity {
+
     constructor(...arg) {
         super(...arg);
     }
@@ -52,4 +53,5 @@ export default class Player extends Entity {
             }
         }
     }
+
 }

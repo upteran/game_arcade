@@ -2,6 +2,7 @@
 import Advantage from "./Advantage";
 
 export default class Destroyable extends Advantage {
+
     constructor(...arg) {
         super(...arg);
         this.health = null;
@@ -11,7 +12,6 @@ export default class Destroyable extends Advantage {
         this.entity.clearHit = this.clearHit.bind(this);
         this.entity.endHit = this.endHit.bind(this);
     }
-
 
     clearHit () {
         clearTimeout(this.hurtTime);

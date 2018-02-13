@@ -3,6 +3,7 @@ import * as utils from './../utils';
 import {EventEmitter} from 'events'
 
 export default class GameController extends EventEmitter {
+
     constructor(model, view, element ) {
         super();
         this.element = element;
@@ -10,12 +11,14 @@ export default class GameController extends EventEmitter {
         this._view = view;
         this.scene = null;
     }
+
     init() {
         this._view.render();
         this.moveControll();
         requestAnimationFrame( this._tick.bind( this ));
 
     }
+
     _tick( currTime ) {
         this.emit('update', currTime - this.lastFrameTime, currTime);
         this.lastFrameTime = currTime;
@@ -23,6 +26,7 @@ export default class GameController extends EventEmitter {
         this._view.update();
         requestAnimationFrame( this._tick.bind( this ));
     }
+
     moveControll() {
         let left = utils.keypress(37),
             up = utils.keypress(38),
@@ -64,4 +68,5 @@ export default class GameController extends EventEmitter {
             this._model.move('hit', false);
         }
     }
+
 }

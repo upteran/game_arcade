@@ -1,4 +1,5 @@
 export default class Advantage {
+
     static Create (entity, props, type) {
         let res = new this(entity);
         for(let prop in props) {
@@ -17,6 +18,7 @@ export default class Advantage {
     action() {
         // console.log('parent Advantage action')
     }
+
     tick( prop ) {
         this.action( prop );
     }

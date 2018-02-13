@@ -1,6 +1,7 @@
 import Advantage from "./Advantage";
 
 export default class Moving extends Advantage {
+
     constructor(...arg) {
         super(...arg);
         this.entity.dir = null;

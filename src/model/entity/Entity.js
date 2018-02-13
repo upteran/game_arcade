@@ -1,6 +1,7 @@
 import * as advantages from "./../advantages/";
 
 export default class Entity {
+
     static Create (game, props, name) {
         let ent = new this(game);
         ent.name = name || props.name;
