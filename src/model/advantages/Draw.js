@@ -19,12 +19,12 @@ export default class Draw extends Advantage {
         this.entity.posStartY = this.entity.posY;
     }
 
-    action ( dir ) {
+    tick () {
         if( this.entity.dir === 'l') {
             this.entity.scale.x = -this.entity.scaleRatio;
         }  else if( this.entity.dir === 'r'){
             this.entity.scale.x = this.entity.scaleRatio;
-        }
+        } 
     }
 
 }

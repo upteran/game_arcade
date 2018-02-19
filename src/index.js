@@ -2,6 +2,7 @@
 import GameView from './view/GameView';
 import GameModel from './model/GameModel';
 import Controller from './controller/Controller';
+import PlyerController from './controller/player';
 import Loader from './Loader';
 
 const loader = new Loader();
@@ -16,6 +17,7 @@ const gameOptions = {
 loader.load(() => {
     const model = new GameModel(gameOptions);
     const view = new GameView(model, body);
-    const gameController = new Controller( model, view );
-    gameController.init();
+    const controller = new Controller( model, view );
+    const playerController = new PlyerController(model.player, view.player);
+    controller.init();
 });

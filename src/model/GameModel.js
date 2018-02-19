@@ -3,6 +3,7 @@ import Environment from './entity/Environment';
 // import Entity from './entity/Entity';
 import Enemy from './entity/enemy/Enemy';
 import maps from './../maps/data.json';
+import playerController from './../controller/player';
 
 
 const gameMap = maps.game;
@@ -84,28 +85,6 @@ export default class GameModel {
             for( let i = 0; i < this.actors.length; i++) {
                 this.actors[i].update();
             }
-        }
-    }
-
-    move( type, dir ){
-        switch(type) {
-            case 'changeDir':
-            this.player.dir = dir;
-            break;
-            case 'down':
-            this.player.down = dir;
-            break;
-            case 'jump':
-            this.player.startJump();
-            break;
-            case 'jumpEnd':
-            this.player.endJump();
-            break;
-            case 'hit':
-            this.player.hit(dir);
-            break;
-            default:
-            break;
         }
     }
 

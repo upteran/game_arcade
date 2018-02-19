@@ -32,8 +32,8 @@ export default class Entity {
 
     }
 
-    update( dir ) {
-        this.advantages.forEach( a => a.tick( dir ) );
+    update() {
+        this.advantages.forEach( a => a.tick() );
         let collision = this.game.actorTouched(this);
         if(collision) {
             this.collision = true;

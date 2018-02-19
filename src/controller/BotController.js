@@ -1,4 +1,4 @@
-import Controller from "./controller"
+import Controller from "./Controller"
 
 export default class BotController extends Controller {
 

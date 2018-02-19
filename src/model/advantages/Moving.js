@@ -20,11 +20,27 @@ export default class Moving extends Advantage {
         this.entity.endJump = this.endJump.bind(this);
     }
 
-    tick () {
-        this.action();
+    action ( {event} ) {
+        console.log( event )
+        if( event === 'r') {
+            this.entity.dir = 'r';
+        } else if ( event === 'l' ) {
+            this.entity.dir = 'l';
+        } else if ( event === 'down' ) {
+            this.entity.dir = 's';
+            this.entity.down = true;
+        } else if ( event === 'jump' ) {
+            this.startJump();
+        } else if ( event === 'jumpEnd') {
+            this.endJump();
+        } else if (event === 's') {
+            this.entity.dir = 's';
+            this.entity.down = false;
+        }
     }
 
-    action () {
+    tick () {
+
         if( ( this.entity.dir === 'r' || this.entity.dir === 'l') && !this.entity.down && !this.entity.isDemaged) {
             this.entity.lastDir = this.entity.dir;
             if(this.entity.dir === 'r') {
@@ -43,8 +59,8 @@ export default class Moving extends Advantage {
                 this.entity.currAction = 'move';
             }
         }
-        else if( this.entity.down && this.entity.dir === 's' && !this.entity.isDemaged) {
-            this.entity.down = true;
+        else if( this.entity.down ) {
+            this.entity.vx = 0;
             this.entity.currAction = 'down';
         }
         else if( this.entity.dir === 's' && !this.entity.isJumping && !this.entity.down && !this.entity.isDemaged) {
