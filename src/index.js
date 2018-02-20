@@ -18,6 +18,6 @@ loader.load(() => {
     const model = new GameModel(gameOptions);
     const view = new GameView(model, body);
     const controller = new Controller( model, view );
-    const playerController = new PlyerController(model.player, view.player);
+    const playerController = new PlyerController(model.player);
     controller.init();
 });

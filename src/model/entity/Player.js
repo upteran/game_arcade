@@ -14,31 +14,17 @@ export default class Player extends Entity {
         let actor = collision.other,
             side = collision.side,
             offset = collision.offset;
+        let move = this.advantages.filter(({ type }) => type === "Moving");
+        let hit = this.advantages.filter(({ type }) => type === "Hit");
         if(actor.type !== 'enemy') {
-            switch(side) {
-                case 'bottom':
-                this.posYcurr = actor.posY - this.height + 0.1;
-                if(this.vy > -2) this.vy = 0;
-                break;
-                case 'top':
-                this.vy = 3;
-                break;
-                case 'left':
-                this.posX = actor.posX - this.width + 1;
-                break;
-                case 'right':
-                this.posX = actor.posX + actor.width + 1;
-                break;
-                default:
-                break;
-            }
+            move[0].action({event: 'barrier', collision});
         }
         else if(actor.type === 'enemy') {
             switch(side) {
                 case 'bottom':
-                this.hit(true)
-                this.posYcurr = actor.posY - this.height;
-                this.startJump();
+                hit[0].action({event: 'combo'});
+                move[0].action({event: 'barrier', collision});
+                move[0].action({event: 'jump'});
                 break;
                 case 'top':
                 this.posY = actor.posY + actor.height;

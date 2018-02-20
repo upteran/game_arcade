@@ -5,35 +5,47 @@ export default class Entity {
     static Create (game, props, name) {
         let ent = new this(game);
         ent.name = name || props.name;
-        ent.type = props.type;
-        ent.x = props.x;
-        ent.y = props.y;
+        for(let prop in props) {
+            if(prop !== 'advantages') {
+                ent[prop] = props[prop];
+            }
+        }
         ent.addAdvantages(props.advantages);
+        // ent.init();
+        console.log(ent)
         return ent;
     }
 
     constructor(game) {
         this.advantages = [];
+        this.currAction = 'stop';
         this.game = game;
         this.name = null;
         this.type = null;
         this.x = null;
         this.y = null;
+        this.lasDir = null;
+        this.anchor = {x: 0.5, y: 0};
+        this.width = null;
+        this.height = null;
         this.collision = false;
     }
 
     addAdvantages (arr) {
         if(arr) {
-           this.advantages = arr.map(({ type, ...props }) => {
+            arr.forEach(({ type, ...props }) => {
                 let advantage = advantages.map.find( item  => type === item.name);
-                return advantage.Create(this, {...props}, type);
+                if(advantage) {
+                    let createdAdvantage = advantage.Create(this, {...props}, type);
+                    this.advantages.push(createdAdvantage);
+                }
             })
         }
 
     }
 
     update() {
-        this.advantages.forEach( a => a.tick() );
+        if(this.advantages.length > 0 && this.advantages) this.advantages.forEach( a => a.tick() );
         let collision = this.game.actorTouched(this);
         if(collision) {
             this.collision = true;

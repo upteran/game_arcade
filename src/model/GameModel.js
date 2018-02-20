@@ -43,10 +43,10 @@ export default class GameModel {
                 a2.halfH = other.height / 2;
                 a2.xAnchorOffset = other.width * other.anchor.x;
 
-                a1.centerX = actor.posX + a1.halfW - a1.xAnchorOffset;
-                a1.centerY = actor.posY + a1.halfH;
-                a2.centerX = other.posX + a2.halfW - a2.xAnchorOffset;
-                a2.centerY = other.posY + a2.halfH;
+                a1.centerX = actor.x + a1.halfW - a1.xAnchorOffset;
+                a1.centerY = (actor.y - actor.height) + a1.halfH;
+                a2.centerX = other.x + a2.halfW - a2.xAnchorOffset;
+                a2.centerY = (other.y - other.height) + a2.halfH;
 
                 let halfWidthSums = (a1.halfW) + (a2.halfW);
                 let halfHeightSums = a1.halfH + a2.halfH;

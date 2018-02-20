@@ -87,6 +87,88 @@
                 "sourceSize": {"w":64,"h":63}
             }
         },
+        "run": {
+            "worm_0":
+            {
+                "frame": {"x":7,"y":129,"w":44,"h":17},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            },
+            "worm_1":
+            {
+                "frame": {"x":51,"y":129,"w":44,"h":17},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            },
+            "worm_2":
+            {
+                "frame": {"x":95,"y":129,"w":44,"h":17},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            },
+            "worm_3":
+            {
+                "frame": {"x":141,"y":129,"w":44,"h":17},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            },
+            "worm_4":
+            {
+                "frame": {"x":190,"y":129,"w":44,"h":17},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            },
+            "worm_5":
+            {
+                "frame": {"x":243,"y":129,"w":44,"h":17},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            },
+            "worm_6":
+            {
+                "frame": {"x":295,"y":129,"w":44,"h":17},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            },
+            "worm_7":
+            {
+                "frame": {"x":343,"y":129,"w":44,"h":17},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            },
+            "worm_8":
+            {
+                "frame": {"x":393,"y":129,"w":44,"h":17},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            },
+            "worm_9":
+            {
+                "frame": {"x":441,"y":129,"w":44,"h":17},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            }
+        },
         "hurt": {
             "worm_10":
             {

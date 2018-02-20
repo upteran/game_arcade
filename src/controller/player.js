@@ -22,31 +22,31 @@ export default class Player extends Controller {
                 event.type === 'keydown' ? {event: 'r'} :
                     event.type === 'keyup' ? {event: 's'} : {}
             );
-        } 
+        }
         if( event.keyCode === 37 ) { // left
             move[0].action(
                 event.type === 'keydown' ? {event: 'l'} :
                     event.type === 'keyup' ? {event: 's'} : {}
             );
-        } 
+        }
         if( event.keyCode === 40 ) { // down
             move[0].action(
                 event.type === 'keydown' ? {event: 'down'} :
                     event.type === 'keyup' ? {event: 's'} : {}
             )
-        } 
+        }
         if ( event.keyCode === 38 ) { // up
             move[0].action(
                 event.type === 'keydown' ? {event: 'jump'} :
                     event.type === 'keyup' ? {event: 'jumpEnd'} : {}
             )
-        } 
+        }
 
         // Стрельба
         if( event.keyCode === 32 ) {
             hit[0].action(
-                event.type === "keydown" ? {event: "start"} :
-                    event.type === "keyup" ? {event: "end"} : {}
+                event.type === "keydown" ? {event: "hit"} :
+                    event.type === "keyup" ? {event: "hitEnd"} : {}
             );
         }
 

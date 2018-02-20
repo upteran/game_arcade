@@ -1,10 +1,9 @@
-import Controller from "./Controller"
+import Controller from './Controller'
 
 export default class BotController extends Controller {
 
-    constructor(model, view) {
-        super(model, view);
-
+    constructor(model) {
+        super(model);
         this.time = 0;
 
     }
@@ -13,18 +12,29 @@ export default class BotController extends Controller {
 
         this.time++;
 
-        if(this.time === 100) {
+        if(this.time < 100) {
 
-            const move = this._model.advantages.find( ({type}) => "move" );
-            move.action( {type: "left"} );
+            const move = this._model.advantages.find( ({type}) => 'Moving' );
+            move.action( {event: 'r'} );
 
         }
 
-        if(this.time === 120) {
+        if(this.time > 100 && this.time < 250) {
 
-            const move = this._model.advantages.find( ({type}) => "move" );
-            move.action( {type: "stop"} );
+            const move = this._model.advantages.find( ({type}) => 'Moving' );
+            move.action( {event: 's'} );
 
+        }
+
+        if(this.time > 250) {
+
+            const move = this._model.advantages.find( ({type}) => 'Moving' );
+            move.action( {event: 'l'} );
+
+        }
+
+        if(this.time > 500) {
+            this.time = 0;
         }
 
     }

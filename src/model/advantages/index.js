@@ -8,10 +8,11 @@ let createAdvantagesMap = () => {
     let advantages = [];
     advantages.push(
         Moving,
-        Draw,
-        Hit,
-        MovementAxis,
-        Destroyable
+        Hit
+        // Draw
+        // Hit,
+        // MovementAxis,
+        // Destroyable
     );
     return advantages;
 };

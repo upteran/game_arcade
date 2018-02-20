@@ -3,7 +3,7 @@ export default class Advantage {
     static Create (entity, props, type) {
         let res = new this(entity);
         for(let prop in props) {
-            res.entity[prop] = props[prop];
+            res[prop] = props[prop];
         }
         res.type = type;
         if(res.init) res.init();
@@ -15,12 +15,12 @@ export default class Advantage {
         this.type = null;
     }
 
-    action() {
-        // console.log('parent Advantage action')
-    }
+    // action() {
+    //     // console.log('parent Advantage action')
+    // }
 
-    tick( prop ) {
-        // this.action( prop );
-    }
+    // tick( ) {
+    //     // this.action( prop );
+    // }
 
 }
