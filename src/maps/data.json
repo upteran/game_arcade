@@ -24,7 +24,7 @@
                 "hits": [
                     {
                         "type": "combo",
-                        "dist": 5,
+                        "dist": 20,
                         "damage": 5
                     },
                     {

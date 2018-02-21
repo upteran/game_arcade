@@ -12,7 +12,7 @@ export default class Entity {
         }
         ent.addAdvantages(props.advantages);
         // ent.init();
-        console.log(ent)
+        // console.log(ent)
         return ent;
     }
 
@@ -25,6 +25,7 @@ export default class Entity {
         this.x = null;
         this.y = null;
         this.lasDir = null;
+        this.scaleRatio = null;
         this.anchor = {x: 0.5, y: 0};
         this.width = null;
         this.height = null;

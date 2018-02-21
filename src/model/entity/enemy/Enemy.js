@@ -1,37 +1,69 @@
 import Entity from './../Entity';
-import BotController from './../../../controller/BotController';
+import EnemyController from './../../../controller/EnemyController';
 
 export default class Enemy extends Entity {
     constructor(...arg) {
         super(...arg);
-        this.controller = new BotController(this);
+        this.controller = new EnemyController(this);
         this.lastDir = 'r';
-        
+        this.timeWalk = null;
+        this.isAttack = false;
+        this.hitTime = 0;
     }
 
     update() {
         super.update();
-        this.controller.tick();
-        // if(this.posX >= (this.x + this.distance)) {
-        //     this.dir = 'l';
-        // } else if (this.posX <= this.x) {
-        //     this.dir = 'r';
-        // }
+        if(!this.isDemaged && !this.isAttack) {
+            if(this.timeWalk <= 100 && this.timeWalk >= 0) {
+                this.controller.action({event: 'move', dir: 'r'});
+                this.timeWalk++;
+            }
+
+            if(this.timeWalk > 100 && this.timeWalk <= 200) {
+                this.controller.action({event: 'stop'});
+                this.timeWalk++;
+            }
+
+            if(this.timeWalk > 200 && this.timeWalk <= 300) {
+                this.controller.action({event: 'move', dir: 'l'});
+                this.timeWalk++;
+            }
+
+            if(this.timeWalk > 300 && this.timeWalk < 400) {
+                this.controller.action({event: 'stop'});
+                this.timeWalk++;
+            }
+
+            if(this.timeWalk >= 400) {
+                this.timeWalk = 0;
+            }
+        }
     }
 
     touchedAt(collision){
         let actor = collision.other,
             side = collision.side,
             offset = collision.offset;
-        if(actor.type === 'player' ) {
+            console.log(actor.type)
+        if( actor.type === 'player' ) {
             switch(side) {
                 case 'left':
-                // this.controller.keypress('hit');
-                // actor.posX += offset;
+                this.isAttack = true;
+                this.controller.action({event: 'hit'});
+                setTimeout(() => {
+                    this.controller.action({event: 'endHit'});
+                    this.isAttack = false;
+                }, 1200)
+                actor.x += 25;
                 break;
                 case 'right':
-                // this.controller.keypress('hit');
-                // actor.posX -= offset;
+                this.isAttack = true;
+                this.controller.action({event: 'hit'});
+                setTimeout(() => {
+                    this.controller.action({event: 'endHit'});
+                    this.isAttack = false;
+                }, 1200)
+                actor.x -= 25;
                 break;
                 default:
                 break;

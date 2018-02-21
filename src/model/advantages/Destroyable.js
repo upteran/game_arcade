@@ -5,30 +5,29 @@ export default class Destroyable extends Advantage {
 
     constructor(...arg) {
         super(...arg);
-        this.health = null;
-        this.entity.isDemaged = false;
         this.entity.isAlive = true;
+        this.entity.isDemaged = false;
+        this.health = null;
         this.hurtTime = null;
-        this.entity.clearHit = this.clearHit.bind(this);
-        this.entity.endHit = this.endHit.bind(this);
     }
 
-    clearHit () {
-        clearTimeout(this.hurtTime);
+    action({event}) {
+        if( event === 'hited') {
+            this.entity.isDemaged = true;
+            this.hurtTime = 0;
+        }
+
     }
 
-    endHit() {
-        this.hurtTime = setTimeout(() => {
-            this.entity.isDemaged = false;
-            if(this.entity.type !== 'player') {
-                this.entity.dir = this.entity.lastDir;
-            }
-        }, 800)
-    }
-
-    action () {
-        if(this.entity.isDemaged) {
+    tick () {
+        if(this.entity.isDemaged && this.hurtTime < 80) {
+            this.hurtTime++;
+            console.log("hurt")
             this.entity.currAction = 'hurt';
+            if(this.hurtTime === 80) {
+                this.entity.currAction = 'default';
+                this.entity.isDemaged = false;
+            }
         }
     }
 

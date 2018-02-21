@@ -4,10 +4,10 @@ export default class MovementAxis extends Advantage {
 
     constructor(...arg) {
     	super(...arg);
-        this.entity.lastDir = null;
-        this.entity.move = null;
-        this.entity.dist = null;
-        this.entity.step = null;
+        this.lastDir = null;
+        this.move = null;
+        this.dist = null;
+        this.step = null;
     }
 
     action () {
@@ -15,21 +15,21 @@ export default class MovementAxis extends Advantage {
     }
 
     tick() {
-        if(this.entity.move.x) {
-            if(this.entity.posX === this.entity.x + this.entity.dist.x){
-                this.entity.step = -this.entity.step;
-            } else if( this.entity.posX === this.entity.x){
-                this.entity.step = Math.abs(this.entity.step);
+        if(this.move.x) {
+            if(this.posX === this.x + this.dist.x){
+                this.step = -this.step;
+            } else if( this.posX === this.x){
+                this.step = Math.abs(this.step);
             }
-            this.entity.posX += this.entity.step;
+            this.posX += this.step;
         }
-        if(this.entity.move.y) {
-            if(this.entity.posY === (this.entity.y - this.entity.height) - this.entity.dist.y){
-                this.entity.step = -this.entity.step;
-            } else if( this.entity.posY === this.entity.y - this.entity.height){
-                this.entity.step = Math.abs(this.entity.step);
+        if(this.move.y) {
+            if(this.posY === (this.y - this.height) - this.dist.y){
+                this.step = -this.step;
+            } else if( this.posY === this.y - this.height){
+                this.step = Math.abs(this.step);
             }
-            this.entity.posY -= this.entity.step;
+            this.posY -= this.step;
         }
     }
 

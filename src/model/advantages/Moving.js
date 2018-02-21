@@ -49,10 +49,12 @@ export default class Moving extends Advantage {
                 this.vy = 0;
                 break;
                 case 'left':
-                this.entity.x = collision.other.x - this.entity.width + 1;
+                this.entity.x = collision.other.x - this.entity.width - 5;
+                this.dir = 's';
                 break;
                 case 'right':
-                this.entity.x = collision.other.x + collision.other.width + 1;
+                this.entity.x = collision.other.x + collision.other.width + 5;
+                this.dir = 's';
                 break;
                 default:
                 break;
@@ -65,12 +67,14 @@ export default class Moving extends Advantage {
         if( ( this.dir === 'r' || this.dir === 'l') && !this.down && !this.isDemaged) {
             this.entity.lastDir = this.dir;
             if(this.dir === 'r') {
+                this.entity.scaleRatio = Math.abs(this.entity.scaleRatio);
                 this.vx += this.ax;
                 if(this.vx > this.maxV.x) {
                     this.vx = this.maxV.x;
                     this.entity.currAction = 'run';
                 }
             } else if(this.dir === 'l'){
+                this.entity.scaleRatio = -Math.abs(this.entity.scaleRatio);
                 this.vx -= this.ax;
                 if(this.vx < -this.maxV.x) {
                     this.vx = -this.maxV.x;

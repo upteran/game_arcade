@@ -15,12 +15,4 @@ export default class Advantage {
         this.type = null;
     }
 
-    // action() {
-    //     // console.log('parent Advantage action')
-    // }
-
-    // tick( ) {
-    //     // this.action( prop );
-    // }
-
 }

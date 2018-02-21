@@ -34,11 +34,13 @@ export default class GameModel {
             offset;
         for(let i = 0;i < this.actors.length;i++) {
             let other = this.actors[i];
-                if(actor !== other && actor.type !== other.type){
+                if( actor !== other && actor.type !== other.type
+                    && actor.type !== other.parentType
+                    && actor.parentType !== other.type){
                 a1.halfW = actor.width / 2;
                 a1.halfH = actor.height / 2;
                 a1.xAnchorOffset = actor.width * actor.anchor.x;
-                // a1.yAnchorOffset = actor.height * actor.anchor.x;
+                // a1.yAnchorOffset = actor.height * actor.anchor.y;
                 a2.halfW = other.width / 2;
                 a2.halfH = other.height / 2;
                 a2.xAnchorOffset = other.width * other.anchor.x;

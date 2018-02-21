@@ -747,20 +747,6 @@
                 "trimmed": false,
                 "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
                 "sourceSize": {"w":64,"h":63}
-            },
-            "player_76": {
-                "frame": {"x":139,"y":1138,"w":45,"h":45},
-                "rotated": false,
-                "trimmed": false,
-                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
-                "sourceSize": {"w":64,"h":63}
-            },
-            "player_77": {
-                "frame": {"x":196,"y":1138,"w":45,"h":45},
-                "rotated": false,
-                "trimmed": false,
-                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
-                "sourceSize": {"w":64,"h":63}
             }
         },
         "combo": {

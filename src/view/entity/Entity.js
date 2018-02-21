@@ -30,8 +30,8 @@ export default class Entity {
     }
 
     updateFrameOffsets() {
-        this.body.width = this.body.texture.orig.width * this._model.scaleRatio;
-        this.body.height = this.body.texture.orig.height * this._model.scaleRatio;
+        this.body.width = this.body.texture.orig.width * Math.abs(this._model.scaleRatio);
+        this.body.height = this.body.texture.orig.height * Math.abs(this._model.scaleRatio);
         this.body.position.y = this._model.y - this.body.height;
     }
 
@@ -39,8 +39,7 @@ export default class Entity {
         return this.textures[name][Math.floor(new Date().valueOf() / 60) % this.textures[name].length]
     }
 
-    demageCheck() {
-        if(this._model.isDemaged) {
+    demage() {
             if(this.body.alpha !== 0) {
                 this.body.alpha -= 1;
                 this.body.tint = 0xf2aebc;
@@ -48,26 +47,28 @@ export default class Entity {
                 this.body.alpha += 1;
                 this.body.tint = 0xf2aebc;
             }
-        } else {
-            this.body.alpha = 1;
-            this.body.tint = 0xFFFFFF;
-        }
     }
 
     move() {
+
         let lastPos = this.body.position.x;
         if(this._model.currAction) {
             this.body.texture = this.selectTexture(`${this._model.currAction}`);
         } else {
             this.body.texture = this.selectTexture('default');
         }
-        this.demageCheck();
+        if(this._model.currAction === 'hurt') {
+            this.demage();
+        } else {
+            this.body.alpha = 1;
+            this.body.tint = 0xFFFFFF;
+        }
+
+        // if(this._model.type === 'player') {
+        //     console.log(this._model.scaleRatio)
+        // }
         if(this._model.moveType !== 'static') {
-            if(lastPos > this._model.x) {
-                this.body.scale.x = -this._model.scaleRatio;
-            } else if(lastPos < this._model.x){
-                this.body.scale.x = this._model.scaleRatio;
-            }
+            this.body.scale.x = this._model.scaleRatio;
         }
         this.body.position.x = this._model.x;
         this.body.position.y = this._model.y - this._model.height;

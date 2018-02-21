@@ -6,8 +6,8 @@ export default class Player extends Entity {
         super(...arg);
     }
 
-    update( dir ){
-        super.update( dir );
+    update(){
+        super.update();
     }
 
     touchedAt(collision) {
@@ -22,18 +22,16 @@ export default class Player extends Entity {
         else if(actor.type === 'enemy') {
             switch(side) {
                 case 'bottom':
-                hit[0].action({event: 'combo'});
-                move[0].action({event: 'barrier', collision});
+                hit[0].action({event: 'hit'});
                 move[0].action({event: 'jump'});
+                move[0].action({event: 'barrier', collision});
+                // move[0].action({event: 'jump'});
                 break;
                 case 'top':
-                this.posY = actor.posY + actor.height;
-                this.vy = 0;
+                // this.y = actor.posY + actor.height;
+                // this.vy = 0;
                 break;
-                // case 'left':
-                // break;
-                // case 'right':
-                // break;
+                case 'left':
                 default:
                 break;
             }
