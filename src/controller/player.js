@@ -10,11 +10,8 @@ export default class Player extends Controller {
     }
 
     handleEvent(event) {
-        /**
-         * Передвижение
-         */
+        //Передвижение
         const move = this._model.advantages.filter( ({type}) => type === 'Moving');
-        const hit = this._model.advantages.filter( ({type}) => type === 'Hit');
 
         if( event.keyCode === 39 ) { // right
             console.log(event.type)
@@ -44,6 +41,7 @@ export default class Player extends Controller {
 
         // Стрельба
         if( event.keyCode === 32 ) {
+            const hit = this._model.advantages.filter( ({type}) => type === 'Hit');
             hit[0].action(
                 event.type === "keydown" ? {event: "hit"} :
                     event.type === "keyup" ? {event: "hitEnd"} : {}

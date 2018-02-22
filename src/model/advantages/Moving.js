@@ -64,7 +64,7 @@ export default class Moving extends Advantage {
 
     tick () {
 
-        if( ( this.dir === 'r' || this.dir === 'l') && !this.down && !this.isDemaged) {
+        if( ( this.dir === 'r' || this.dir === 'l') && !this.down) {
             this.entity.lastDir = this.dir;
             if(this.dir === 'r') {
                 this.entity.scaleRatio = Math.abs(this.entity.scaleRatio);
@@ -86,7 +86,7 @@ export default class Moving extends Advantage {
             this.vx = 0;
             this.entity.currAction = 'down';
         }
-        else if( this.dir === 's' && !this.isJumping && !this.down && !this.isDemaged) {
+        else if( this.dir === 's' && !this.isJumping && !this.down ) {
             if(this.vx < 0) {
                 this.vx += this.gravity.x;
                 if(this.vx >= 0) this.vx = 0;

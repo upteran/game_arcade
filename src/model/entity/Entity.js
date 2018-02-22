@@ -11,8 +11,6 @@ export default class Entity {
             }
         }
         ent.addAdvantages(props.advantages);
-        // ent.init();
-        // console.log(ent)
         return ent;
     }
 

@@ -4,10 +4,9 @@ export default class Hit extends Advantage {
 
     constructor(...arg) {
     	super(...arg);
-        this.entity.isHiting = null;
+        this.isHiting = null;
         this.hits = null;
         this.hitTime = 100;
-        this.isDemaged = false;
       	this.hitArea = null;
         this.hitCollision = false;
     }
@@ -32,12 +31,9 @@ export default class Hit extends Advantage {
     	this.hitCollision = this.entity.game.actorTouched(this.hitArea);
     	if(this.hitCollision) {
             let actor = this.hitCollision.other;
-            if(actor.isAlive && !actor.isHiting && !actor.isDemaged) {
-                console.log("HIR")
-                let destroy = actor.advantages.find(({ type }) => type === 'Destroyable');
-                destroy.action({event: 'hited'});
-                actor.isDemaged = true;
-                
+            let vitality = actor.advantages.find(({ type }) => type === 'Vitality');
+            if( vitality ) {
+                vitality.action({event: 'hited'});
             } else {
                 return;
             }
@@ -45,17 +41,19 @@ export default class Hit extends Advantage {
     }
 
     action( {event} ) {
-        if(event === 'hit' && !this.entity.isDemaged) {
+        let vitality = this.entity.advantages.find(({ type }) => type === 'Vitality');
+        if(event === 'hit' && !vitality.isDemaged) {
             this.entity.currAction = 'combo';
-            this.entity.isHiting = true;
+            this.isHiting = true;
         } else {
             this.entity.currAction = 'default';
-            this.entity.isHiting = false;
+            this.isHiting = false;
         }
     }
 
     tick() {
-        if( this.entity.isHiting ) {
+        if( this.isHiting ) {
+            this.hitTime++;
             this.nearBy(this.hits[0].dist);
         }
     }

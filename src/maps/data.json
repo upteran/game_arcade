@@ -24,7 +24,7 @@
                 "hits": [
                     {
                         "type": "combo",
-                        "dist": 20,
+                        "dist": 5,
                         "damage": 5
                     },
                     {
@@ -40,7 +40,7 @@
                 ]
             },
             {
-                "type": "Destroyable",
+                "type": "Vitality",
                 "health": 300
             }
         ]
@@ -78,7 +78,7 @@
                     ]
                 },
                 {
-                    "type": "Destroyable",
+                    "type": "Vitality",
                     "health": 300
                 }
             ]
@@ -115,7 +115,7 @@
                     ]
                 },
                 {
-                    "type": "Destroyable",
+                    "type": "Vitality",
                     "health": 300
                 }
             ]

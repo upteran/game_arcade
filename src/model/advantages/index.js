@@ -1,19 +1,15 @@
 import Moving from './Moving';
-import Draw from './Draw';
 import Hit from './Hit';
-import MovementAxis from './MovementAxis';
-import Destroyable from './Destroyable';
+// import MovementAxis from './MovementAxis';
+import Vitality from './Vitality';
 
 let createAdvantagesMap = () => {
     let advantages = [];
     advantages.push(
         Moving,
         Hit,
-        Destroyable
-        // Draw
-        // Hit,
+        Vitality
         // MovementAxis,
-        // 
     );
     return advantages;
 };
