@@ -16,8 +16,8 @@ export default class Vitality extends Advantage {
     action({event}) {
         if( event === 'hited' && !this.isImmortal && !this.isDemaged ) {
             this.isDemaged = true;
-            this.hurtTime = 0;
             this.isImmortal = true;
+            this.hurtTime = 0;
         }
 
     }

@@ -8,43 +8,45 @@ export default class Enemy extends Entity {
         this.lastDir = 'r';
         this.timeWalk = null;
         this.isAttack = false;
+        this.isAttacked = false;
         this.hitTime = 0;
+        this.lastActiveTime = null;
 
     }
 
     update() {
         super.update();
-        let vitality = this.advantages.find(({ type }) => type === 'Vitality');
         if(this.name === 'bigZombi_01') {
-            // console.log(vitality.isDemaged)
+            console.log(this.isAttacked)
         }
-        // if(!vitality.isDemaged && !this.isAttack) {
-        //     if(this.name === 'bigZombi_01') {
-        //     }
-        //     if(this.timeWalk <= 100 && this.timeWalk >= 0) {
-        //         this.controller.action({event: 'move', dir: 'r'});
-        //         this.timeWalk++;
-        //     }
+        if(!this.isAttacked && !this.isAttack) {
+            if(this.timeWalk <= 100 && this.timeWalk >= 0) {
+                this.controller.action({event: 'move', dir: 'r'});
+                this.timeWalk++;
+            }
 
-        //     if(this.timeWalk > 100 && this.timeWalk <= 200) {
-        //         this.controller.action({event: 'stop'});
-        //         this.timeWalk++;
-        //     }
+            if(this.timeWalk > 100 && this.timeWalk <= 200) {
+                this.controller.action({event: 'stop'});
+                this.timeWalk++;
+            }
 
-        //     if(this.timeWalk > 200 && this.timeWalk <= 300) {
-        //         this.controller.action({event: 'move', dir: 'l'});
-        //         this.timeWalk++;
-        //     }
+            if(this.timeWalk > 200 && this.timeWalk <= 300) {
+                this.controller.action({event: 'move', dir: 'l'});
+                this.timeWalk++;
+            }
 
-        //     if(this.timeWalk > 300 && this.timeWalk < 400) {
-        //         this.controller.action({event: 'stop'});
-        //         this.timeWalk++;
-        //     }
+            if(this.timeWalk > 300 && this.timeWalk < 400) {
+                this.controller.action({event: 'stop'});
+                this.timeWalk++;
+            }
 
-        //     if(this.timeWalk >= 400) {
-        //         this.timeWalk = 0;
-        //     }
-        // }
+            if(this.timeWalk >= 400) {
+                this.timeWalk = 0;
+            }
+            if(this.name === 'bigZombi_01') {
+                console.log(this.currAction)
+            }
+        }
     }
 
     touchedAt(collision){
@@ -53,13 +55,16 @@ export default class Enemy extends Entity {
             offset = collision.offset,
             hitDelay = 0,
             hitTime,
-            endHitTime;
+            endHitTime,
+            attackedTime;
         if( actor.type === 'player' ) {
             clearTimeout(hitTime);
             clearTimeout(endHitTime);
+            clearTimeout(attackedTime);
             switch(side) {
                 case 'left':
                 this.isAttack = true;
+                hitDelay = 0;
                 if(this.lastDir === 'l') {
                     this.controller.action({event: 'move', dir: 'r', activeTime: 200 });
                     hitDelay = 250;
@@ -75,6 +80,7 @@ export default class Enemy extends Entity {
                 break;
                 case 'right':
                 this.isAttack = true;
+                hitDelay = 0;
                 if(this.lastDir === 'r') {
                     this.controller.action({event: 'move', dir: 'l', activeTime: 200 });
                     hitDelay = 250;
@@ -88,7 +94,12 @@ export default class Enemy extends Entity {
                     }, 1400)
                 actor.x -= 25;
                 break;
-                case 'right':
+                case 'top':
+                this.isAttacked = true;
+                this.controller.action({event: 'stop'});
+                attackedTime = setTimeout(() => {
+                    this.isAttacked = false;
+                }, 500)
                 break;
                 default:
                 break;

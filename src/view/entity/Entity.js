@@ -21,7 +21,6 @@ export default class Entity {
         this.body.anchor.y = 0;
         this.body.scale.x = this._model.scaleRatio;
         this.body.scale.y = this._model.scaleRatio;
-        // this.isJumping = this._model.isJumping;
     }
 
     update() {
@@ -64,9 +63,6 @@ export default class Entity {
             this.body.tint = 0xFFFFFF;
         }
 
-        // if(this._model.type === 'player') {
-        //     console.log(this._model.scaleRatio)
-        // }
         if(this._model.moveType !== 'static') {
             this.body.scale.x = this._model.scaleRatio;
         }

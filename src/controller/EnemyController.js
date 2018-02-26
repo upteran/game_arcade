@@ -46,6 +46,11 @@ export default class EnemyController extends Controller {
 
         if( event === 'stop') {
             move.action( {event: 's'} );
+            if(activeTime) {
+                setTimeout(() => {
+                    move.action( {event: 's'} );
+                }, activeTime)
+            }
         }
     }
 

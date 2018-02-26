@@ -19,6 +19,7 @@ export default class GameModel {
         this.sceneH = this.options.height;
         this.sceneX = this.options.posX;
         this.sceneY = this.options.posY;
+        this.ratio = this.options.width / this.options.height;
         this.lastFrameTime = 0;
         this.builder = new Builder(gameMap);
         this.player = Player.Create( this , playerMap );

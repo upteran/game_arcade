@@ -17,6 +17,7 @@ export default class GameView {
         // this.scene.scale.y = 2;
         this.sceneW = this._model.sceneW;
         this.sceneH = this._model.sceneH;
+        // this.scene.scale.x = this.scene.scale.y;
         // create game views
         this.stage = new Stage( this );
         this.player = Entity.Create( this, this._model.player );
