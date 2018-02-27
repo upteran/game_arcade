@@ -3,7 +3,7 @@ import Environment from './entity/Environment';
 // import Entity from './entity/Entity';
 import Enemy from './entity/enemy/Enemy';
 import maps from './../maps/data.json';
-import playerController from './../controller/player';
+import PlayerController from './../controller/player';
 
 
 const gameMap = maps.game;
@@ -19,12 +19,12 @@ export default class GameModel {
         this.sceneH = this.options.height;
         this.sceneX = this.options.posX;
         this.sceneY = this.options.posY;
-        this.ratio = this.options.width / this.options.height;
         this.lastFrameTime = 0;
         this.builder = new Builder(gameMap);
         this.player = Player.Create( this , playerMap );
         this.gameModels = this.builder.build( this );
         this.actors.push(this.player, ...this.gameModels);
+        new PlayerController(this.player);
     }
 
     actorTouched(actor, exceptions) {

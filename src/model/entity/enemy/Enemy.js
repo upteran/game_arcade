@@ -16,9 +16,6 @@ export default class Enemy extends Entity {
 
     update() {
         super.update();
-        if(this.name === 'bigZombi_01') {
-            console.log(this.isAttacked)
-        }
         if(!this.isAttacked && !this.isAttack) {
             if(this.timeWalk <= 100 && this.timeWalk >= 0) {
                 this.controller.action({event: 'move', dir: 'r'});
@@ -42,9 +39,6 @@ export default class Enemy extends Entity {
 
             if(this.timeWalk >= 400) {
                 this.timeWalk = 0;
-            }
-            if(this.name === 'bigZombi_01') {
-                console.log(this.currAction)
             }
         }
     }
@@ -75,8 +69,9 @@ export default class Enemy extends Entity {
                 endHitTime = setTimeout(() => {
                         this.controller.action({event: 'endHit'});
                         this.isAttack = false;
+
                     }, 1400)
-                actor.x += 25;
+                actor.x += 15;
                 break;
                 case 'right':
                 this.isAttack = true;
@@ -92,7 +87,7 @@ export default class Enemy extends Entity {
                         this.controller.action({event: 'endHit'});
                         this.isAttack = false;
                     }, 1400)
-                actor.x -= 25;
+                actor.x -= 15;
                 break;
                 case 'top':
                 this.isAttacked = true;

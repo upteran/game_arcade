@@ -118,8 +118,6 @@ export default class Moving extends Advantage {
         }
     }
 
-
-
     moveY() {
         this.vy += this.gravity.y;
         this.entity.y += this.vy;

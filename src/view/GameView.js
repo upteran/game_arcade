@@ -3,6 +3,7 @@ import * as PIXI from 'pixi.js';
 import Stage from './Stage';
 import Camera from './Camera';
 import Entity from './entity/Entity';
+const win = window;
 
 export default class GameView {
     constructor ( model, element ) {
@@ -10,13 +11,17 @@ export default class GameView {
         this._model = model;
         this.entitiesModels = this.setModels(this._model.gameModels);
         this.entities = [];
-        this.scene = new PIXI.Container();
+        this.scene = new PIXI.DisplayObjectContainer();
         this.scene.position.x = this._model.sceneX || 0;
         this.scene.position.y = this._model.sceneY || 0;
-        // this.scene.scale.x = 2;
-        // this.scene.scale.y = 2;
+        // this.sceneW = this._model.sceneW;
+        // this.sceneH = this._model.sceneH;
+        // this.scene.scale.x = this.scene.scale.y = win.innerWidth / this._model.sceneW;
+        // this.scene.scale.y = win.innerHeight / this._model.sceneH;
+        this.ratio = win.innerWidth / this._model.sceneW;
         this.sceneW = this._model.sceneW;
         this.sceneH = this._model.sceneH;
+        // this.scene.scale.x = this.scene.scale.y = this.ratio;
         // this.scene.scale.x = this.scene.scale.y;
         // create game views
         this.stage = new Stage( this );
@@ -27,9 +32,10 @@ export default class GameView {
                            this.player,
                            ...this.entitiesModels
                            );
-        this.renderer = PIXI.autoDetectRenderer(this.sceneW, this.sceneH, {
+        this.renderer = PIXI.autoDetectRenderer(this.sceneW * this.ratio, this.sceneH * this.ratio, {
             transparent: true
         });
+
         // this.renderer.resize
         this.element.appendChild( this.renderer.view );
     }

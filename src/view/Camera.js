@@ -14,7 +14,7 @@ export default class Camera {
         let rect;
         rect = new PIXI.Graphics();
         rect.beginFill(0, 0);
-        rect.drawRect(x, y, this.game.sceneW, this.game.sceneH);
+        rect.drawRect(x, y, width, height);
         rect.endFill();
         return rect;
     }

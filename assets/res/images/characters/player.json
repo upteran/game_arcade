@@ -929,6 +929,64 @@
                 "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
                 "sourceSize": {"w":64,"h":63}
             }
+        },
+        "hammerCombo": {
+            "player_01": {
+                "frame": {"x":4,"y":3658,"w":53,"h":50},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            },
+            "player_02": {
+                "frame": {"x":68,"y":3658,"w":53,"h":50},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            },
+            "player_03": {
+                "frame": {"x":135,"y":3645,"w":53,"h":62},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            },
+            "player_04": {
+                "frame": {"x":205,"y":3645,"w":64,"h":64},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            },
+            "player_05": {
+                "frame": {"x":272,"y":3645,"w":64,"h":64},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            },
+            "player_06": {
+                "frame": {"x":343,"y":3645,"w":64,"h":64},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            },
+            "player_07": {
+                "frame": {"x":411,"y":3645,"w":64,"h":64},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            },
+            "player_08": {
+                "frame": {"x":479,"y":3645,"w":64,"h":64},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            }
         }
     },
     "meta": {

@@ -11,12 +11,12 @@ export default class Stage {
         this.body.tilePosition.x = 0;
         this.body.tilePosition.y = 0;
     }
+
     move(dir){
-        this.body.position.x = -this.game.scene.position.x;
+        this.body.position.x = -this.game.scene.position.x ;
         this.body.tilePosition.x = this.game.scene.position.x;
     }
-    moveTop(){}
-    moveBottom(){}
+
     render(){
         this.game.scene.addChild( this.body );
     }

@@ -24,8 +24,13 @@
                 "hits": [
                     {
                         "type": "combo",
-                        "dist": 5,
+                        "dist": 25,
                         "damage": 5
+                    },
+                    {
+                        "type": "hammerCombo",
+                        "dist": 85,
+                        "damage": 20
                     },
                     {
                         "type": "comboDown",
@@ -109,7 +114,7 @@
                 "hits": [
                         {
                             "type": "combo",
-                            "dist": 10,
+                            "dist": 35,
                             "damage": 5
                         }
                     ]

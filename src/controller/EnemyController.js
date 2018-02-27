@@ -14,7 +14,7 @@ export default class EnemyController extends Controller {
 
         if(event === 'hit') {
             move.action({event: 's'});
-            hit.action({event: 'hit'});
+            hit.action({event: 'hit', type: 'combo'});
             if(activeTime) {
                 setTimeout(() => {
                     hit.action( {event: 'endHit'} );
