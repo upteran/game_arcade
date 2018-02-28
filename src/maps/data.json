@@ -77,7 +77,7 @@
                     "hits": [
                         {
                             "type": "combo",
-                            "dist": 10,
+                            "dist": 25,
                             "damage": 5
                         }
                     ]

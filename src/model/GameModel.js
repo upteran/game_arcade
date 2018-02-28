@@ -3,7 +3,7 @@ import Environment from './entity/Environment';
 // import Entity from './entity/Entity';
 import Enemy from './entity/enemy/Enemy';
 import maps from './../maps/data.json';
-import PlayerController from './../controller/player';
+import PlayerController from './../controller/Player';
 
 
 const gameMap = maps.game;
