@@ -130,17 +130,11 @@
             "type": "environment",
             "x": 630,
             "y": 386,
-            "height": 48,
-            "width": 48,
+            "height": 65,
+            "width": 65,
             "scaleRatio": 1,
             "moveType": "static",
             "advantages": [
-                {
-                    "type": "MovementAxis",
-                    "move": {"x": false, "y": true},
-                    "step": 0.5,
-                    "dist": {"x": 0, "y": 110}
-                }
             ]
         },
         {
@@ -150,6 +144,18 @@
             "y": 350,
             "height": 35,
             "width": 35,
+            "scaleRatio": 1,
+            "moveType": "static",
+            "advantages": [
+            ]
+        },
+        {
+            "name": "box_5",
+            "type": "environment",
+            "x": 470,
+            "y": 270,
+            "height": 40,
+            "width": 40,
             "scaleRatio": 1,
             "moveType": "static",
             "advantages": [

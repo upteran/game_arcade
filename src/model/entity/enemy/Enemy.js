@@ -8,15 +8,13 @@ export default class Enemy extends Entity {
         this.lastDir = 'r';
         this.timeWalk = null;
         this.isAttack = false;
-        this.isAttacked = false;
         this.hitTime = 0;
-        this.lastActiveTime = null;
 
     }
 
     update() {
         super.update();
-        if(!this.isAttacked && !this.isAttack) {
+        if(!this.isDemaged && !this.isAttack) {
             if(this.timeWalk <= 100 && this.timeWalk >= 0) {
                 this.controller.action({event: 'move', dir: 'r'});
                 this.timeWalk++;
@@ -90,11 +88,7 @@ export default class Enemy extends Entity {
                 actor.x -= 15;
                 break;
                 case 'top':
-                this.isAttacked = true;
                 this.controller.action({event: 'stop'});
-                attackedTime = setTimeout(() => {
-                    this.isAttacked = false;
-                }, 500)
                 break;
                 default:
                 break;

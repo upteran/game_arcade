@@ -45,16 +45,18 @@ export default class Moving extends Advantage {
                 if(this.vy > -2) this.vy = 0;
                 break;
                 case 'top':
-                this.entity.y = collision.other.posY + collision.other.height;
-                this.vy = 0;
+                // this.entity.y = collision.other.y + collision.other.height;
+                this.vy = 5;
                 break;
                 case 'left':
-                this.entity.x = collision.other.x - this.entity.width - 5;
+                this.entity.x = collision.other.x - ( collision.other.width / 2 ) - this.entity.width / 2;
                 this.dir = 's';
+                // this.vx = 0;
                 break;
                 case 'right':
-                this.entity.x = collision.other.x + collision.other.width + 5;
+                this.entity.x = collision.other.x + ( collision.other.width / 2 ) + this.entity.width / 2;
                 this.dir = 's';
+                // this.vx = 0;
                 break;
                 default:
                 break;

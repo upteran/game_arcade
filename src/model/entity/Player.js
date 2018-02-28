@@ -20,7 +20,7 @@ export default class Player extends Entity {
         if(actor.type !== 'enemy') {
             move[0].action({event: 'barrier', collision});
         }
-        else if(actor.type === 'enemy') {
+        else if(actor.type === 'enemy' || actor.type === 'hit') {
             clearTimeout(hitTime);
             switch(side) {
                 case 'bottom':
@@ -34,12 +34,6 @@ export default class Player extends Entity {
                 case 'top':
                 // this.y = actor.posY + actor.height;
                 // this.vy = 0;
-                break;
-                case 'left':
-                move[0].action({event: 's'});
-                break;
-                case 'right':
-                move[0].action({event: 's'});
                 break;
                 default:
                 break;

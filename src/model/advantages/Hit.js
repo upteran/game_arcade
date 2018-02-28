@@ -24,9 +24,10 @@ export default class Hit extends Advantage {
     	this.hitCollision = this.entity.game.actorTouched(this.hitArea);
     	if(this.hitCollision) {
             let actor = this.hitCollision.other;
-            console.log(actor)
             let vitality = actor.advantages.find(({ type }) => type === 'Vitality');
+            let move = actor.advantages.find(({ type }) => type === 'Moving');
             if( vitality ) {
+                move.action({event: 's'});
                 vitality.action({event: 'hited'});
             } else {
                 return;
@@ -46,11 +47,12 @@ export default class Hit extends Advantage {
     }
 
     tick() {
-        if( this.isHiting ) {
-            this.hitTime++;
+        this.hitTime++;
+        if( this.isHiting && this.hitTime > 150) {
             let hit;
             hit = this.hits.find(({ type }) => type === this.currHitType);
             this.nearBy(hit.dist);
+            this.hitTime = 0;
         }
     }
 
