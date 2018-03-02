@@ -8,6 +8,7 @@ export default class Loader {
         this.assetsLoader.add('res/images/stages/stageBg.png');
         this.assetsLoader.add('df_bg' , 'res/images/stages/darkForest/bg.png');
         this.assetsLoader.add('df_earth', 'res/images/stages/darkForest/earth.png');
+        this.assetsLoader.add('tree01', 'res/images/stages/darkForest/tree_01.png');
         this.assetsLoader.add('lumpi', 'res/images/enemies/lumpi.json');
         this.assetsLoader.add('hypnoWorm', 'res/images/enemies/hypnoWorm.json');
         this.assetsLoader.add('bigZombi', 'res/images/enemies/bigZombi.json');

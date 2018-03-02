@@ -5,8 +5,10 @@ export default class Camera {
         this.game = game;
         this.stage = stage;
         this.target = player.body;
+        this.viewportW = this.game.sceneW;
+        this.viewportH = this.game.sceneH;
         this.view = this._drawRect(0, 0, this.game.sceneW, this.game.sceneH);
-        this.deadzoneX = 400;
+        this.deadzoneX = this.game.sceneW / 4;
         this.view.position.x = 0;
         this.view.position.y = 0;
     }
@@ -18,17 +20,26 @@ export default class Camera {
         rect.endFill();
         return rect;
     }
+
     update(){
-        if( this.target.position.x - this.view.position.x + this.deadzoneX > this.game.sceneW ) {
-            this.view.position.x = this.target.position.x + (this.deadzoneX - this.game.sceneW);
-            this.game.scene.position.x = -this.view.position.x;
-            this.stage.move();
-        } else if ( this.target.position.x - this.deadzoneX < this.view.position.x ) {
-            this.view.position.x = this.target.position.x - this.deadzoneX;
-            this.game.scene.position.x = -this.view.position.x;
-            this.stage.move();
-        }
+            if((this.target.position.x) - this.view.position.x + this.deadzoneX > this.viewportW ) {
+                const scrolledPos = this.target.position.x + this.deadzoneX - this.viewportW;
+                if(this.target.position.x + this.deadzoneX < 3328) {
+                    this.view.position.x = scrolledPos;
+                    this.stage.moveRight();
+                }
+            } else if (this.target.position.x - this.deadzoneX < this.view.position.x ) {
+                const scrolledPos = this.target.position.x - this.deadzoneX;
+                if(scrolledPos > 0) {
+                    this.view.position.x = scrolledPos;
+                    this.stage.moveLeft();
+                }
+            }
+            this.game.scene.pivot.x = this.view.position.x;
+            this.game.scene.pivot.y = this.view.position.y;
     }
+
+
     render(){
         this.game.scene.addChild( this.view );
     }

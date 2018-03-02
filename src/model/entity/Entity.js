@@ -45,13 +45,6 @@ export default class Entity {
 
     update() {
         if(this.advantages.length > 0 && this.advantages) this.advantages.forEach( a => a.tick() );
-        let collision = this.game.actorTouched(this);
-        if(collision) {
-            this.collision = true;
-            this.touchedAt(collision);
-        } else {
-            this.collision = false;
-        }
     }
 
     touchedAt(collision) {
@@ -61,7 +54,7 @@ export default class Entity {
     }
 
     remove() {
-        this.isDeath = true;
         this.game.actors = this.game.actors.filter(item => item !== this);
+        console.log(this.game.actors)
     }
 }

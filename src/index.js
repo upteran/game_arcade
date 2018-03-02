@@ -7,8 +7,8 @@ import Loader from './Loader';
 const loader = new Loader();
 const body = document.body;
 const gameOptions = {
-	width: 1000,
-	height: 500,
+	width: 500,
+	height: 300,
 	posX: 0,
 	posY: 0
 };

@@ -15,7 +15,7 @@ export default class Moving extends Advantage {
         this.stopJump = false;
         this.isJumping = false;
         this.posYcurr = this.entity.y;
-        this.posStartY = this.posYcurr;
+        this.posStartY = this.posYcurr + 1000;
     }
 
     action ( {event, collision} ) {
@@ -49,7 +49,7 @@ export default class Moving extends Advantage {
                 this.vy = 5;
                 break;
                 case 'left':
-                this.entity.x = collision.other.x - ( collision.other.width / 2 ) - this.entity.width / 2;
+                this.entity.x = collision.other.x - ( collision.other.width / 2 ) - this.entity.width / 2 ;
                 this.dir = 's';
                 // this.vx = 0;
                 break;
@@ -65,7 +65,6 @@ export default class Moving extends Advantage {
     }
 
     tick () {
-
         if( ( this.dir === 'r' || this.dir === 'l') && !this.down) {
             this.entity.lastDir = this.dir;
             if(this.dir === 'r') {
@@ -97,6 +96,10 @@ export default class Moving extends Advantage {
                 if(this.vx <= 0) this.vx = 0;
             }
         }
+        // else if( this.dir === 'fall') {
+        //     this.posYcurr = this.posStartY = this.posStartY + 500;
+        // }
+
         if(this.isJumping) {
             this.entity.currAction = 'jump';
         }

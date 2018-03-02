@@ -41,15 +41,16 @@ export default class GameModel {
                 a1.halfW = actor.width / 2;
                 a1.halfH = actor.height / 2;
                 a1.xAnchorOffset = actor.width * actor.anchor.x;
-                // a1.yAnchorOffset = actor.height * actor.anchor.y;
+                a1.yAnchorOffset = actor.height * actor.anchor.y;
                 a2.halfW = other.width / 2;
                 a2.halfH = other.height / 2;
                 a2.xAnchorOffset = other.width * other.anchor.x;
+                a2.yAnchorOffset = other.width * other.anchor.y;
 
                 a1.centerX = actor.x + a1.halfW - a1.xAnchorOffset;
-                a1.centerY = (actor.y - actor.height) + a1.halfH;
+                a1.centerY = (actor.y - actor.height) + a1.halfH - a1.yAnchorOffset;
                 a2.centerX = other.x + a2.halfW - a2.xAnchorOffset;
-                a2.centerY = (other.y - other.height) + a2.halfH;
+                a2.centerY = (other.y - other.height) + a2.halfH - a2.yAnchorOffset;
 
                 let halfWidthSums = (a1.halfW) + (a2.halfW);
                 let halfHeightSums = a1.halfH + a2.halfH;
@@ -99,7 +100,7 @@ class Builder {
     }
     build(game) {
         let res = this.map.map(({ ...props }) => {
-            if( props.type === 'environment' ) {
+            if( props.type === 'environment') {
                 return Environment.Create(game, props);
             }
             else if( props.type === 'enemy') {

@@ -4,10 +4,18 @@ export default class Player extends Entity {
 
     constructor(...arg) {
         super(...arg);
+        this.lastCollision = null;
     }
 
     update(){
         super.update();
+        let collision = this.game.actorTouched(this);
+        if(collision) {
+            this.collision = true;
+            this.touchedAt(collision);
+        } else {
+            this.collision = false;
+        }
     }
 
     touchedAt(collision) {

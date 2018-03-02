@@ -2,11 +2,11 @@
     "player": {
         "name": "player",
         "type": "player",
-        "x": 500,
-        "y": 386,
+        "x": 450,
+        "y": 230,
         "height": 47,
         "width": 44,
-        "scaleRatio": 1.2,
+        "scaleRatio": 1,
         "currAction": "stop",
         "advantages": [
             {
@@ -55,9 +55,10 @@
             "name": "hypnoWorm",
             "type": "enemy",
             "x": 150,
-            "y": 386,
+            "y": 271,
             "height": 20,
             "width": 24,
+            "currAction": "stop",
             "scaleRatio": 1,
             "advantages": [
                 {
@@ -91,10 +92,11 @@
         {
             "name": "bigZombi_01",
             "type": "enemy",
-            "x": 810,
-            "y": 386,
+            "x": 640,
+            "y": 237,
             "height": 64,
             "width": 46,
+            "currAction": "stop",
             "scaleRatio": 1,
             "advantages": [
                 {
@@ -126,38 +128,238 @@
             ]
         },
         {
-            "name": "box_1",
-            "type": "environment",
-            "x": 630,
-            "y": 386,
-            "height": 65,
-            "width": 65,
-            "scaleRatio": 1,
-            "moveType": "static",
-            "advantages": [
-            ]
-        },
-        {
             "name": "box_4",
             "type": "environment",
-            "x": 370,
-            "y": 350,
+            "x": 470,
+            "y": 150,
             "height": 35,
             "width": 35,
             "scaleRatio": 1,
-            "moveType": "static",
+            "currAction": "static",
             "advantages": [
             ]
         },
         {
             "name": "box_5",
             "type": "environment",
-            "x": 470,
-            "y": 270,
+            "x": 310,
+            "y": 210,
             "height": 40,
             "width": 40,
             "scaleRatio": 1,
-            "moveType": "static",
+            "currAction": "static",
+            "advantages": [
+            ]
+        },
+        {
+            "name": "box_6",
+            "type": "environment",
+            "x": 126,
+            "y": 302,
+            "height": 32,
+            "width": 255,
+            "scaleRatio": 1,
+            "currAction": "hide"
+        },
+        {
+            "name": "box_7",
+            "type": "environment",
+            "x": 385,
+            "y": 271,
+            "height": 32,
+            "width": 258,
+            "scaleRatio": 1,
+            "currAction": "hide"
+        },
+        {
+            "name": "box_8",
+            "type": "environment",
+            "x": 605,
+            "y": 302,
+            "height": 32,
+            "width": 61,
+            "scaleRatio": 1,
+            "currAction": "hide",
+            "advantages": [
+            ]
+        },
+        {
+            "name": "box_9",
+            "type": "environment",
+            "x": 703,
+            "y": 271,
+            "height": 32,
+            "width": 130,
+            "scaleRatio": 1,
+            "currAction": "hide",
+            "advantages": [
+            ]
+        },
+        {
+            "name": "box_10",
+            "type": "environment",
+            "x": 960,
+            "y": 271,
+            "height": 32,
+            "width": 260,
+            "scaleRatio": 1,
+            "currAction": "hide",
+            "advantages": [
+            ]
+        },
+        {
+            "name": "box_11",
+            "type": "environment",
+            "x": 1200,
+            "y": 271,
+            "height": 32,
+            "width": 100,
+            "scaleRatio": 1,
+            "currAction": "hide",
+            "advantages": [
+            ]
+        },
+        {
+            "name": "box_12",
+            "type": "environment",
+            "x": 1378,
+            "y": 271,
+            "height": 32,
+            "width": 134,
+            "scaleRatio": 1,
+            "currAction": "hide",
+            "advantages": [
+            ]
+        },
+        {
+            "name": "box_13",
+            "type": "environment",
+            "x": 1572,
+            "y": 302,
+            "height": 32,
+            "width": 240,
+            "scaleRatio": 1,
+            "currAction": "hide",
+            "advantages": [
+            ]
+        },
+        {
+            "name": "box_14",
+            "type": "environment",
+            "x": 1768,
+            "y": 271,
+            "height": 32,
+            "width": 60,
+            "scaleRatio": 1,
+            "currAction": "hide",
+            "advantages": [
+            ]
+        },
+        {
+            "name": "box_15",
+            "type": "environment",
+            "x": 2097,
+            "y": 302,
+            "height": 32,
+            "width": 500,
+            "scaleRatio": 1,
+            "currAction": "hide",
+            "advantages": [
+            ]
+        },
+        {
+            "name": "box_16",
+            "type": "environment",
+            "x": 2410,
+            "y": 255,
+            "height": 30,
+            "width": 40,
+            "scaleRatio": 1,
+            "currAction": "hide",
+            "advantages": [
+            ]
+        },
+        {
+            "name": "box_17",
+            "type": "environment",
+            "x": 2491,
+            "y": 240,
+            "height": 32,
+            "width": 40,
+            "scaleRatio": 1,
+            "currAction": "hide",
+            "advantages": [
+            ]
+        },
+        {
+            "name": "box_18",
+            "type": "environment",
+            "x": 2584,
+            "y": 255,
+            "height": 32,
+            "width": 48,
+            "scaleRatio": 1,
+            "currAction": "hide",
+            "advantages": [
+            ]
+        },
+        {
+            "name": "box_19",
+            "type": "environment",
+            "x": 2677,
+            "y": 302,
+            "height": 32,
+            "width": 75,
+            "scaleRatio": 1,
+            "currAction": "hide",
+            "advantages": [
+            ]
+        },
+        {
+            "name": "box_20",
+            "type": "environment",
+            "x": 2820,
+            "y": 271,
+            "height": 32,
+            "width": 193,
+            "scaleRatio": 1,
+            "currAction": "hide",
+            "advantages": [
+            ]
+        },
+        {
+            "name": "box_20",
+            "type": "environment",
+            "x": 2986,
+            "y": 302,
+            "height": 32,
+            "width": 140,
+            "scaleRatio": 1,
+            "currAction": "hide",
+            "advantages": [
+            ]
+        },
+        {
+            "name": "box_21",
+            "type": "environment",
+            "x": 3097,
+            "y": 271,
+            "height": 32,
+            "width": 82,
+            "scaleRatio": 1,
+            "currAction": "hide",
+            "advantages": [
+            ]
+        },
+        {
+            "name": "box_22",
+            "type": "environment",
+            "x": 3258,
+            "y": 255,
+            "height": 32,
+            "width": 145,
+            "scaleRatio": 1,
+            "currAction": "hide",
             "advantages": [
             ]
         }

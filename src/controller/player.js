@@ -14,7 +14,6 @@ export default class Player extends Controller {
         const move = this._model.advantages.find( ({type}) => type === 'Moving');
 
         if( event.keyCode === 39 ) { // right
-            console.log(event.type)
             move.action(
                 event.type === 'keydown' ? {event: 'r'} :
                     event.type === 'keyup' ? {event: 's'} : {}

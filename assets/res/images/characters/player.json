@@ -987,6 +987,15 @@
                 "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
                 "sourceSize": {"w":64,"h":63}
             }
+        },
+        "death": {
+            "player_01": {
+                "frame": {"x":479,"y":3645,"w":64,"h":64},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+                "sourceSize": {"w":64,"h":63}
+            }
         }
     },
     "meta": {

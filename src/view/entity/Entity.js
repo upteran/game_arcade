@@ -25,7 +25,7 @@ export default class Entity {
 
     update() {
         this.move();
-        if(this._model.moveType !== 'static') this.updateFrameOffsets();
+        if(this._model.currAction !== 'static' && this._model.currAction !== 'hide') this.updateFrameOffsets();
     }
 
     updateFrameOffsets() {
@@ -50,21 +50,22 @@ export default class Entity {
 
     move() {
 
-        let lastPos = this.body.position.x;
-        if(this._model.currAction) {
-            this.body.texture = this.selectTexture(`${this._model.currAction}`);
+        if( this._model.currAction ) {
+            if( this._model.currAction === 'static' ) {
+                this.body.texture = this.selectTexture('default');
+            } else {
+                this.body.scale.x = this._model.scaleRatio;
+                this.body.texture = this.selectTexture(`${this._model.currAction}`);
+            }
+
+            if( this._model.currAction === 'hurt' ) {
+                this.demage();
+            } else {
+                this.body.alpha = 1;
+                this.body.tint = 0xFFFFFF;
+            }
         } else {
             this.body.texture = this.selectTexture('default');
-        }
-        if(this._model.currAction === 'hurt') {
-            this.demage();
-        } else {
-            this.body.alpha = 1;
-            this.body.tint = 0xFFFFFF;
-        }
-
-        if(this._model.moveType !== 'static') {
-            this.body.scale.x = this._model.scaleRatio;
         }
         this.body.position.x = this._model.x;
         this.body.position.y = this._model.y - this._model.height;
@@ -76,8 +77,6 @@ export default class Entity {
     }
 
     remove(){
-        if(this._model.isDeath) {
-            this.game.scene.removeChild( this._container );
-        }
+        this.game.scene.removeChild( this._container );
     }
 }

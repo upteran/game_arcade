@@ -11,6 +11,7 @@ export default class Vitality extends Advantage {
         this.HURT_FREQUENCY = 80;
         this.hurtTime = this.HURT_FREQUENCY;
         this.isImmortal = false;
+        this.isDeath = false;
     }
 
     action({event}) {
@@ -24,8 +25,9 @@ export default class Vitality extends Advantage {
 
     tick () {
         this.hurtTime++;
-        if( this.entity.isDemaged && this.hurtTime <= this.HURT_FREQUENCY ) {
+        if( this.entity.isDemaged && this.hurtTime <= this.HURT_FREQUENCY && !this.isDeath ) {
             this.entity.currAction = 'hurt';
+            if(this.health <= 0) this.isDeath = true;
             if(this.hurtTime === this.HURT_FREQUENCY) {
                 this.entity.currAction = 'default';
                 this.entity.isDemaged = false;
@@ -35,6 +37,11 @@ export default class Vitality extends Advantage {
         if(this.hurtTime > 120) {
             this.isImmortal = false;
         }
+
+        if(this.isDeath) {
+            this.entity.currAction = 'death';
+        }
+
     }
 
 }

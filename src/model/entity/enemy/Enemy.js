@@ -14,6 +14,13 @@ export default class Enemy extends Entity {
 
     update() {
         super.update();
+        let collision = this.game.actorTouched(this);
+        if(collision) {
+            this.collision = true;
+            this.touchedAt(collision);
+        } else {
+            this.collision = false;
+        }
         if(!this.isDemaged && !this.isAttack) {
             if(this.timeWalk <= 100 && this.timeWalk >= 0) {
                 this.controller.action({event: 'move', dir: 'r'});
@@ -49,6 +56,10 @@ export default class Enemy extends Entity {
             hitTime,
             endHitTime,
             attackedTime;
+        if(actor.type !== 'player') {
+            let move = this.advantages.find(({ type }) => type === "Moving");
+            move.action({event: 'barrier', collision});
+        }
         if( actor.type === 'player' ) {
             clearTimeout(hitTime);
             clearTimeout(endHitTime);
