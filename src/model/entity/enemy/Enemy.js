@@ -9,7 +9,6 @@ export default class Enemy extends Entity {
         this.timeWalk = null;
         this.isAttack = false;
         this.hitTime = 0;
-
     }
 
     update() {
@@ -21,7 +20,11 @@ export default class Enemy extends Entity {
         } else {
             this.collision = false;
         }
-        if(!this.isDemaged && !this.isAttack) {
+
+        let vitality = this.advantages.find(({ type }) => type === 'Vitality');
+        if(vitality.isDeath) super.remove();
+
+        if(!this.isDemaged && !this.isAttack && this.advantages.find(({ type }) => type === 'Moving').isWalking ) {
             if(this.timeWalk <= 100 && this.timeWalk >= 0) {
                 this.controller.action({event: 'move', dir: 'r'});
                 this.timeWalk++;

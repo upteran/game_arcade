@@ -22,7 +22,7 @@ export default class Entity {
         this.type = null;
         this.x = null;
         this.y = null;
-        this.lasDir = null;
+        // this.lasDir = null;
         this.scaleRatio = null;
         this.anchor = {x: 0.5, y: 0};
         this.width = null;

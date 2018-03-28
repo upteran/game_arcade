@@ -3,7 +3,6 @@ import Environment from './entity/Environment';
 // import Entity from './entity/Entity';
 import Enemy from './entity/enemy/Enemy';
 import maps from './../maps/data.json';
-import PlayerController from './../controller/Player';
 
 
 const gameMap = maps.game;
@@ -24,7 +23,7 @@ export default class GameModel {
         this.player = Player.Create( this , playerMap );
         this.gameModels = this.builder.build( this );
         this.actors.push(this.player, ...this.gameModels);
-        new PlayerController(this.player);
+        this.status = 'play';
     }
 
     actorTouched(actor, exceptions) {
@@ -110,3 +109,25 @@ class Builder {
         return res;
     }
 }
+
+// class Builder {
+//     constructor(map, game) {
+//         this.map = map;
+//     }
+//     build(game) {
+//         let builded = this.map.reduce(( result, entities ) => {
+//             for( let i in entities ) {
+//                 let entityMap = entities[i].map(( { ...props } ) => {
+//                     if( props.type === 'environment') {
+//                         return Environment.Create(game, props);
+//                     }
+//                     else if( props.type === 'enemy') {
+//                         return Enemy.Create(game, props);
+//                     }
+//                 });
+//                 return [...result, ...entityMap]
+//             }
+//         }, 0);
+//         return builded;
+//     }
+// }

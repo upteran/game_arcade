@@ -6,13 +6,13 @@ export default class Loader {
         this.assetsLoader = PIXI.loader;
         this.assetsLoader.add('player', 'res/images/characters/player.json');
         this.assetsLoader.add('res/images/stages/stageBg.png');
-        this.assetsLoader.add('df_bg' , 'res/images/stages/darkForest/bg.png');
-        this.assetsLoader.add('df_earth', 'res/images/stages/darkForest/earth.png');
-        this.assetsLoader.add('tree01', 'res/images/stages/darkForest/tree_01.png');
-        this.assetsLoader.add('lumpi', 'res/images/enemies/lumpi.json');
+        this.assetsLoader.add('dark_forest_bg' , 'res/images/stages/darkForest/bg.png');
+        this.assetsLoader.add('dark_forest_earth', 'res/images/stages/darkForest/earth.png');
+        this.assetsLoader.add('dark_forest_tree_01', 'res/images/stages/darkForest/tree_02.png');
         this.assetsLoader.add('hypnoWorm', 'res/images/enemies/hypnoWorm.json');
         this.assetsLoader.add('bigZombi', 'res/images/enemies/bigZombi.json');
         this.assetsLoader.add('box', 'res/images/box.json');
+        this.assetsLoader.add('healthbar', 'res/images/interface/healthbar.json');
         this.assetsLoader.once('complete', this.onImageLoader.bind( this ));
     }
     load(callback) {

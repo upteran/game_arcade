@@ -369,7 +369,7 @@
                 "rotated": false,
                 "trimmed": false,
                 "spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
-                "sourceSize": {"w":64,"h":63} 
+                "sourceSize": {"w":64,"h":63}
             }
         }
     }

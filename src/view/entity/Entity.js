@@ -13,6 +13,8 @@ export default class Entity {
         this.res = PIXI.loader.resources[this._model.name.split('_')[0]];
         this.body = new PIXI.Sprite();
         this.textures = utils.textureLoader(this.res);
+        this.currTextureNum = 0;
+        this.currTextureName = null;
         this.body.width = this._model.width;
         this.body.height = this._model.height;
         this.body.position.x = this._model.x;
@@ -34,8 +36,15 @@ export default class Entity {
         this.body.position.y = this._model.y - this.body.height;
     }
 
-    selectTexture ( name ) {
-        return this.textures[name][Math.floor(new Date().valueOf() / 60) % this.textures[name].length]
+    selectTexture ( name , speed , stop ) {
+        let animSpeed = (speed) ? speed : 60;
+        if(stop && this.currTextureNum === this.textures[name].length - 1) {
+            this.currTextureNum = this.textures[name].length - 1;
+            return this.textures[name][this.textures[name].length - 1];
+        } else {
+            this.currTextureNum = Math.floor(new Date().valueOf() / animSpeed) % this.textures[name].length;
+            return this.textures[name][this.currTextureNum];
+        }
     }
 
     demage() {
@@ -49,10 +58,19 @@ export default class Entity {
     }
 
     move() {
-
         if( this._model.currAction ) {
+            if(this.currTextureName !== this._model.currAction) {
+                this.currTextureNum = 0;
+                this.currTextureName = this._model.currAction;
+            }
             if( this._model.currAction === 'static' ) {
                 this.body.texture = this.selectTexture('default');
+            } else if ( this._model.currAction === 'death' ) {
+                if(this.textures['death']) {
+                    this.body.texture = this.selectTexture('death', 100, true);
+                } else {
+                    this.remove();
+                }
             } else {
                 this.body.scale.x = this._model.scaleRatio;
                 this.body.texture = this.selectTexture(`${this._model.currAction}`);
@@ -77,6 +95,6 @@ export default class Entity {
     }
 
     remove(){
-        this.game.scene.removeChild( this._container );
+        this.game.scene.removeChild( this.body );
     }
 }

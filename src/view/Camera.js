@@ -22,21 +22,21 @@ export default class Camera {
     }
 
     update(){
-            if((this.target.position.x) - this.view.position.x + this.deadzoneX > this.viewportW ) {
-                const scrolledPos = this.target.position.x + this.deadzoneX - this.viewportW;
-                if(this.target.position.x + this.deadzoneX < 3328) {
-                    this.view.position.x = scrolledPos;
-                    this.stage.moveRight();
-                }
-            } else if (this.target.position.x - this.deadzoneX < this.view.position.x ) {
-                const scrolledPos = this.target.position.x - this.deadzoneX;
-                if(scrolledPos > 0) {
-                    this.view.position.x = scrolledPos;
-                    this.stage.moveLeft();
-                }
+        if((this.target.position.x) - this.view.position.x + this.deadzoneX > this.viewportW ) {
+            const scrolledPos = this.target.position.x + this.deadzoneX - this.viewportW;
+            if(this.target.position.x + this.deadzoneX < 3328) {
+                this.view.position.x = scrolledPos;
+                this.stage.moveRight();
             }
-            this.game.scene.pivot.x = this.view.position.x;
-            this.game.scene.pivot.y = this.view.position.y;
+        } else if (this.target.position.x - this.deadzoneX < this.view.position.x ) {
+            const scrolledPos = this.target.position.x - this.deadzoneX;
+            if(scrolledPos > 0) {
+                this.view.position.x = scrolledPos;
+                this.stage.moveLeft();
+            }
+        }
+        this.game.scene.pivot.x = this.view.position.x;
+        this.game.scene.pivot.y = this.view.position.y;
     }
 
 

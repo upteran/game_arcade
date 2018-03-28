@@ -58,4 +58,9 @@ export default class Player extends Controller {
 
     }
 
+    remove() {
+        win.removeEventListener('keydown', this);
+        win.removeEventListener('keyup', this);
+    }
+
 }

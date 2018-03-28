@@ -1,0 +1,40 @@
+{
+    "image": "/interface/healthbar.png",
+    "animations": {
+        "health_6": {
+            "healthbar_0": {
+                "frame": {"x":0,"y":2,"w":116,"h":32}
+            }
+        },
+        "health_5": {
+            "healthbar_1": {
+                "frame": {"x":0,"y":41,"w":116,"h":32}
+            }
+        },
+        "health_4": {
+            "healthbar_2": {
+                "frame": {"x":0,"y":78,"w":116,"h":32}
+            }
+        },
+        "health_3": {
+            "healthbar_3": {
+                "frame": {"x":0,"y":116,"w":116,"h":32}
+            }
+        },
+        "health_2": {
+            "healthbar_4": {
+                "frame": {"x":0,"y":154,"w":116,"h":32}
+            }
+        },
+        "health_1": {
+            "healthbar_5": {
+                "frame": {"x":0,"y":190,"w":116,"h":32}
+            }
+        },
+        "health_0": {
+            "healthbar_6": {
+                "frame": {"x":0,"y":228,"w":116,"h":32}
+            }
+        }
+    }
+}

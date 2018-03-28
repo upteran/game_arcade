@@ -1,8 +1,8 @@
 import * as PIXI from 'pixi.js';
-// import HitArea from './entity/HitArea';
 import Stage from './Stage';
 import Camera from './Camera';
 import Entity from './entity/Entity';
+import HealthBar from './HealthBar';
 const win = window;
 
 export default class GameView {
@@ -28,20 +28,18 @@ export default class GameView {
         // this.scene.scale.x = this.scene.scale.y;
         // create game views
         this.player = Entity.Create( this, this._model.player );
-        // this.scene.pivot.x = this.player.body.position.x;
-        // this.scene.pivot.y = this.player.body.position.y;
-        this.stage = new Stage( this, this._model.player );
+        this.stage = new Stage( this );
         this.camera = new Camera( this, this.player, this.stage );
+        this.healthBar = new HealthBar(this, this._model.player);
         this.entities.push(this.stage,
                            this.player,
                            this.camera,
+                           this.healthBar,
                            ...this.entitiesModels
                            );
-        console.log(this.entities)
         this.renderer = PIXI.autoDetectRenderer(this.sceneW * this.ratio, this.sceneH * this.ratio, {
             transparent: true
         });
-        // this.renderer.resize
         this.element.appendChild( this.renderer.view );
     }
 
@@ -60,7 +58,7 @@ export default class GameView {
 
     render() {
         for(let i = 0; i < this.entities.length;i++) {
-            console.log(this.entities[i])
+            // console.log(this.entities[i])
             this.entities[i].render();
         }
     }

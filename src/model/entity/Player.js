@@ -1,14 +1,21 @@
 import Entity from './Entity';
+import PlayerController from './../../controller/Player';
 
 export default class Player extends Entity {
 
     constructor(...arg) {
         super(...arg);
         this.lastCollision = null;
+        this.controller = new PlayerController(this);
     }
 
     update(){
         super.update();
+        let vitality = this.advantages.find(({ type }) => type === 'Vitality');
+        if(vitality.isDeath) {
+            this.game.status = 'gameover';
+            this.controller.remove();
+        }
         let collision = this.game.actorTouched(this);
         if(collision) {
             this.collision = true;
@@ -23,8 +30,8 @@ export default class Player extends Entity {
             side = collision.side,
             offset = collision.offset,
             hitTime;
-        let move = this.advantages.filter(({ type }) => type === "Moving");
-        let hit = this.advantages.filter(({ type }) => type === "Hit");
+        let move = this.advantages.filter(({ type }) => type === 'Moving');
+        let hit = this.advantages.filter(({ type }) => type === 'Hit');
         if(actor.type !== 'enemy') {
             move[0].action({event: 'barrier', collision});
         }

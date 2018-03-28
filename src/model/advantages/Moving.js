@@ -38,26 +38,27 @@ export default class Moving extends Advantage {
             this.dir = 's';
             this.down = false;
             this.entity.currAction = 'stop';
-        } else if( event === 'barrier' ) {
+        }
+        else if( event === 'barrier' ) {
             switch(collision.side) {
                 case 'bottom':
                 this.posYcurr = collision.other.y - collision.other.height + 0.1;
-                if(this.vy > -2) this.vy = 0;
+                // if(this.vy > -2) this.vy = 0;
                 break;
                 case 'top':
                 // this.entity.y = collision.other.y + collision.other.height;
                 this.vy = 5;
                 break;
-                case 'left':
-                this.entity.x = collision.other.x - ( collision.other.width / 2 ) - this.entity.width / 2 ;
-                this.dir = 's';
-                // this.vx = 0;
-                break;
-                case 'right':
-                this.entity.x = collision.other.x + ( collision.other.width / 2 ) + this.entity.width / 2;
-                this.dir = 's';
-                // this.vx = 0;
-                break;
+                // case 'left':
+                // // this.entity.x = collision.other.x - ( collision.other.width / 2 ) - this.entity.width / 2 ;
+                // this.dir = 's';
+                // // this.vx = 0;
+                // break;
+                // case 'right':
+                // // this.entity.x = collision.other.x + ( collision.other.width / 2 ) + this.entity.width / 2;
+                // this.dir = 's';
+                // // this.vx = 0;
+                // break;
                 default:
                 break;
             }
@@ -96,9 +97,6 @@ export default class Moving extends Advantage {
                 if(this.vx <= 0) this.vx = 0;
             }
         }
-        // else if( this.dir === 'fall') {
-        //     this.posYcurr = this.posStartY = this.posStartY + 500;
-        // }
 
         if(this.isJumping) {
             this.entity.currAction = 'jump';

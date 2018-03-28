@@ -29,7 +29,7 @@
                     },
                     {
                         "type": "hammerCombo",
-                        "dist": 85,
+                        "dist": 48,
                         "damage": 20
                     },
                     {
@@ -46,7 +46,7 @@
             },
             {
                 "type": "Vitality",
-                "health": 300
+                "health": 6
             }
         ]
     },
@@ -71,21 +71,22 @@
                     "maxV": {"x": 0.7, "y": -10},
                     "ax": 0.1,
                     "step": 0.5,
-                    "distance": 120
+                    "distance": 120,
+                    "isWalking": true
                 },
                 {
                     "type": "Hit",
                     "hits": [
                         {
                             "type": "combo",
-                            "dist": 25,
+                            "dist": 35,
                             "damage": 5
                         }
                     ]
                 },
                 {
                     "type": "Vitality",
-                    "health": 300
+                    "health": 2
                 }
             ]
         },
@@ -109,7 +110,8 @@
                     "ax": 0.1,
                     "maxV": {"x": 1.2, "y": -10},
                     "step": 1,
-                    "distance": 120
+                    "distance": 120,
+                    "isWalking": true
                 },
                 {
                 "type": "Hit",
@@ -123,7 +125,7 @@
                 },
                 {
                     "type": "Vitality",
-                    "health": 300
+                    "health": 3
                 }
             ]
         },
@@ -164,20 +166,20 @@
         {
             "name": "box_7",
             "type": "environment",
-            "x": 385,
+            "x": 380,
             "y": 271,
             "height": 32,
-            "width": 258,
+            "width": 248,
             "scaleRatio": 1,
             "currAction": "hide"
         },
         {
             "name": "box_8",
             "type": "environment",
-            "x": 605,
+            "x": 612,
             "y": 302,
             "height": 32,
-            "width": 61,
+            "width": 50,
             "scaleRatio": 1,
             "currAction": "hide",
             "advantages": [
@@ -186,10 +188,10 @@
         {
             "name": "box_9",
             "type": "environment",
-            "x": 703,
+            "x": 695,
             "y": 271,
             "height": 32,
-            "width": 130,
+            "width": 120,
             "scaleRatio": 1,
             "currAction": "hide",
             "advantages": [
@@ -201,7 +203,7 @@
             "x": 960,
             "y": 271,
             "height": 32,
-            "width": 260,
+            "width": 245,
             "scaleRatio": 1,
             "currAction": "hide",
             "advantages": [
@@ -213,7 +215,7 @@
             "x": 1200,
             "y": 271,
             "height": 32,
-            "width": 100,
+            "width": 90,
             "scaleRatio": 1,
             "currAction": "hide",
             "advantages": [
@@ -225,9 +227,9 @@
             "x": 1378,
             "y": 271,
             "height": 32,
-            "width": 134,
+            "width": 124,
             "scaleRatio": 1,
-            "currAction": "hide",
+            "currAction": "static",
             "advantages": [
             ]
         },
@@ -239,7 +241,7 @@
             "height": 32,
             "width": 240,
             "scaleRatio": 1,
-            "currAction": "hide",
+            "currAction": "static",
             "advantages": [
             ]
         },
@@ -251,7 +253,7 @@
             "height": 32,
             "width": 60,
             "scaleRatio": 1,
-            "currAction": "hide",
+            "currAction": "static",
             "advantages": [
             ]
         },
@@ -263,7 +265,7 @@
             "height": 32,
             "width": 500,
             "scaleRatio": 1,
-            "currAction": "hide",
+            "currAction": "static",
             "advantages": [
             ]
         },
@@ -275,7 +277,7 @@
             "height": 30,
             "width": 40,
             "scaleRatio": 1,
-            "currAction": "hide",
+            "currAction": "static",
             "advantages": [
             ]
         },
@@ -287,7 +289,7 @@
             "height": 32,
             "width": 40,
             "scaleRatio": 1,
-            "currAction": "hide",
+            "currAction": "static",
             "advantages": [
             ]
         },
@@ -299,7 +301,7 @@
             "height": 32,
             "width": 48,
             "scaleRatio": 1,
-            "currAction": "hide",
+            "currAction": "static",
             "advantages": [
             ]
         },
@@ -311,7 +313,7 @@
             "height": 32,
             "width": 75,
             "scaleRatio": 1,
-            "currAction": "hide",
+            "currAction": "static",
             "advantages": [
             ]
         },
@@ -323,7 +325,7 @@
             "height": 32,
             "width": 193,
             "scaleRatio": 1,
-            "currAction": "hide",
+            "currAction": "static",
             "advantages": [
             ]
         },
@@ -335,7 +337,7 @@
             "height": 32,
             "width": 140,
             "scaleRatio": 1,
-            "currAction": "hide",
+            "currAction": "static",
             "advantages": [
             ]
         },
@@ -347,7 +349,7 @@
             "height": 32,
             "width": 82,
             "scaleRatio": 1,
-            "currAction": "hide",
+            "currAction": "static",
             "advantages": [
             ]
         },
@@ -359,10 +361,37 @@
             "height": 32,
             "width": 145,
             "scaleRatio": 1,
-            "currAction": "hide",
+            "currAction": "static",
             "advantages": [
             ]
         }
 
+    ],
+    "layers": [
+        {
+            "name": "dark_forest_bg",
+            "type": "tile",
+            "createType": "texture",
+            "x": 0,
+            "y": 0,
+            "tilePosition": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        {
+            "name": "dark_forest_tree_01",
+            "type": "static",
+            "createType": "sprite",
+            "x": 300,
+            "y": 0
+        },
+        {
+            "name": "dark_forest_earth",
+            "type": "static",
+            "createType": "sprite",
+            "x": 0,
+            "y": 195
+        }
     ]
 }
