@@ -14,12 +14,15 @@ export default class Vitality extends Advantage {
         this.isDeath = false;
     }
 
-    action({event}) {
+    action({event, damage}) {
         if( event === 'hited' && !this.isImmortal && !this.entity.isDemaged ) {
+            if(this.entity.name === 'player') {
+                console.log(damage);
+            }
             this.entity.isDemaged = true;
             this.isImmortal = true;
             this.hurtTime = 0;
-            this.health -= 1;
+            this.health -= damage;
         }
 
     }

@@ -3,12 +3,14 @@ import Stage from './Stage';
 import Camera from './Camera';
 import Entity from './entity/Entity';
 import HealthBar from './HealthBar';
+import GameOverScene from './GameOverScene';
 const win = window;
 
 export default class GameView {
     constructor ( model, element ) {
         this.element = element;
         this._model = model;
+        this.state = model.state;
         this.entitiesModels = this.setModels(this._model.gameModels);
         this.entities = [];
         this.scene = new PIXI.Container();
@@ -31,11 +33,13 @@ export default class GameView {
         this.stage = new Stage( this );
         this.camera = new Camera( this, this.player, this.stage );
         this.healthBar = new HealthBar(this, this._model.player);
+        this.gameOverScene = new GameOverScene(this);
         this.entities.push(this.stage,
                            this.player,
                            this.camera,
                            this.healthBar,
-                           ...this.entitiesModels
+                           ...this.entitiesModels,
+                           this.gameOverScene
                            );
         this.renderer = PIXI.autoDetectRenderer(this.sceneW * this.ratio, this.sceneH * this.ratio, {
             transparent: true
@@ -48,6 +52,7 @@ export default class GameView {
     }
 
     update(){
+        this.state = this._model.state;
         for(let i = 0;i < this.entities.length;i++) {
             if(this.entities[i].update) {
                 this.entities[i].update();
@@ -57,6 +62,9 @@ export default class GameView {
     }
 
     render() {
+        // setTimeout(() => {
+        //   this.state = 'death';
+        // }, 300)
         for(let i = 0; i < this.entities.length;i++) {
             // console.log(this.entities[i])
             this.entities[i].render();

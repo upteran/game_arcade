@@ -13,6 +13,8 @@ export default class Loader {
         this.assetsLoader.add('bigZombi', 'res/images/enemies/bigZombi.json');
         this.assetsLoader.add('box', 'res/images/box.json');
         this.assetsLoader.add('healthbar', 'res/images/interface/healthbar.json');
+        this.assetsLoader.add('set', 'res/images/characters/set.json');
+        this.assetsLoader.add('t', 'res/images/characters/t.json');
         this.assetsLoader.once('complete', this.onImageLoader.bind( this ));
     }
     load(callback) {

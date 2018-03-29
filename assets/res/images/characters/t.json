@@ -1,0 +1,34 @@
+{
+    "image": "/characters/t.png",
+    "width": 154,
+    "height": 442,
+    "x": 0,
+    "y": 0,
+    "animations": {
+        "default": {
+            "box_0": {
+                "frame": {"x":0,"y":0,"w":129,"h":150}
+            }
+        },
+        "stop": {
+            "box_0": {
+                "frame": {"x":0,"y":0,"w":129,"h":150}
+            }
+        },
+        "move": {
+            "box_3": {
+                "frame": {"x":0,"y":0,"w":129,"h":150}
+            }
+        },
+        "damage": {
+            "box_1": {
+                "frame": {"x":0,"y":0,"w":129,"h":150}
+            }
+        },
+        "destroy": {
+            "box_2": {
+                "frame": {"x":0,"y":0,"w":129,"h":150}
+            }
+        }
+    }
+}

@@ -45,6 +45,15 @@
                 "spriteSourceSize": {"x":0,"y":0,"w":85,"h":85},
                 "sourceSize": {"w":64,"h":63}
             }
+        },
+        "hit": {
+            "box_2": {
+                "frame": {"x":170,"y":0,"w":85,"h":85},
+                "rotated": false,
+                "trimmed": false,
+                "spriteSourceSize": {"x":0,"y":0,"w":85,"h":85},
+                "sourceSize": {"w":64,"h":63}
+            }
         }
     }
 }

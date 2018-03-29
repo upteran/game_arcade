@@ -25,22 +25,22 @@
                     {
                         "type": "combo",
                         "dist": 25,
-                        "damage": 5
+                        "damage": 1
                     },
                     {
                         "type": "hammerCombo",
                         "dist": 48,
-                        "damage": 20
+                        "damage": 1
                     },
                     {
                         "type": "comboDown",
                         "dist": 10,
-                        "damage": 10
+                        "damage": 1
                     },
                     {
                         "type": "longCombo",
                         "dist": 15,
-                        "damage": 20
+                        "damage": 1
                     }
                 ]
             },
@@ -80,7 +80,7 @@
                         {
                             "type": "combo",
                             "dist": 35,
-                            "damage": 5
+                            "damage": 1
                         }
                     ]
                 },
@@ -119,7 +119,7 @@
                         {
                             "type": "combo",
                             "dist": 35,
-                            "damage": 5
+                            "damage": 1
                         }
                     ]
                 },
@@ -364,6 +364,34 @@
             "currAction": "static",
             "advantages": [
             ]
+        },
+        {
+            "name": "box_24",
+            "type": "environment",
+            "x": 200,
+            "y": 225,
+            "height": 20,
+            "width": 20,
+            "scaleRatio": 1,
+            "currAction": "static",
+            "advantages": [
+                {
+                    "type": "Hit",
+                    "hits": [
+                        {
+                            "type": "combo",
+                            "dist": 35,
+                            "damage": 20
+                        }
+                    ],
+                    "hitDuring": "infinity"
+                },
+                {
+                    "type": "Vitality",
+                    "health": 3
+                }
+            ]
+
         }
 
     ],

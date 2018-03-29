@@ -1,0 +1,16 @@
+{
+    "lose": {
+        "text": "Game Over",
+        "style": {
+            "fontFamily": "Comic Sans MS",
+            "fontSize": 36,
+            "fill": "white",
+            "stroke": "#ff3300",
+            "dropShadow": true,
+            "dropShadowColor": "#000000",
+            "dropShadowBlur": 4,
+            "dropShadowAngle": "Math.PI / 6",
+            "dropShadowDistance": 6
+        }
+    }
+}

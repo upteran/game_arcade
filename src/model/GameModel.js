@@ -23,7 +23,7 @@ export default class GameModel {
         this.player = Player.Create( this , playerMap );
         this.gameModels = this.builder.build( this );
         this.actors.push(this.player, ...this.gameModels);
-        this.status = 'play';
+        this.state = 'play';
     }
 
     actorTouched(actor, exceptions) {

@@ -12,10 +12,8 @@ export default class Player extends Entity {
     update(){
         super.update();
         let vitality = this.advantages.find(({ type }) => type === 'Vitality');
-        if(vitality.isDeath) {
-            this.game.status = 'gameover';
-            this.controller.remove();
-        }
+        if(vitality.isDeath) this.gameOver();
+
         let collision = this.game.actorTouched(this);
         if(collision) {
             this.collision = true;
@@ -39,7 +37,7 @@ export default class Player extends Entity {
             clearTimeout(hitTime);
             switch(side) {
                 case 'bottom':
-                hit[0].action({event: 'hit'});
+                hit[0].action({event: 'hit', type: 'combo'});
                 hitTime = setTimeout(() => {
                     move[0].action({event: 'jump'});
                     move[0].action({event: 'barrier', collision});
@@ -54,6 +52,16 @@ export default class Player extends Entity {
                 break;
             }
         }
+
+        else if(actor.type === 'damage') {
+            let vitality = this.advantages.find(({ type }) => type === 'Vitality');
+            vitality.isDeath = true;
+        }
+    }
+
+    gameOver() {
+        this.game.state = 'gameover';
+        this.controller.remove();
     }
 
 }

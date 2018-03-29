@@ -8,8 +8,11 @@ export default class Hit extends Advantage {
         this.hits = null;
         this.hitTime = 100;
       	this.hitArea = null;
+        this.damage = null;
         this.hitCollision = false;
-        this.currHitType = null;
+        this.currHitType = 'combo';
+        this.hitDuring = null;
+        console.log(this)
     }
 
     nearBy(dist) {
@@ -28,7 +31,8 @@ export default class Hit extends Advantage {
             let move = actor.advantages.find(({ type }) => type === 'Moving');
             if( vitality ) {
                 move.action({event: 's'});
-                vitality.action({event: 'hited'});
+                console.log(this.hits[0]);
+                vitality.action({event: 'hited', damage: this.damage = (this.damage) ? this.damage : this.hits[0].damage});
             } else {
                 return;
             }
@@ -38,6 +42,7 @@ export default class Hit extends Advantage {
     action( {event, type} ) {
         let vitality = this.entity.advantages.find(({ type }) => type === 'Vitality');
         if(event === 'hit' && !vitality.isDemaged) {
+            this.damage = this.hits.find(hit => hit.type === type).damage;
             this.entity.currAction = this.currHitType = (type) ? `${type}` : 'combo';
             this.isHiting = true;
         } else {
@@ -48,7 +53,7 @@ export default class Hit extends Advantage {
 
     tick() {
         this.hitTime++;
-        if( this.isHiting && this.hitTime > 150) {
+        if( this.isHiting && this.hitTime > 150 || this.hitDuring === 'infinity') {
             let hit;
             hit = this.hits.find(({ type }) => type === this.currHitType);
             this.nearBy(hit.dist);
