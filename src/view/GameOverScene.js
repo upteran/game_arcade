@@ -47,7 +47,7 @@ export default class GameOverScene {
 
     update() {
         this.scene.pivot.x = -this.game.scene.pivot.x;
-        this.scene.visible = (this.game.state !== 'play') ? true : false;
+        this.scene.visible = (this.game.state !== 'play');
         if(this.scene.visible && this.bg.alpha <= 1) {
             this.bg.alpha += 0.005;
             this.msg.alpha += 0.008;

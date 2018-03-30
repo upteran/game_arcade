@@ -4,7 +4,6 @@ import Environment from './entity/Environment';
 import Enemy from './entity/enemy/Enemy';
 import maps from './../maps/data.json';
 
-
 const gameMap = maps.game;
 const playerMap = maps.player;
 

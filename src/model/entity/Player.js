@@ -30,10 +30,12 @@ export default class Player extends Entity {
             hitTime;
         let move = this.advantages.filter(({ type }) => type === 'Moving');
         let hit = this.advantages.filter(({ type }) => type === 'Hit');
-        if(actor.type !== 'enemy') {
+        if(actor.type === 'environment')
+        {
             move[0].action({event: 'barrier', collision});
         }
-        else if(actor.type === 'enemy' || actor.type === 'hit') {
+        else if(actor.type === 'enemy' || actor.type === 'hit')
+        {
             clearTimeout(hitTime);
             switch(side) {
                 case 'bottom':
@@ -51,11 +53,6 @@ export default class Player extends Entity {
                 default:
                 break;
             }
-        }
-
-        else if(actor.type === 'damage') {
-            let vitality = this.advantages.find(({ type }) => type === 'Vitality');
-            vitality.isDeath = true;
         }
     }
 

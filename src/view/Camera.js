@@ -12,6 +12,7 @@ export default class Camera {
         this.view.position.x = 0;
         this.view.position.y = 0;
     }
+
     _drawRect( x, y, width, height ) {
         let rect;
         rect = new PIXI.Graphics();

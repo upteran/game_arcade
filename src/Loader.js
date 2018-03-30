@@ -11,6 +11,7 @@ export default class Loader {
         this.assetsLoader.add('dark_forest_tree_01', 'res/images/stages/darkForest/tree_02.png');
         this.assetsLoader.add('hypnoWorm', 'res/images/enemies/hypnoWorm.json');
         this.assetsLoader.add('bigZombi', 'res/images/enemies/bigZombi.json');
+        this.assetsLoader.add('dumbRock', 'res/images/enemies/dumbRock.json');
         this.assetsLoader.add('box', 'res/images/box.json');
         this.assetsLoader.add('healthbar', 'res/images/interface/healthbar.json');
         this.assetsLoader.add('set', 'res/images/characters/set.json');

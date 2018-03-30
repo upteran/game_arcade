@@ -1,0 +1,280 @@
+{
+    "image": "/enemies/dumbRock.png",
+    "width": 50,
+    "height": 60,
+    "x": 0,
+    "y": 0,
+    "animations": {
+        "move": {
+            "dumbRock_0":
+            {
+                "frame": {"x":3,"y":2,"w":27,"h":19}
+            }
+        },
+        "run": {
+            "dumbRock_0":
+            {
+                "frame": {"x":3,"y":2,"w":27,"h":19}
+            }
+        },
+        "hurt": {
+            "dumbRock_0":
+            {
+                "frame": {"x":12,"y":52,"w":27,"h":19}
+            },
+            "dumbRock_1":
+            {
+                "frame": {"x":60,"y":54,"w":27,"h":19}
+            },
+            "dumbRock_2":
+            {
+                "frame": {"x":104,"y":54,"w":34,"h":19}
+            },
+            "dumbRock_3":
+            {
+                "frame": {"x":144,"y":54,"w":40,"h":19}
+            },
+            "dumbRock_4":
+            {
+                "frame": {"x":187,"y":54,"w":44,"h":19}
+            },
+            "dumbRock_5":
+            {
+                "frame": {"x":252,"y":54,"w":27,"h":19}
+            },
+            "dumbRock_6":
+            {
+                "frame": {"x":300,"y":54,"w":27,"h":19}
+            }
+        },
+        "default": {
+            "dumbRock_0":
+            {
+                "frame": {"x":3,"y":2,"w":27,"h":19}
+            },
+            "dumbRock_1":
+            {
+                "frame": {"x":3,"y":2,"w":27,"h":19}
+            },
+            "dumbRock_2":
+            {
+                "frame": {"x":3,"y":2,"w":27,"h":19}
+            },
+            "dumbRock_3":
+            {
+                "frame": {"x":3,"y":2,"w":27,"h":19}
+            },
+            "dumbRock_4":
+            {
+                "frame": {"x":3,"y":2,"w":27,"h":19}
+            },
+            "dumbRock_5":
+            {
+                "frame": {"x":36,"y":2,"w":27,"h":19}
+            },
+            "dumbRock_6":
+            {
+                "frame": {"x":36,"y":2,"w":27,"h":19}
+            },
+            "dumbRock_7":
+            {
+                "frame": {"x":36,"y":2,"w":27,"h":19}
+            },
+            "dumbRock_8":
+            {
+                "frame": {"x":36,"y":2,"w":27,"h":19}
+            },
+            "dumbRock_9":
+            {
+                "frame": {"x":36,"y":2,"w":27,"h":19}
+            },
+            "dumbRock_10":
+            {
+                "frame": {"x":68,"y":2,"w":27,"h":19}
+            },
+            "dumbRock_11":
+            {
+                "frame": {"x":68,"y":2,"w":27,"h":19}
+            },
+            "dumbRock_12":
+            {
+                "frame": {"x":68,"y":2,"w":27,"h":19}
+            },
+            "dumbRock_13":
+            {
+                "frame": {"x":68,"y":2,"w":27,"h":19}
+            },
+            "dumbRock_14":
+            {
+                "frame": {"x":68,"y":2,"w":27,"h":19}
+            },
+            "dumbRock_15":
+            {
+                "frame": {"x":100,"y":2,"w":27,"h":19}
+            },
+            "dumbRock_16":
+            {
+                "frame": {"x":100,"y":2,"w":27,"h":19}
+            },
+            "dumbRock_17":
+            {
+                "frame": {"x":100,"y":2,"w":27,"h":19}
+            },
+            "dumbRock_18":
+            {
+                "frame": {"x":100,"y":2,"w":27,"h":19}
+            },
+            "dumbRock_19":
+            {
+                "frame": {"x":100,"y":2,"w":27,"h":19}
+            }
+        },
+        "stop": {
+            "dumbRock_0":
+            {
+                "frame": {"x":3,"y":2,"w":27,"h":19}
+            },
+            "dumbRock_1":
+            {
+                "frame": {"x":3,"y":2,"w":27,"h":19}
+            },
+            "dumbRock_2":
+            {
+                "frame": {"x":3,"y":2,"w":27,"h":19}
+            },
+            "dumbRock_3":
+            {
+                "frame": {"x":3,"y":2,"w":27,"h":19}
+            },
+            "dumbRock_5":
+            {
+                "frame": {"x":36,"y":2,"w":27,"h":19}
+            },
+            "dumbRock_6":
+            {
+                "frame": {"x":36,"y":2,"w":27,"h":19}
+            },
+            "dumbRock_7":
+            {
+                "frame": {"x":36,"y":2,"w":27,"h":19}
+            },
+            "dumbRock_8":
+            {
+                "frame": {"x":36,"y":2,"w":27,"h":19}
+            },
+            "dumbRock_10":
+            {
+                "frame": {"x":68,"y":2,"w":27,"h":19}
+            },
+            "dumbRock_11":
+            {
+                "frame": {"x":68,"y":2,"w":27,"h":19}
+            },
+            "dumbRock_12":
+            {
+                "frame": {"x":68,"y":2,"w":27,"h":19}
+            },
+            "dumbRock_13":
+            {
+                "frame": {"x":68,"y":2,"w":27,"h":19}
+            },
+            "dumbRock_14":
+            {
+                "frame": {"x":68,"y":2,"w":27,"h":19}
+            },
+            "dumbRock_15":
+            {
+                "frame": {"x":100,"y":2,"w":27,"h":19}
+            },
+            "dumbRock_16":
+            {
+                "frame": {"x":100,"y":2,"w":27,"h":19}
+            },
+            "dumbRock_17":
+            {
+                "frame": {"x":100,"y":2,"w":27,"h":19}
+            }
+        },
+        "combo": {
+            "dumbRock_0":
+            {
+                "frame": {"x":22,"y":27,"w":28,"h":19}
+            },
+            "dumbRock_1":
+            {
+                "frame": {"x":88,"y":27,"w":28,"h":19}
+            },
+            "dumbRock_2":
+            {
+                "frame": {"x":142,"y":27,"w":53,"h":19}
+            },
+            "dumbRock_3":
+            {
+                "frame": {"x":209,"y":27,"w":53,"h":19}
+            },
+            "dumbRock_4":
+            {
+                "frame": {"x":273,"y":27,"w":58,"h":19}
+            },
+            "dumbRock_5":
+            {
+                "frame": {"x":345,"y":27,"w":46,"h":19}
+            },
+            "dumbRock_6":
+            {
+                "frame": {"x":421,"y":29,"w":28,"h":19}
+            },
+            "dumbRock_7":
+            {
+                "frame": {"x":490,"y":27,"w":28,"h":19}
+            }
+        },
+        "death": {
+            "dumbRock_0":
+            {
+                "frame": {"x":7,"y":87,"w":28,"h":19}
+            },
+            "dumbRock_1":
+            {
+                "frame": {"x":47,"y":87,"w":28,"h":19}
+            },
+            "dumbRock_2":
+            {
+                "frame": {"x":87,"y":87,"w":28,"h":19}
+            },
+            "dumbRock_3":
+            {
+                "frame": {"x":127,"y":87,"w":28,"h":19}
+            },
+            "dumbRock_4":
+            {
+                "frame": {"x":170,"y":86,"w":22,"h":19}
+            },
+            "dumbRock_5":
+            {
+                "frame": {"x":205,"y":77,"w":33,"h":31}
+            },
+            "dumbRock_6":
+            {
+                "frame": {"x":244,"y":77,"w":33,"h":31}
+            },
+            "dumbRock_7":
+            {
+                "frame": {"x":281,"y":77,"w":33,"h":31}
+            },
+            "dumbRock_8":
+            {
+                "frame": {"x":321,"y":73,"w":33,"h":35}
+            },
+            "dumbRock_9":
+            {
+                "frame": {"x":180,"y":0,"w":30,"h":30}
+            }
+        },
+        "jump": {
+            "dumbRock_33": {
+                 "frame": {"x":321,"y":73,"w":33,"h":35}
+            }
+        }
+    }
+}

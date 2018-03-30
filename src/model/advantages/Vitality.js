@@ -23,6 +23,7 @@ export default class Vitality extends Advantage {
             this.isImmortal = true;
             this.hurtTime = 0;
             this.health -= damage;
+            if(this.health < 0) this.health = 0;
         }
 
     }

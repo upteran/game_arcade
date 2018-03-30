@@ -11,8 +11,7 @@ export default class Hit extends Advantage {
         this.damage = null;
         this.hitCollision = false;
         this.currHitType = 'combo';
-        this.hitDuring = null;
-        console.log(this)
+        this.during = null;
     }
 
     nearBy(dist) {
@@ -53,7 +52,7 @@ export default class Hit extends Advantage {
 
     tick() {
         this.hitTime++;
-        if( this.isHiting && this.hitTime > 150 || this.hitDuring === 'infinity') {
+        if( this.isHiting && this.hitTime > 150) {
             let hit;
             hit = this.hits.find(({ type }) => type === this.currHitType);
             this.nearBy(hit.dist);

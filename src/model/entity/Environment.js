@@ -17,28 +17,31 @@ export default class Environment extends Entity {
         }
     }
 
-
     touchedAt(collision){
         let actor = collision.other,
             side = collision.side,
             offset = collision.offset;
-        if( actor.type === 'player' || actor.type === 'enemy' ) {
-            switch(side) {
-                case 'right':
-                actor.x = this.x - this.width / 2 - actor.width / 2;
-                break;
-                case 'left':
-                actor.x = this.x + this.width / 2 + actor.width / 2;
-                break;
-                case 'top':
-                actor.y = this.y - this.height;
-                break;
-                case 'bottom':
-                actor.y = this.y + actor.height;
-                default:
-                break;
+        let hit = this.advantages.find(({ type}) => type === 'Hit');
+        if( actor.type === 'player' || actor.type === 'enemy') {
+            if(hit && hit.during === 'infinity') {
+                hit.action({event: 'hit', type: 'combo'});
+            } else {
+                switch(side) {
+                    case 'right':
+                    actor.x = this.x - this.width / 2 - actor.width / 2;
+                    break;
+                    case 'left':
+                    actor.x = this.x + this.width / 2 + actor.width / 2;
+                    break;
+                    case 'top':
+                    actor.y = this.y - this.height;
+                    break;
+                    case 'bottom':
+                    actor.y = this.y + actor.height;
+                    default:
+                    break;
+                }
             }
         }
     }
-
 }
